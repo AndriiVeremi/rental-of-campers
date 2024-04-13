@@ -18,4 +18,10 @@ export const ListNav = styled.ul`
   list-style: none;
 `;
 
-export const ListItem = styled.li``;
+export const ListItem = styled.li`
+&:hover {
+  color: #e44848;
+}
+`;
+
+

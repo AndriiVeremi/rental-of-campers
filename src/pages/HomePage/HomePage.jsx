@@ -1,7 +1,13 @@
+import { InfoWrapper, InfoImg, InfoTitle } from "./HomePage.module";
+
+import camper from '../../images/campVan.svg'
+
 const HomePage = () => {
+
   return (
-    <div>
-      <h1>Hello!</h1>
+    <InfoWrapper>
+      <InfoImg src={camper}  alt="camper" />
+      <InfoTitle>Hello!</InfoTitle>
       <p>Captivating adventures await you with our camper rental!</p>
       <p>
         Welcome to our website where dreams of travel become reality. Pack your bags, break the stereotypes, and embark
@@ -16,7 +22,7 @@ const HomePage = () => {
         Convenient booking, reliable service, and the most favorable conditions await you. Don't wait, allow yourself an
         adventure in style with our camper rental.
       </p>
-    </div>
+    </InfoWrapper>
   );
 };
 

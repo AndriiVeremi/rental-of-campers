@@ -42,4 +42,6 @@ a {
   text-decoration: none;
 }
 
-
+.active {
+  border-bottom: 2px solid #e44848;
+}
