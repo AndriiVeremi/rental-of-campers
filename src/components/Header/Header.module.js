@@ -4,7 +4,7 @@ export const WrapperNav = styled.div`
   display: flex;
   gap: 20px;
   align-items: center;
-  padding: 20px 0px;
+  padding: 20px 64px;
 `;
 
 export const Logo = styled.span`

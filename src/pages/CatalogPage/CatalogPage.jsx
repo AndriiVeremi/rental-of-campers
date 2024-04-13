@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FiltersBar from 'components/FiltersBar/FiltersBar';
-import Catalog from 'components/Catalog/Catalog';
+import Catalog from 'components/CatalogList/CatalogList';
 import { fetchCampers } from 'store/operations';
 import { selectCampers, selectIsLoading, selectError } from 'store/selectors';
 import { CatalogPageWrapper } from './CatalogPage.module';

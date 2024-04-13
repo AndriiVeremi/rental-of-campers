@@ -1,29 +1,31 @@
-import { BarApp, BarName } from "./FiltersBar.module";
+import { BarApp, BarName, BarForm, BarInfo, BarInput, BarNameFilter, BarLine, NameFilter, Button } from './FiltersBar.module';
 
 const FiltersBar = () => {
   return (
-   <BarApp>
-     <form>
-      <div>
-        <BarName>Location</BarName>
-        <label>
-          <input type="text" />
-        </label>
-      </div>
-
-      <div>
-        <BarName>Filters</BarName>
-        <div>
-          <p>Vehicle equipment</p>
-        </div>
+    <BarApp>
+      <BarForm>
+        <BarInfo>
+          <BarName>Location</BarName>
+          <label>
+            <BarInput type="text" placeholder="Kyiv, Ukraine" />
+          </label>
+        </BarInfo>
 
         <div>
-          <p>Vehicle type</p>
+          <BarNameFilter>Filters</BarNameFilter>
+          <div>
+            <NameFilter>Vehicle equipment</NameFilter>
+            <BarLine></BarLine>
+          </div>
+
+          <div>
+            <NameFilter>Vehicle type</NameFilter>
+            <BarLine></BarLine>
+          </div>
         </div>
-      </div>
-      <button type="submit">Search</button>
-    </form>
-   </BarApp>
+        <Button type="submit">Search</Button>
+      </BarForm>
+    </BarApp>
   );
 };
 
