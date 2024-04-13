@@ -67,6 +67,49 @@ font-weight: 400;
 line-height: 24px; /* 150% */
 `;
 
+export const InfoWrapper = styled.div`
+
+`;
+
+export const InfoList = styled.ul`
+display: flex;
+gap: 8px;
+flex-wrap: wrap;
+list-style: none;
+margin-bottom: 24px;
+`;
+
+export const InfoItem = styled.li`
+display: flex;
+padding: 12px 18px;
+align-items: center;
+border-radius: 100px;
+background: #F2F4F7;
+mix-blend-mode: multiply;
+`;
+
+export const InfoImg = styled.img`
+width: 20px;
+height: 20px;
+margin-right: 8px;
+`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export const Button = styled.button`
   display: inline-flex;
   padding: 16px 40px;

@@ -8,7 +8,7 @@ export const BarForm = styled.form`
   width: 360px;
 `;
 
-export const BarInfo = styled.form`
+export const BarInfo = styled.div`
   margin-bottom: 32px;
 `;
 
