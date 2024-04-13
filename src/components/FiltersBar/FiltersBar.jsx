@@ -1,19 +1,18 @@
-import { BarApp } from "./FiltersBar.module";
+import { BarApp, BarName } from "./FiltersBar.module";
 
 const FiltersBar = () => {
   return (
    <BarApp>
      <form>
       <div>
-        <p>Location</p>
+        <BarName>Location</BarName>
         <label>
           <input type="text" />
         </label>
       </div>
 
       <div>
-        <p>Filters</p>
-
+        <BarName>Filters</BarName>
         <div>
           <p>Vehicle equipment</p>
         </div>
