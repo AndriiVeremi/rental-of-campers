@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Overlay, ModalContainer} from './Modal.styled';
+import CamperInfo from 'components/CamperInfo/CamperInfo';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const Modal = ({ children, onClose }) => {
+export const Modal = ({ campers, onClose }) => {
+
+console.log('campers', campers)
 
   useEffect(() => {
     
@@ -31,7 +34,7 @@ export const Modal = ({ children, onClose }) => {
   return createPortal(
     <Overlay onClick={handleBackdropClick}>
       <ModalContainer>
-        {children}
+        <CamperInfo data={campers} onClose={onClose}/>
       </ModalContainer>
     </Overlay>,
     modalRoot

@@ -1,3 +1,4 @@
+import { sliceText } from 'utils/sliceText';
 import ImgAdults from '../../images/adult.svg';
 import ImgTransmision from '../../images/transmision.svg';
 import ImgPetrol from '../../images/benz.svg';
@@ -20,14 +21,8 @@ import {
   Button,
 } from './CatalogCard.module';
 
-
-const CatalogCard = ({ campers }) => {
-
-    const showModal = (as) => {
-        console.log('message', as)
-    }; 
-
-
+const CatalogCard = ({ campers, toggleModal }) => {
+ 
   return (
     <ListItem key={campers._id}>
       <ImageItem src={campers.gallery[0]} alt={campers.name} width="290" height="310" />
@@ -45,7 +40,7 @@ const CatalogCard = ({ campers }) => {
         </RatingWrapper>
 
         <Description>
-          <DescriptionText>{campers.description.trim().slice(0, 63)}...</DescriptionText>
+          <DescriptionText>{sliceText(campers.description)}...</DescriptionText>
         </Description>
 
         <InfoWrapper>
@@ -77,7 +72,9 @@ const CatalogCard = ({ campers }) => {
           </InfoList>
         </InfoWrapper>
 
-        <Button type="button" onClick={() => showModal(campers.gallery[0])}>Show more</Button>
+        <Button type="button" onClick={() => toggleModal(campers)}>
+          Show more
+        </Button>
       </div>
     </ListItem>
   );

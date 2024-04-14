@@ -28,10 +28,8 @@ justify-content: space-between;
 color: #101828;
 
 font-size: 24px;
-font-style: normal;
 font-weight: 600;
 line-height: 30px; /* 125% */
-
 margin-bottom: 8px;
 `;
 
