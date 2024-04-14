@@ -9,6 +9,7 @@ const FavoritesPage = lazy(() => import('../../pages/FavoritesPage/FavoritesPage
 const PageNotFound = lazy(() => import('../../pages/PageNotFound/PageNotFound'));
 
 export const App = () => {
+
   return (
     <ContainerApp>
       <Routes>
@@ -25,8 +26,7 @@ export const App = () => {
             path="/catalog"
             element={
               <Suspense fallback={<h1>loading...</h1>}>
-                {' '}
-                <CatalogPage />{' '}
+                <CatalogPage />
               </Suspense>
             }
           />

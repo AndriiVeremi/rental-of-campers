@@ -6,6 +6,7 @@ width: 888px;
 display: flex;
 flex-direction: column;
 gap: 32px;
+margin-bottom: 50px;
 `;
 
 export const ListItem = styled.li`
@@ -93,20 +94,6 @@ width: 20px;
 height: 20px;
 margin-right: 8px;
 `;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -19,9 +19,15 @@ import {
   InfoImg,
   Button,
 } from './CatalogCard.module';
-import { getCampers } from 'api/campersAPI';
 
-const CatalogCard = ({ campers, onOpen }) => {
+
+const CatalogCard = ({ campers }) => {
+
+    const showModal = (as) => {
+        console.log('message', as)
+    }; 
+
+
   return (
     <ListItem key={campers._id}>
       <ImageItem src={campers.gallery[0]} alt={campers.name} width="290" height="310" />
@@ -30,9 +36,10 @@ const CatalogCard = ({ campers, onOpen }) => {
           <p>{campers.name}</p>
           <p>&euro;{campers.price}</p>
         </NameWrapper>
+
         <RatingWrapper>
           <Rating>
-            {getCampers.rating} ({campers.reviews.length} Reviews)
+            {campers.rating} ({campers.reviews.length} Reviews)
           </Rating>
           <span>{campers.location}</span>
         </RatingWrapper>
@@ -70,7 +77,7 @@ const CatalogCard = ({ campers, onOpen }) => {
           </InfoList>
         </InfoWrapper>
 
-        <Button type="button">Show more</Button>
+        <Button type="button" onClick={() => showModal(campers.gallery[0])}>Show more</Button>
       </div>
     </ListItem>
   );

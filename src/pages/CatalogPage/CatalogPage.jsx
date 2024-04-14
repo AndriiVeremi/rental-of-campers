@@ -1,21 +1,23 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FiltersBar from 'components/FiltersBar/FiltersBar';
-import Catalog from 'components/CatalogList/CatalogList';
+import CatalogList from 'components/CatalogList/CatalogList';
 import { fetchCampers } from 'store/operations';
-import { selectCampers, selectPage, selectIsLoading, selectError } from 'store/selectors';
+import { selectCampers, selectPage, selectIsLoading, selectError, selectAll } from 'store/selectors';
 
-import { CatalogPageWrapper } from './CatalogPage.module';
+import { CatalogPageWrapper, ListWrapper, Button } from './CatalogPage.module';
 
-const CatalogPage = ( isShowModal, onClose) => {
+const CatalogPage = () => {
   const campers = useSelector(selectCampers);
   const page = useSelector(selectPage);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+
+  const all = useSelector(selectAll);
+
   const dispatch = useDispatch();
 
-  console.log('campers1', campers);
-  console.log('page', page);
+  console.log('all', all);
 
   useEffect(() => {
     dispatch(fetchCampers());
@@ -29,20 +31,19 @@ const CatalogPage = ( isShowModal, onClose) => {
     return <b>{error}</b>;
   }
 
+
   const onLoadMore = () => {
-    // dispatch(page + 1)
+    dispatch(fetchCampers(page + 1));
   };
 
   return (
-    <>
-      {/* {campers.length > 0 && !isLoading && <button onClick={onLoadMore}>Load more</button>} */}
-      {/* {isShowModal && <Modal  onClose={onClose} />} */}
-
-      <CatalogPageWrapper>
-        <FiltersBar />
-        <Catalog campers={campers} />
-      </CatalogPageWrapper>
-    </>
+    <CatalogPageWrapper>
+      <FiltersBar />
+      <ListWrapper>
+        <CatalogList campers={campers} />
+        {campers.length > 0 && !isLoading && <Button onClick={onLoadMore}>Load more</Button>}
+      </ListWrapper>
+    </CatalogPageWrapper>
   );
 };
 

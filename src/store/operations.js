@@ -1,7 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getCampers } from 'api/campersAPI';
 
-export const fetchCampers = createAsyncThunk('adverts/fetchAll', async (_, { rejectWithValue }) => {
+export const fetchCampers = createAsyncThunk(
+  'adverts/fetchAll',
+   async (_, { rejectWithValue }) => {
   try {
     const { data } = await getCampers();
     return data;
@@ -9,5 +11,8 @@ export const fetchCampers = createAsyncThunk('adverts/fetchAll', async (_, { rej
     return rejectWithValue(error.message);
   }
 });
+
+
+
 
 
