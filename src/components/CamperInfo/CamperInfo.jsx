@@ -1,3 +1,7 @@
+// import CamperFeatures from 'components/CamperFeatures/CamperFeatures';
+import CamperReviews from 'components/CamperReviews/CamperReviews';
+import BookNow from 'components/BookNow/BookNow';
+import { corectPrice } from 'utils/corectPrice';
 import CloseImg from '../../images/close.svg';
 import MapImg from '../../images/map.svg';
 
@@ -8,9 +12,19 @@ import {
   Rating,
   PriceWrapper,
   Price,
+  GalleryListWrapper,
   GalleryList,
   GalleryItem,
+  GalleryImgWrapper,
   GalleryImg,
+  DescriptionWrapper,
+  Description,
+  InfoWrapper,
+  InfoList,
+  InfoListItem,
+  InfoItemText,
+  BarLine,
+  MorInfoWrapper
 } from './CamperInfo.styled';
 
 const CamperInfo = ({ data, onClose }) => {
@@ -28,30 +42,55 @@ const CamperInfo = ({ data, onClose }) => {
           {rating} ({reviews.length} Reviews)
         </Rating>
         <span>
-            
-        <img src={MapImg} alt="Maps" />
-            {location}</span>
+          <img src={MapImg} alt="Maps" />
+          {location}
+        </span>
       </RatingWrapper>
 
       <PriceWrapper>
-        <Price>&euro;{price}</Price>
+        <Price>&euro;{corectPrice(price)}</Price>
       </PriceWrapper>
 
-      <div>
+      <GalleryListWrapper>
         <GalleryList>
           {gallery &&
             gallery.map(item => (
               <GalleryItem key={item}>
-                <GalleryImg src={item} alt="" />
+                <GalleryImgWrapper>
+                  <GalleryImg src={item} alt={item} />
+                </GalleryImgWrapper>
               </GalleryItem>
             ))}
         </GalleryList>
-      </div>
+      </GalleryListWrapper>
 
-      <div>
-        <p>{description}</p>
-      </div>
+      <DescriptionWrapper>
+        <Description>{description}</Description>
+      </DescriptionWrapper>
+
+      <InfoWrapper>
+        <InfoList>
+          <InfoListItem>
+            <InfoItemText>Features</InfoItemText>
+          </InfoListItem>
+          <InfoListItem>
+            <InfoItemText>Reviews</InfoItemText>
+          </InfoListItem>
+        </InfoList>
+      </InfoWrapper>
+
+      <BarLine></BarLine>
+
+      <MorInfoWrapper>
+        {/* <CamperFeatures/> */}
+        <CamperReviews />
+        <BookNow />
+      </MorInfoWrapper>
+
+
     </ModalWrapper>
+
+    
   );
 };
 

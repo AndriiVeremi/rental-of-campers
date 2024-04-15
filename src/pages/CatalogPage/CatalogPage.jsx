@@ -34,13 +34,10 @@ const CatalogPage = () => {
     return <b>{error}</b>;
   }
 
-
   const toggleModal = data => {
     setShowModal(!showModal);
-    console.log('message', data)
     setSelectedCamper(data);
   };
-
 
   const onLoadMore = () => {
     dispatch(fetchCampers(page + 1));

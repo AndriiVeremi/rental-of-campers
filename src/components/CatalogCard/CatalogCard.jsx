@@ -1,17 +1,25 @@
 import { sliceText } from 'utils/sliceText';
+import { corectPrice } from 'utils/corectPrice';
+
 import ImgAdults from '../../images/adult.svg';
 import ImgTransmision from '../../images/transmision.svg';
 import ImgPetrol from '../../images/benz.svg';
 import ImgKitchen from '../../images/kitchen.svg';
 import ImgBeds from '../../images/beds.svg';
 import ImgClimat from '../../images/vind.svg';
+import MapImg from '../../images/map.svg';
+import ImgStar from '../../images/star.svg';
+import Haert from '../../images/heart.svg';
 
 import {
   ListItem,
   ImageItem,
   NameWrapper,
+  PriceContein,
   RatingWrapper,
   Rating,
+  RatingImg,
+  ImageItemWrapper,
   Description,
   DescriptionText,
   InfoWrapper,
@@ -22,21 +30,29 @@ import {
 } from './CatalogCard.module';
 
 const CatalogCard = ({ campers, toggleModal }) => {
- 
   return (
     <ListItem key={campers._id}>
-      <ImageItem src={campers.gallery[0]} alt={campers.name} width="290" height="310" />
+      <ImageItemWrapper>
+        <ImageItem src={campers.gallery[0]} alt={campers.name}  />
+      </ImageItemWrapper>
       <div>
         <NameWrapper>
           <p>{campers.name}</p>
-          <p>&euro;{campers.price}</p>
+          <PriceContein>
+            <p>&euro;{corectPrice(campers.price)}</p>
+            <img src={Haert} width={24} alt="Haert" />
+          </PriceContein>
         </NameWrapper>
 
         <RatingWrapper>
           <Rating>
+            <RatingImg src={ImgStar} alt="Star" />
             {campers.rating} ({campers.reviews.length} Reviews)
           </Rating>
-          <span>{campers.location}</span>
+          <span>
+            <RatingImg src={MapImg} alt="Maps" />
+            {campers.location}
+          </span>
         </RatingWrapper>
 
         <Description>

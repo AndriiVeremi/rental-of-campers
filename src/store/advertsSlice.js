@@ -13,8 +13,8 @@ const advertsSlice = createSlice({
             .addCase(fetchCampers.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
                 state.items = payload;
-                // state.items.push(payload);
-                state.page = 1;
+                // state.items.push(...payload)
+                // state.page = state.page + 1;
                 state.error = null;
             }).addCase(fetchCampers.rejected, (state, { payload }) => {
                 state.isLoading = false;

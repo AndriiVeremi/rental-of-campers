@@ -45,3 +45,9 @@ a {
 .active {
   border-bottom: 2px solid #e44848;
 }
+/* 
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+} */

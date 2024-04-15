@@ -3,9 +3,9 @@ import { getCampers } from 'api/campersAPI';
 
 export const fetchCampers = createAsyncThunk(
   'adverts/fetchAll',
-   async (_, { rejectWithValue }) => {
+   async (page, { rejectWithValue }) => {
   try {
-    const { data } = await getCampers();
+    const { data } = await getCampers(page);
     return data;
   } catch (error) {
     return rejectWithValue(error.message);
