@@ -1,13 +1,13 @@
 import CamperReviewsItem from "components/CamperReviewsItem/CamperReviewsItem";
+import { ReviewList1 } from "./CamperReviewsList.module";
 
 const CamperReviewsList = ({ reviews }) => {
-  console.log('reviews', reviews);
 
   return (
     <div>
-      <ul>
+      <ReviewList1>
       {reviews && reviews.map((item, index) => <CamperReviewsItem key={index} review={item}></CamperReviewsItem>)}
-      </ul>
+      </ReviewList1>
     </div>
   );
 };

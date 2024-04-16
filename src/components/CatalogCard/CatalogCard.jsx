@@ -1,6 +1,8 @@
 import { sliceText } from 'utils/sliceText';
 import { corectPrice } from 'utils/corectPrice';
 
+import ifDetailsImg from 'utils/ifDetailsImg';
+
 import ImgAdults from '../../images/adult.svg';
 import ImgTransmision from '../../images/transmision.svg';
 import ImgPetrol from '../../images/benz.svg';
@@ -30,10 +32,11 @@ import {
 } from './CatalogCard.module';
 
 const CatalogCard = ({ campers, toggleModal }) => {
+
   return (
     <ListItem key={campers._id}>
       <ImageItemWrapper>
-        <ImageItem src={campers.gallery[0]} alt={campers.name}  />
+        <ImageItem src={campers.gallery[0]} alt={campers.name} />
       </ImageItemWrapper>
       <div>
         <NameWrapper>
@@ -61,30 +64,49 @@ const CatalogCard = ({ campers, toggleModal }) => {
 
         <InfoWrapper>
           <InfoList>
-            <InfoItem>
-              <InfoImg src={ImgAdults} alt="Adults" />
-              {campers.adults} adults
-            </InfoItem>
-            <InfoItem>
-              <InfoImg src={ImgTransmision} alt="Transmision" />
-              {campers.transmission}
-            </InfoItem>
-            <InfoItem>
-              <InfoImg src={ImgPetrol} alt="Petrol" />
-              {campers.engine}
-            </InfoItem>
-            <InfoItem>
-              <InfoImg src={ImgKitchen} alt="Kitchen" />
-              {campers.details.kitchen && 'Kitchen'}
-            </InfoItem>
-            <InfoItem>
-              <InfoImg src={ImgBeds} alt="beds" />
-              {campers.details.beds} beds
-            </InfoItem>
-            <InfoItem>
-              <InfoImg src={ImgClimat} alt="Conditioner" />
-              {campers.details.airConditioner && 'AC'}
-            </InfoItem>
+            
+            {ifDetailsImg(campers.ImgAdults) && (
+              <InfoItem>
+                <InfoImg src={ImgAdults} alt="Adults" />
+                {campers.adults} adults
+              </InfoItem>
+            )}
+
+            {ifDetailsImg(campers.ImgTransmision) && (
+              <InfoItem>
+                <InfoImg src={ImgTransmision} alt="Transmision" />
+                {campers.transmission}
+              </InfoItem>
+            )}
+
+            {ifDetailsImg(campers.ImgPetrol) && (
+              <InfoItem>
+                <InfoImg src={ImgPetrol} alt="Petrol" />
+                {campers.engine}
+              </InfoItem>
+            )}
+
+            {ifDetailsImg(campers.ImgKitchen) && (
+              <InfoItem>
+                <InfoImg src={ImgKitchen} alt="Kitchen" />
+                {campers.details.kitchen && 'Kitchen'}
+              </InfoItem>
+            )}
+
+            {ifDetailsImg(campers.ImgBeds) && (
+              <InfoItem>
+                <InfoImg src={ImgBeds} alt="beds" />
+                {campers.details.beds} beds
+              </InfoItem>
+            )}
+
+            {ifDetailsImg(campers.ImgClimat) && (
+              <InfoItem>
+                <InfoImg src={ImgClimat} alt="Conditioner" />
+                {campers.details.airConditioner && 'AC'}
+              </InfoItem>
+            )}
+            
           </InfoList>
         </InfoWrapper>
 

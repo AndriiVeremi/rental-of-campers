@@ -24,3 +24,8 @@ export const InfoImg = styled.img`
   height: 20px;
   margin-right: 8px;
 `;
+
+export const BarLine = styled.div`
+  border-bottom: 1px solid rgba(16, 24, 40, 0.1);
+  margin-bottom: 24px;
+`;

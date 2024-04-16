@@ -43,6 +43,7 @@ export const NameWrapper = styled.div`
 export const PriceContein = styled.div`
   display: flex;
   gap: 8px;
+  align-items: flex-start;
 `;
 
 export const RatingWrapper = styled.div`

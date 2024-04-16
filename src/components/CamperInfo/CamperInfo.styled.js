@@ -1,12 +1,39 @@
 import styled from 'styled-components';
 
+
 export const ModalWrapper = styled.div`
   background-color: #fff;
   padding: 40px;
   border-radius: 20px;
   width: 982px;
   height: 720px;
-  overflow-y:scroll
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+
+
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    display: flex;
+    margin-right: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
 `;
 
 export const NameWrapper = styled.div`
@@ -121,3 +148,4 @@ export const MorInfoWrapper = styled.div`
   display: flex;
   gap: 24px;
 `;
+

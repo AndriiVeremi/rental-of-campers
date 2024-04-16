@@ -34,12 +34,10 @@ const CamperInfo = ({ data, onClose }) => {
 
   const { name, price, rating, location, description, gallery, reviews } = data;
 
-
-
- 
-
   return (
-    <ModalWrapper>
+   
+      <ModalWrapper>
+      
       <NameWrapper>
         <p>{name}</p>
         <img src={CloseImg} alt="Close" onClick={() => onClose()} />
@@ -90,20 +88,12 @@ const CamperInfo = ({ data, onClose }) => {
       <BarLine></BarLine>
 
       <MorInfoWrapper>
-        {isFeatures ? <CamperFeatures/> : <CamperReviewsList reviews={reviews} />}
+        {isFeatures ? <CamperFeatures data={data} /> : <CamperReviewsList reviews={reviews} />}
         <BookNow />
       </MorInfoWrapper>
 
-
-
-     
-
-          
-
-
     </ModalWrapper>
-
-    
+ 
   );
 };
 
