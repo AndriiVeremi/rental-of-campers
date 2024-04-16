@@ -11,7 +11,7 @@ export const Overlay = styled.div`
   align-items: center;
   z-index: 1200;
   background: rgba(18, 20, 23, 0.5);
-  /* overflow: auto; */
+
 `;
 
 export const ModalContainer = styled.div`

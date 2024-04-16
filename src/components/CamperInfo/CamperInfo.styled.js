@@ -35,9 +35,6 @@ export const Rating = styled.span`
   text-decoration-line: underline;
 `;
 
-// export const LocationImg = styled.span`
-//   margin-right: 8px;
-// `;
 
 export const PriceWrapper = styled.div`
   margin-bottom: 24px;
@@ -105,11 +102,12 @@ export const InfoListItem = styled.li`
 padding-bottom: 24px;
 `;
 
-export const InfoItemText = styled.p`
+export const InfoItemBtn = styled.button`
+background: none;
+border: none;
 color: #101828;
 font-family: Inter;
 font-size: 20px;
-font-style: normal;
 font-weight: 600;
 line-height: 24px; /* 120% */
 `;

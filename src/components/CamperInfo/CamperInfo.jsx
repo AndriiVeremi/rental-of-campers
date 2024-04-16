@@ -1,5 +1,5 @@
-// import CamperFeatures from 'components/CamperFeatures/CamperFeatures';
-import CamperReviews from 'components/CamperReviews/CamperReviews';
+import CamperFeatures from 'components/CamperFeatures/CamperFeatures';
+import CamperReviewsList from 'components/CamperReviewsList/CamperReviewsList';
 import BookNow from 'components/BookNow/BookNow';
 import { corectPrice } from 'utils/corectPrice';
 import CloseImg from '../../images/close.svg';
@@ -22,13 +22,21 @@ import {
   InfoWrapper,
   InfoList,
   InfoListItem,
-  InfoItemText,
+  InfoItemBtn,
   BarLine,
   MorInfoWrapper
 } from './CamperInfo.styled';
+import { useState } from 'react';
 
 const CamperInfo = ({ data, onClose }) => {
+
+  const [isFeatures, setIsFeatures] = useState(true);
+
   const { name, price, rating, location, description, gallery, reviews } = data;
+
+
+
+ 
 
   return (
     <ModalWrapper>
@@ -54,8 +62,8 @@ const CamperInfo = ({ data, onClose }) => {
       <GalleryListWrapper>
         <GalleryList>
           {gallery &&
-            gallery.map(item => (
-              <GalleryItem key={item}>
+            gallery.map((item, index) => (
+              <GalleryItem key={index}>
                 <GalleryImgWrapper>
                   <GalleryImg src={item} alt={item} />
                 </GalleryImgWrapper>
@@ -71,10 +79,10 @@ const CamperInfo = ({ data, onClose }) => {
       <InfoWrapper>
         <InfoList>
           <InfoListItem>
-            <InfoItemText>Features</InfoItemText>
+            <InfoItemBtn onClick={() => setIsFeatures(true)}>Features</InfoItemBtn>
           </InfoListItem>
           <InfoListItem>
-            <InfoItemText>Reviews</InfoItemText>
+            <InfoItemBtn onClick={() => setIsFeatures(false)}>Reviews</InfoItemBtn>
           </InfoListItem>
         </InfoList>
       </InfoWrapper>
@@ -82,10 +90,15 @@ const CamperInfo = ({ data, onClose }) => {
       <BarLine></BarLine>
 
       <MorInfoWrapper>
-        {/* <CamperFeatures/> */}
-        <CamperReviews />
+        {isFeatures ? <CamperFeatures/> : <CamperReviewsList reviews={reviews} />}
         <BookNow />
       </MorInfoWrapper>
+
+
+
+     
+
+          
 
 
     </ModalWrapper>
