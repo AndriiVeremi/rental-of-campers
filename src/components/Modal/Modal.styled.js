@@ -21,3 +21,7 @@ export const ModalContainer = styled.div`
   overflow: hidden;
   transform: translate(-50%, -50%);
 `;
+
+export const ModalWrapper = styled.div`
+width: 982px;
+`;

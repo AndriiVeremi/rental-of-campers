@@ -1,17 +1,13 @@
 import styled from 'styled-components';
 
-
 export const ModalWrapper = styled.div`
   background-color: #fff;
   padding: 40px;
   border-radius: 20px;
-  width: 982px;
+  /* width: 982px; */
   height: 720px;
   overflow-x: hidden;
   overflow-y: scroll;
-
-
-
 
   &::-webkit-scrollbar {
     width: 10px;
@@ -27,13 +23,11 @@ export const ModalWrapper = styled.div`
   &::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 10px;
-
   }
 
   &::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
-
 `;
 
 export const NameWrapper = styled.div`
@@ -50,10 +44,13 @@ export const NameWrapper = styled.div`
 export const RatingWrapper = styled.div`
   display: flex;
   margin-bottom: 16px;
-  gap: 18px;
+  gap: 16px;
+  align-items: center;
 `;
 
 export const Rating = styled.span`
+  display: flex;
+  gap: 5px;
   /* font-family: Inter; */
   font-size: 16px;
   font-style: normal;
@@ -62,6 +59,16 @@ export const Rating = styled.span`
   text-decoration-line: underline;
 `;
 
+export const Location = styled.span`
+  display: flex;
+  gap: 5px;
+  /* font-family: Inter; */
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  text-decoration-line: underline;
+`;
 
 export const PriceWrapper = styled.div`
   margin-bottom: 24px;
@@ -105,47 +112,44 @@ export const DescriptionWrapper = styled.div`
   margin-bottom: 44px;
 `;
 
-
 export const Description = styled.p`
- color: #475467;
-font-family: Inter;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 24px; /* 150% */
+  color: #475467;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
 `;
 
-export const InfoWrapper = styled.div`
-
-`;
+export const InfoWrapper = styled.div``;
 
 export const InfoList = styled.ul`
-display: flex;
-gap: 40px;
-list-style: none;
+  display: flex;
+  gap: 40px;
+  list-style: none;
 `;
 
 export const InfoListItem = styled.li`
-padding-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 5px solid #E44848;
 `;
 
 export const InfoItemBtn = styled.button`
-background: none;
-border: none;
-color: #101828;
-font-family: Inter;
-font-size: 20px;
-font-weight: 600;
-line-height: 24px; /* 120% */
+  background: none;
+  border: none;
+  color: #101828;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px; /* 120% */
 `;
 
 export const BarLine = styled.div`
   border-bottom: 1px solid rgba(16, 24, 40, 0.1);
-  margin-bottom: 24px;
+  margin-bottom: 44px;
 `;
 
 export const MorInfoWrapper = styled.div`
   display: flex;
   gap: 24px;
 `;
-

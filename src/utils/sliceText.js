@@ -1,1 +1,1 @@
-export const sliceText = (data) => data.slice(0, 63)
+export const sliceText = data => data.slice(0, 63);

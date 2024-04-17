@@ -1,1 +1,1 @@
-export const corectPrice = (price) => price.toString().concat(',00')
+export const corectPrice = data => data.toString().concat(',00')

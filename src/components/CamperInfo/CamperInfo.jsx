@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import CamperFeatures from 'components/CamperFeatures/CamperFeatures';
 import CamperReviewsList from 'components/CamperReviewsList/CamperReviewsList';
 import BookNow from 'components/BookNow/BookNow';
 import { corectPrice } from 'utils/corectPrice';
+
 import CloseImg from '../../images/close.svg';
+import StarImg from '../../images/star.svg';
 import MapImg from '../../images/map.svg';
 
 import {
@@ -10,6 +13,7 @@ import {
   NameWrapper,
   RatingWrapper,
   Rating,
+  Location,
   PriceWrapper,
   Price,
   GalleryListWrapper,
@@ -24,9 +28,8 @@ import {
   InfoListItem,
   InfoItemBtn,
   BarLine,
-  MorInfoWrapper
+  MorInfoWrapper,
 } from './CamperInfo.styled';
-import { useState } from 'react';
 
 const CamperInfo = ({ data, onClose }) => {
 
@@ -35,9 +38,7 @@ const CamperInfo = ({ data, onClose }) => {
   const { name, price, rating, location, description, gallery, reviews } = data;
 
   return (
-   
-      <ModalWrapper>
-      
+    <ModalWrapper>
       <NameWrapper>
         <p>{name}</p>
         <img src={CloseImg} alt="Close" onClick={() => onClose()} />
@@ -45,12 +46,13 @@ const CamperInfo = ({ data, onClose }) => {
 
       <RatingWrapper>
         <Rating>
+        <img src={StarImg} alt="Maps" />
           {rating} ({reviews.length} Reviews)
         </Rating>
-        <span>
+        <Location>
           <img src={MapImg} alt="Maps" />
           {location}
-        </span>
+        </Location>
       </RatingWrapper>
 
       <PriceWrapper>
@@ -91,9 +93,7 @@ const CamperInfo = ({ data, onClose }) => {
         {isFeatures ? <CamperFeatures data={data} /> : <CamperReviewsList reviews={reviews} />}
         <BookNow />
       </MorInfoWrapper>
-
     </ModalWrapper>
- 
   );
 };
 

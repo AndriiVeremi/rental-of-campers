@@ -1,7 +1,7 @@
 import { sliceText } from 'utils/sliceText';
 import { corectPrice } from 'utils/corectPrice';
+import { ifDetails } from 'utils/ifDetails';
 
-import ifDetailsImg from 'utils/ifDetailsImg';
 
 import ImgAdults from '../../images/adult.svg';
 import ImgTransmision from '../../images/transmision.svg';
@@ -32,7 +32,6 @@ import {
 } from './CatalogCard.module';
 
 const CatalogCard = ({ campers, toggleModal }) => {
-
   return (
     <ListItem key={campers._id}>
       <ImageItemWrapper>
@@ -64,49 +63,47 @@ const CatalogCard = ({ campers, toggleModal }) => {
 
         <InfoWrapper>
           <InfoList>
-            
-            {ifDetailsImg(campers.ImgAdults) && (
+            {ifDetails(campers.ImgAdults) && (
               <InfoItem>
                 <InfoImg src={ImgAdults} alt="Adults" />
                 {campers.adults} adults
               </InfoItem>
             )}
 
-            {ifDetailsImg(campers.ImgTransmision) && (
+            {ifDetails(campers.ImgTransmision) && (
               <InfoItem>
                 <InfoImg src={ImgTransmision} alt="Transmision" />
                 {campers.transmission}
               </InfoItem>
             )}
 
-            {ifDetailsImg(campers.ImgPetrol) && (
+            {ifDetails(campers.ImgPetrol) && (
               <InfoItem>
                 <InfoImg src={ImgPetrol} alt="Petrol" />
                 {campers.engine}
               </InfoItem>
             )}
 
-            {ifDetailsImg(campers.ImgKitchen) && (
+            {ifDetails(campers.ImgKitchen) && (
               <InfoItem>
                 <InfoImg src={ImgKitchen} alt="Kitchen" />
                 {campers.details.kitchen && 'Kitchen'}
               </InfoItem>
             )}
 
-            {ifDetailsImg(campers.ImgBeds) && (
+            {ifDetails(campers.ImgBeds) && (
               <InfoItem>
                 <InfoImg src={ImgBeds} alt="beds" />
                 {campers.details.beds} beds
               </InfoItem>
             )}
 
-            {ifDetailsImg(campers.ImgClimat) && (
+            {ifDetails(campers.ImgClimat) && (
               <InfoItem>
                 <InfoImg src={ImgClimat} alt="Conditioner" />
                 {campers.details.airConditioner && 'AC'}
               </InfoItem>
             )}
-            
           </InfoList>
         </InfoWrapper>
 
