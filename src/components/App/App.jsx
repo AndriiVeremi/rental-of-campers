@@ -1,5 +1,5 @@
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
 import NavLayout from '../../layouts/NavLayout';
 import { ContainerApp } from './App.module';
 
@@ -9,45 +9,18 @@ const FavoritesPage = lazy(() => import('../../pages/FavoritesPage/FavoritesPage
 const PageNotFound = lazy(() => import('../../pages/PageNotFound/PageNotFound'));
 
 export const App = () => {
-
   return (
     <ContainerApp>
-      <Routes>
-        <Route path="/" element={<NavLayout />}>
-          <Route
-            index
-            element={
-              <Suspense fallback={<h1>loading...</h1>}>
-                <HomePage />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/catalog"
-            element={
-              <Suspense fallback={<h1>loading...</h1>}>
-                <CatalogPage />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/favorites"
-            element={
-              <Suspense fallback={<h1>loading...</h1>}>
-                <FavoritesPage />
-              </Suspense>
-            }
-          />
-          <Route
-            path="*"
-            element={
-              <Suspense fallback={<h1>loading...</h1>}>
-                <PageNotFound />
-              </Suspense>
-            }
-          />
-        </Route>
-      </Routes>
+      <Suspense fallback={<h1>loading...</h1>}>
+        <Routes>
+          <Route path="/" element={<NavLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/catalog" element={<CatalogPage />} />
+            <Route path="/favorites" element={<FavoritesPage />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </ContainerApp>
   );
 };
