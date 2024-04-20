@@ -2,7 +2,6 @@ import { sliceText } from 'utils/sliceText';
 import { corectPrice } from 'utils/corectPrice';
 import { ifDetails } from 'utils/ifDetails';
 
-
 import ImgAdults from '../../images/adult.svg';
 import ImgTransmision from '../../images/transmision.svg';
 import ImgPetrol from '../../images/benz.svg';
@@ -28,7 +27,7 @@ import {
   InfoList,
   InfoItem,
   InfoImg,
-  Button,
+  Button
 } from './CatalogCard.module';
 
 const CatalogCard = ({ campers, toggleModal }) => {

@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 export const BarApp = styled.div`
-  /* width: 360px; */
+  width: 360px;
 `;
 
 export const BarForm = styled.form`
-  width: 360px;
+  /* width: 360px; */
 `;
 
 export const BarInfo = styled.div`
   margin-bottom: 32px;
 `;
 
-export const BarName = styled.h2`
+export const BarName = styled.label`
   color: rgba(16, 24, 40, 0.6);
   font-size: 16px;
   font-style: normal;
@@ -52,6 +52,30 @@ export const NameFilter = styled.p`
 export const BarLine = styled.div`
   border-bottom: 1px solid rgba(16, 24, 40, 0.1);
   margin-bottom: 24px;
+`;
+
+export const VehicleOptionsList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
+  /* margin-top: 20px; */
+  /* padding-top: 24px; */
+  border-top: 1px solid rgba(16, 24, 40, 0.1);
+`;
+
+export const VehicleOptionsItem = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
+  /* margin-top: 20px; */
+  /* padding-top: 24px; */
+  border-top: 1px solid rgba(16, 24, 40, 0.1);
 `;
 
 export const Button = styled.button`

@@ -1,29 +1,42 @@
-import { BarApp, BarName, BarForm, BarInfo, BarInput, BarNameFilter, BarLine, NameFilter, Button } from './FiltersBar.module';
+import CheckboxForm from 'components/FiltersOptions/FiltersOptions';
+import {
+  BarApp,
+  BarName,
+  BarForm,
+  BarInfo,
+  BarInput,
+  BarNameFilter,
+  BarLine,
+  NameFilter,
+  VehicleOptionsList,
+  Button,
+} from './FiltersBar.module';
 
-const FiltersBar = () => {
+const FiltersBar = data => {
   return (
     <BarApp>
       <BarForm>
         <BarInfo>
           <BarName>Location</BarName>
-          <label>
-            <BarInput type="text" placeholder="Kyiv, Ukraine" />
-          </label>
+          <BarInput name="location" type="text" required placeholder="Kyiv, Ukraine" />
         </BarInfo>
 
         <div>
           <BarNameFilter>Filters</BarNameFilter>
-          <div>
-            <NameFilter>Vehicle equipment</NameFilter>
-            <BarLine></BarLine>
-          </div>
+          <NameFilter>Vehicle equipment</NameFilter>
+          <BarLine></BarLine>
 
-          <div>
-            <NameFilter>Vehicle type</NameFilter>
-            <BarLine></BarLine>
-          </div>
+          <CheckboxForm/>
+          <VehicleOptionsList>
+            <li></li>
+          </VehicleOptionsList>
         </div>
-        <Button type="submit">Search</Button>
+
+        <NameFilter>Vehicle type</NameFilter>
+
+        <Button type="submit" >
+          Search
+        </Button>
       </BarForm>
     </BarApp>
   );

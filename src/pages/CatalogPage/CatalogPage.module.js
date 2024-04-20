@@ -1,19 +1,19 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CatalogPageWrapper = styled.div`
-display: flex;
-gap: 64px;
-padding: 100px 64px;
+  display: flex;
+  gap: 64px;
+  padding: 100px 64px;
 `;
 
 export const ListWrapper = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Button = styled.button`
-  display: inline-flex;  
+  display: inline-flex;
   padding: 16px 32px;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,7 @@ export const Button = styled.button`
   background-color: #fff;
 
   border-radius: 200px;
-  border: 1px solid rgba(71, 84, 103, 0.20);
+  border: 1px solid rgba(71, 84, 103, 0.2);
 
   color: #101828;
   font-family: Inter;
@@ -32,6 +32,6 @@ export const Button = styled.button`
   outline: none;
 
   &:hover {
-    border: 1px solid  #E44848;
+    border: 1px solid #e44848;
   }
 `;

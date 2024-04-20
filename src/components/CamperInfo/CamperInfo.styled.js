@@ -131,7 +131,6 @@ export const InfoList = styled.ul`
 
 export const InfoListItem = styled.li`
   padding-bottom: 24px;
-  border-bottom: 5px solid #E44848;
 `;
 
 export const InfoItemBtn = styled.button`

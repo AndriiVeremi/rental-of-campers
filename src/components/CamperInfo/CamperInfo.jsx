@@ -78,10 +78,10 @@ const CamperInfo = ({ data, onClose }) => {
 
       <InfoWrapper>
         <InfoList>
-          <InfoListItem>
+          <InfoListItem style={isFeatures ? {borderBottom:'5px solid #E44848'} : {borderBottom:'none'}}>
             <InfoItemBtn onClick={() => setIsFeatures(true)}>Features</InfoItemBtn>
           </InfoListItem>
-          <InfoListItem>
+          <InfoListItem style={!isFeatures ? {borderBottom:'5px solid #E44848'} : {borderBottom:'none'}}>
             <InfoItemBtn onClick={() => setIsFeatures(false)}>Reviews</InfoItemBtn>
           </InfoListItem>
         </InfoList>

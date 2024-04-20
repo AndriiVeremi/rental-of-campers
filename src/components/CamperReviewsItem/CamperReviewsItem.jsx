@@ -2,7 +2,6 @@ import ReactStars from 'react-rating-stars-component';
 import { ReviewInfo, ReviewAvatar, ReviewAvatarName, ReviewName, ReviewComment } from './CamperReviewsItem.module';
 
 const CamperReviewsItem = ({ review }) => {
-
   const data = {
     size: 20,
     value: review.reviewer_rating,

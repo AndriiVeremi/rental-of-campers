@@ -12,16 +12,16 @@ export const fetchCampers = createAsyncThunk(
   }
 });
 
-export const fetchCampersId = createAsyncThunk(
-  'adverts/fetchId',
-   async (id, { rejectWithValue }) => {
-  try {
-    const { data } = await getCampers(id);
-    return data;
-  } catch (error) {
-    return rejectWithValue(error.message);
-  }
-});
+// export const fetchCampersId = createAsyncThunk(
+//   'adverts/fetchId',
+//    async (id, { rejectWithValue }) => {
+//   try {
+//     const { data } = await getCampers(id);
+//     return data;
+//   } catch (error) {
+//     return rejectWithValue(error.message);
+//   }
+// });
 
 export const loadMoreCampers = createAsyncThunk(
   'adverts/loadMore',

@@ -128,7 +128,8 @@ export const Button = styled.button`
   border: none;
   outline: none;
 
-  &:hover {
+  &:hover,
+  &:focus  {
     background: #d84343;
   }
 `;
