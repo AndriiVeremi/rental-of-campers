@@ -1,16 +1,21 @@
+import { useDispatch, useSelector } from 'react-redux';
+
+import { addToFavorite, deleteFavorite } from 'store/favoritesSlice';
+import { selectFavorites } from 'store/selectors';
+
 import { sliceText } from 'utils/sliceText';
 import { corectPrice } from 'utils/corectPrice';
 import { ifDetails } from 'utils/ifDetails';
 
-import ImgAdults from '../../images/adult.svg';
-import ImgTransmision from '../../images/transmision.svg';
-import ImgPetrol from '../../images/benz.svg';
-import ImgKitchen from '../../images/kitchen.svg';
-import ImgBeds from '../../images/beds.svg';
-import ImgClimat from '../../images/vind.svg';
-import MapImg from '../../images/map.svg';
-import ImgStar from '../../images/star.svg';
-import Haert from '../../images/heart.svg';
+import { ReactComponent as Adult } from "../../images/adult.svg";
+import { ReactComponent as Transmision } from "../../images/transmision.svg";
+import { ReactComponent as Benz } from "../../images/benz.svg";
+import { ReactComponent as Kitchen } from "../../images/kitchen.svg";
+import { ReactComponent as Beds } from "../../images/beds.svg";
+import { ReactComponent as Vind } from "../../images/vind.svg";
+import { ReactComponent as Map } from "../../images/map.svg";
+import { ReactComponent as Star } from "../../images/star.svg";
+import { ReactComponent as Haert } from "../../images/heart.svg";
 
 import {
   ListItem,
@@ -19,88 +24,100 @@ import {
   PriceContein,
   RatingWrapper,
   Rating,
-  RatingImg,
   ImageItemWrapper,
   Description,
   DescriptionText,
   InfoWrapper,
   InfoList,
   InfoItem,
-  InfoImg,
-  Button
+  Button,
 } from './CatalogCard.module';
 
 const CatalogCard = ({ campers, toggleModal }) => {
+  const { _id, name, gallery, price, rating, reviews, location, description, adults, transmission, engine, details } =
+    campers;
+
+  const favorites = useSelector(selectFavorites);
+  const dispatch = useDispatch();
+
+  const addFavorite = () => {
+    if (favorites.includes(_id)) {
+      dispatch(deleteFavorite(_id));
+    } else {
+      dispatch(addToFavorite(_id));
+    }
+  };
+
   return (
-    <ListItem key={campers._id}>
+    <ListItem key={_id}>
       <ImageItemWrapper>
-        <ImageItem src={campers.gallery[0]} alt={campers.name} />
+        <ImageItem src={gallery[0]} alt={name} />
       </ImageItemWrapper>
       <div>
         <NameWrapper>
-          <p>{campers.name}</p>
+          <p>{name}</p>
           <PriceContein>
-            <p>&euro;{corectPrice(campers.price)}</p>
-            <img src={Haert} width={24} alt="Haert" />
+            <p>&euro;{corectPrice(price)}</p>
+            <Haert style={favorites.includes(_id) ? { fill:"#E44848" , stroke:"#E44848"} : { fill:"#fff" }} onClick={addFavorite} width={24} alt="Haert" />
           </PriceContein>
         </NameWrapper>
 
         <RatingWrapper>
           <Rating>
-            <RatingImg src={ImgStar} alt="Star" />
-            {campers.rating} ({campers.reviews.length} Reviews)
+            <Star style={{marginRight:"8px"}}/>
+            {rating} ({reviews.length} Reviews)
           </Rating>
           <span>
-            <RatingImg src={MapImg} alt="Maps" />
-            {campers.location}
+            <Map style={{marginRight:"8px"}}/>
+            {location}
           </span>
         </RatingWrapper>
 
         <Description>
-          <DescriptionText>{sliceText(campers.description)}...</DescriptionText>
+          <DescriptionText>{sliceText(description)}...</DescriptionText>
         </Description>
 
         <InfoWrapper>
           <InfoList>
             {ifDetails(campers.ImgAdults) && (
               <InfoItem>
-                <InfoImg src={ImgAdults} alt="Adults" />
-                {campers.adults} adults
+                <Adult style={{marginRight:"8px"}}/>
+                {adults} adults
               </InfoItem>
             )}
 
             {ifDetails(campers.ImgTransmision) && (
               <InfoItem>
-                <InfoImg src={ImgTransmision} alt="Transmision" />
-                {campers.transmission}
+                <Transmision style={{marginRight:"8px"}}/>
+                {transmission}
               </InfoItem>
             )}
 
             {ifDetails(campers.ImgPetrol) && (
               <InfoItem>
-                <InfoImg src={ImgPetrol} alt="Petrol" />
-                {campers.engine}
+                <Benz style={{marginRight:"8px"}}/>
+                {engine}
               </InfoItem>
             )}
 
             {ifDetails(campers.ImgKitchen) && (
               <InfoItem>
-                <InfoImg src={ImgKitchen} alt="Kitchen" />
-                {campers.details.kitchen && 'Kitchen'}
+                <Kitchen style={{marginRight:"8px"}}/>
+                {details.kitchen && 'Kitchen'}
               </InfoItem>
             )}
 
             {ifDetails(campers.ImgBeds) && (
               <InfoItem>
-                <InfoImg src={ImgBeds} alt="beds" />
-                {campers.details.beds} beds
+                <Beds style={{marginRight:"8px"}}/>
+                {details.beds} beds
               </InfoItem>
             )}
 
             {ifDetails(campers.ImgClimat) && (
               <InfoItem>
-                <InfoImg src={ImgClimat} alt="Conditioner" />
-                {campers.details.airConditioner && 'AC'}
+                <Vind style={{marginRight:"8px"}}/>
+                {details.airConditioner && 'AC'}
               </InfoItem>
             )}
           </InfoList>

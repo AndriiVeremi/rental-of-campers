@@ -1,4 +1,14 @@
 import { useState } from 'react';
+
+import { ReactComponent as Transmision } from '../../images/transmision.svg';
+import { ReactComponent as Tv } from '../../images/tv.svg';
+import { ReactComponent as Kitchen } from '../../images/kitchen.svg';
+import { ReactComponent as Shover } from '../../images/shover.svg';
+import { ReactComponent as Climat } from '../../images/vind.svg';
+import { ReactComponent as Van } from '../../images/campVan.svg';
+import { ReactComponent as Aalcon } from '../../images/campValcon.svg';
+import { ReactComponent as Integ } from '../../images/campInteg.svg';
+
 import {
   BarApp,
   BarName,
@@ -10,20 +20,9 @@ import {
   NameFilter,
   VehicleOptionsList,
   OptionsLable,
-  InfoImg,
   VehicleTypeList,
-  TypeImg,
   Button,
 } from './FiltersBar.module';
-
-import ImgTransmision from '../../images/transmision.svg';
-import ImgTV from '../../images/tv.svg';
-import ImgKitchen from '../../images/kitchen.svg';
-import ImgShover from '../../images/shover.svg';
-import ImgClimat from '../../images/vind.svg';
-import ImgCampVan from '../../images/campVan.svg';
-import ImgCampValcon from '../../images/campValcon.svg';
-import ImgCampInteg from '../../images/campInteg.svg';
 
 const FiltersBar = data => {
   const [location, setLocation] = useState('');
@@ -79,7 +78,7 @@ const FiltersBar = data => {
             <li>
               <OptionsLable>
                 <input type="checkbox" name="ac" checked={details.ac} onChange={handleCheckboxChange} />
-                <InfoImg src={ImgClimat} alt="Conditioner" />
+                <Climat style={{ width: '32', height: '32' }} />
                 AC
               </OptionsLable>
             </li>
@@ -92,7 +91,7 @@ const FiltersBar = data => {
                   checked={details.transmision}
                   onChange={handleCheckboxChange}
                 />
-                <InfoImg src={ImgTransmision} alt="Transmision" />
+                <Transmision style={{ width: '32', height: '32' }} />
                 Automatic
               </OptionsLable>
             </li>
@@ -100,7 +99,7 @@ const FiltersBar = data => {
             <li>
               <OptionsLable>
                 <input type="checkbox" name="kitchen" checked={details.kitchen} onChange={handleCheckboxChange} />
-                <InfoImg src={ImgKitchen} alt="Kitchen" />
+                <Kitchen style={{ width: '32', height: '32' }} />
                 Kitchen
               </OptionsLable>
             </li>
@@ -108,7 +107,7 @@ const FiltersBar = data => {
             <li>
               <OptionsLable>
                 <input type="checkbox" name="tv" checked={details.tv} onChange={handleCheckboxChange} />
-                <InfoImg src={ImgTV} alt="Tv" />
+                <Tv style={{ width: '32', height: '32' }} />
                 TV
               </OptionsLable>
             </li>
@@ -116,7 +115,7 @@ const FiltersBar = data => {
             <li>
               <OptionsLable>
                 <input type="checkbox" name="shower" checked={details.showers} onChange={handleCheckboxChange} />
-                <InfoImg src={ImgShover} alt="Shover" />
+                <Shover style={{ width: '32', height: '32' }} />
                 Shower/WC
               </OptionsLable>
             </li>
@@ -131,7 +130,7 @@ const FiltersBar = data => {
             <li>
               <OptionsLable>
                 <input type="checkbox" name="van" checked={type.van} onChange={handleCheckboxType} />
-                <TypeImg src={ImgCampVan} alt="CampVan" />
+                <Van style={{ width: '40px', height: '28px' }} />
                 Van
               </OptionsLable>
             </li>
@@ -139,7 +138,7 @@ const FiltersBar = data => {
             <li>
               <OptionsLable>
                 <input type="checkbox" name="integ" checked={type.integ} onChange={handleCheckboxType} />
-                <TypeImg src={ImgCampInteg} alt="CampInteg" />
+                <Integ style={{ width: '40px', height: '28px' }} />
                 Fully Integrated
               </OptionsLable>
             </li>
@@ -147,7 +146,7 @@ const FiltersBar = data => {
             <li>
               <OptionsLable>
                 <input type="checkbox" name="alcove" checked={type.alcove} onChange={handleCheckboxType} />
-                <TypeImg src={ImgCampValcon} alt="Alcove" />
+                <Aalcon style={{ width: '40px', height: '28px' }} />
                 Alcove
               </OptionsLable>
             </li>

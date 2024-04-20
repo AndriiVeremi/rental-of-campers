@@ -62,9 +62,6 @@ export const Rating = styled.span`
   text-decoration-line: underline;
 `;
 
-export const RatingImg = styled.img`
-  margin-right: 4px;
-`;
 
 export const Description = styled.div`
   margin-bottom: 24px;
@@ -100,12 +97,6 @@ export const InfoItem = styled.li`
   border-radius: 100px;
   background: #f2f4f7;
   mix-blend-mode: multiply;
-`;
-
-export const InfoImg = styled.img`
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
 `;
 
 export const Button = styled.button`
