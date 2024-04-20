@@ -58,25 +58,43 @@ export const VehicleOptionsList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-
-  /* margin-top: 20px; */
-  /* padding-top: 24px; */
-  border-top: 1px solid rgba(16, 24, 40, 0.1);
+  list-style: none;
+  margin-bottom: 32px;
 `;
 
-export const VehicleOptionsItem = styled.ul`
+export const VehicleOptionsItem = styled.li`
+
+`;
+
+export const OptionsLable = styled.label`
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  width: 110px;
+  height: 95px;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  border-radius: 10px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+ 
+  &:hover {
+    cursor: pointer;
+  }
 
-  /* margin-top: 20px; */
-  /* padding-top: 24px; */
-  border-top: 1px solid rgba(16, 24, 40, 0.1);
+  /* &:checked{
+    border: 1px solid red;
+    outline: 12px solid red;
+  } */
 `;
+
+
+
+
 
 export const Button = styled.button`
   display: inline-flex;
@@ -101,4 +119,25 @@ export const Button = styled.button`
   &:hover {
     background: #d84343;
   }
+`;
+
+export const InfoImg = styled.img`
+  width: 32px;
+  height: 32px;
+  
+`;
+
+export const VehicleTypeList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  margin-bottom: 64px;
+`;
+
+export const TypeImg = styled.img`
+  width: 40px;
+  height: 28px;
 `;

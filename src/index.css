@@ -6,13 +6,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
 
-  font-family:  "Inter", sans-serif;
-
+  font-family: 'Inter', sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 /* Reset Styles */
@@ -51,3 +49,5 @@ img {
   height: auto;
   max-width: 100%;
 } */
+
+
