@@ -6,7 +6,7 @@ import FiltersBar from 'components/FiltersBar/FiltersBar';
 import CatalogList from 'components/CatalogList/CatalogList';
 import { Modal } from 'components/Modal/Modal';
 
-import { CatalogPageWrapper, ListWrapper} from './FavoritesPage.module';
+import { CatalogPageWrapper, ListWrapper } from './FavoritesPage.module';
 
 const FavoritesPage = () => {
   const favorites = useSelector(selectFavorites);
@@ -18,8 +18,6 @@ const FavoritesPage = () => {
     setShowModal(!showModal);
     setSelectedCamper(data);
   };
-
-  console.log('favorites', favorites);
 
   return (
     <>

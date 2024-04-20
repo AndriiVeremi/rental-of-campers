@@ -1,0 +1,1 @@
+export const isFavorit = (id, favorites) => favorites.some(item => item._id === id);

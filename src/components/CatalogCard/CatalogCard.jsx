@@ -6,6 +6,7 @@ import { selectFavorites } from 'store/selectors';
 import { sliceText } from 'utils/sliceText';
 import { corectPrice } from 'utils/corectPrice';
 import { ifDetails } from 'utils/ifDetails';
+import { isFavorit } from 'utils/isFavorit';
 
 import { ReactComponent as Adult } from '../../images/adult.svg';
 import { ReactComponent as Transmision } from '../../images/transmision.svg';
@@ -34,16 +35,16 @@ import {
 } from './CatalogCard.module';
 
 const CatalogCard = ({ campers, toggleModal }) => {
+
   const { _id, name, gallery, price, rating, reviews, location, description, adults, transmission, engine, details } =
     campers;
 
   const favorites = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
-  const isfavorit = id => favorites.some(item => item._id === id);
-
   const goFavorite = () => {
-    if (isfavorit(_id)) {
+    
+    if (isFavorit(_id, favorites)) {
       dispatch(deleteFavorite(campers));
     } else {
       dispatch(addFavorite(campers));
@@ -61,7 +62,7 @@ const CatalogCard = ({ campers, toggleModal }) => {
           <PriceContein>
             <p>&euro;{corectPrice(price)}</p>
             <Haert
-              style={isfavorit(_id) ? { fill: '#E44848', stroke: '#E44848' } : { fill: '#fff', stroke: '#101828' }}
+              style={isFavorit(_id, favorites) ? { fill: '#E44848', stroke: '#E44848' } : { fill: '#fff', stroke: '#101828' }}
               onClick={goFavorite}
               width={24}
               alt="Haert"
