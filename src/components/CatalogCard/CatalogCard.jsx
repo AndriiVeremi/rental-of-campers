@@ -1,21 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addToFavorite, deleteFavorite } from 'store/favoritesSlice';
+import { addFavorite, deleteFavorite } from 'store/favoritesSlice';
 import { selectFavorites } from 'store/selectors';
 
 import { sliceText } from 'utils/sliceText';
 import { corectPrice } from 'utils/corectPrice';
 import { ifDetails } from 'utils/ifDetails';
 
-import { ReactComponent as Adult } from "../../images/adult.svg";
-import { ReactComponent as Transmision } from "../../images/transmision.svg";
-import { ReactComponent as Benz } from "../../images/benz.svg";
-import { ReactComponent as Kitchen } from "../../images/kitchen.svg";
-import { ReactComponent as Beds } from "../../images/beds.svg";
-import { ReactComponent as Vind } from "../../images/vind.svg";
-import { ReactComponent as Map } from "../../images/map.svg";
-import { ReactComponent as Star } from "../../images/star.svg";
-import { ReactComponent as Haert } from "../../images/heart.svg";
+import { ReactComponent as Adult } from '../../images/adult.svg';
+import { ReactComponent as Transmision } from '../../images/transmision.svg';
+import { ReactComponent as Benz } from '../../images/benz.svg';
+import { ReactComponent as Kitchen } from '../../images/kitchen.svg';
+import { ReactComponent as Beds } from '../../images/beds.svg';
+import { ReactComponent as Vind } from '../../images/vind.svg';
+import { ReactComponent as Map } from '../../images/map.svg';
+import { ReactComponent as Star } from '../../images/star.svg';
+import { ReactComponent as Haert } from '../../images/heart.svg';
 
 import {
   ListItem,
@@ -40,11 +40,13 @@ const CatalogCard = ({ campers, toggleModal }) => {
   const favorites = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
-  const addFavorite = () => {
-    if (favorites.includes(_id)) {
-      dispatch(deleteFavorite(_id));
+  const isfavorit = id => favorites.some(item => item._id === id);
+
+  const goFavorite = () => {
+    if (isfavorit(_id)) {
+      dispatch(deleteFavorite(campers));
     } else {
-      dispatch(addToFavorite(_id));
+      dispatch(addFavorite(campers));
     }
   };
 
@@ -58,17 +60,22 @@ const CatalogCard = ({ campers, toggleModal }) => {
           <p>{name}</p>
           <PriceContein>
             <p>&euro;{corectPrice(price)}</p>
-            <Haert style={favorites.includes(_id) ? { fill:"#E44848" , stroke:"#E44848"} : { fill:"#fff" }} onClick={addFavorite} width={24} alt="Haert" />
+            <Haert
+              style={isfavorit(_id) ? { fill: '#E44848', stroke: '#E44848' } : { fill: '#fff', stroke: '#101828' }}
+              onClick={goFavorite}
+              width={24}
+              alt="Haert"
+            />
           </PriceContein>
         </NameWrapper>
 
         <RatingWrapper>
           <Rating>
-            <Star style={{marginRight:"8px"}}/>
+            <Star style={{ marginRight: '8px' }} />
             {rating} ({reviews.length} Reviews)
           </Rating>
           <span>
-            <Map style={{marginRight:"8px"}}/>
+            <Map style={{ marginRight: '8px' }} />
             {location}
           </span>
         </RatingWrapper>
@@ -81,42 +88,42 @@ const CatalogCard = ({ campers, toggleModal }) => {
           <InfoList>
             {ifDetails(campers.ImgAdults) && (
               <InfoItem>
-                <Adult style={{marginRight:"8px"}}/>
+                <Adult style={{ marginRight: '8px' }} />
                 {adults} adults
               </InfoItem>
             )}
 
             {ifDetails(campers.ImgTransmision) && (
               <InfoItem>
-                <Transmision style={{marginRight:"8px"}}/>
+                <Transmision style={{ marginRight: '8px' }} />
                 {transmission}
               </InfoItem>
             )}
 
             {ifDetails(campers.ImgPetrol) && (
               <InfoItem>
-                <Benz style={{marginRight:"8px"}}/>
+                <Benz style={{ marginRight: '8px' }} />
                 {engine}
               </InfoItem>
             )}
 
             {ifDetails(campers.ImgKitchen) && (
               <InfoItem>
-                <Kitchen style={{marginRight:"8px"}}/>
+                <Kitchen style={{ marginRight: '8px' }} />
                 {details.kitchen && 'Kitchen'}
               </InfoItem>
             )}
 
             {ifDetails(campers.ImgBeds) && (
               <InfoItem>
-                <Beds style={{marginRight:"8px"}}/>
+                <Beds style={{ marginRight: '8px' }} />
                 {details.beds} beds
               </InfoItem>
             )}
 
             {ifDetails(campers.ImgClimat) && (
               <InfoItem>
-                <Vind style={{marginRight:"8px"}}/>
+                <Vind style={{ marginRight: '8px' }} />
                 {details.airConditioner && 'AC'}
               </InfoItem>
             )}

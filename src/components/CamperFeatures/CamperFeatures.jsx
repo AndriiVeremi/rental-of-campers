@@ -2,22 +2,22 @@ import { ifDetails } from 'utils/ifDetails';
 import { corectDetails } from 'utils/corectDetails';
 import { upperText } from 'utils/upperText';
 
-import ImgAdults from '../../images/adult.svg';
-import ImgTransmision from '../../images/transmision.svg';
-import ImgPetrol from '../../images/benz.svg';
-import ImgKitchen from '../../images/kitchen.svg';
-import ImgBeds from '../../images/beds.svg';
-import ImgClimat from '../../images/vind.svg';
-import ImgAir from '../../images/air.svg';
-import ImgCD from '../../images/cd.svg';
-import ImgHob from '../../images/hob.svg';
-import ImgRadio from '../../images/radio.svg';
+import { ReactComponent as Adult } from "../../images/adult.svg";
+import { ReactComponent as Transmision } from "../../images/transmision.svg";
+import { ReactComponent as Benz } from "../../images/benz.svg";
+import { ReactComponent as Kitchen } from "../../images/kitchen.svg";
+import { ReactComponent as Beds } from "../../images/beds.svg";
+import { ReactComponent as Vind } from "../../images/vind.svg";
+import { ReactComponent as Air } from "../../images/air.svg";
+import { ReactComponent as Cd } from "../../images/cd.svg";
+import { ReactComponent as Hob } from "../../images/hob.svg";
+import { ReactComponent as Radio } from "../../images/radio.svg";
 
-import { InfoWrapper, InfoList, InfoItem, InfoImg, InfoTitle, BarLine, DetailsList, DetailsItem, DetailsItemName} from './CamperFeatures.module';
+
+import { InfoWrapper, InfoList, InfoItem, InfoTitle, BarLine, DetailsList, DetailsItem, DetailsItemName} from './CamperFeatures.module';
 
 const CamperFeatures = ({ data }) => {
-  console.log('data', data);
-
+console.log('data',data)
   const { adults, transmission, details, engine, form, length, width, height, tank, consumption } = data;
 
   return (
@@ -25,49 +25,49 @@ const CamperFeatures = ({ data }) => {
       <InfoList>
         {ifDetails(adults) && (
           <InfoItem>
-            <InfoImg src={ImgAdults} alt="Adults" />
+            <Adult />
             {adults} adults
           </InfoItem>
         )}
 
         {ifDetails(transmission) && (
           <InfoItem>
-            <InfoImg src={ImgTransmision} alt="Transmision" />
+             <Transmision style={{marginRight:"8px"}}/>
             {transmission}
           </InfoItem>
         )}
 
         {ifDetails(details.airConditioner) && (
           <InfoItem>
-            <InfoImg src={ImgClimat} alt="Conditioner" />
+            <Vind />
             {details.airConditioner && 'AC'}
           </InfoItem>
         )}
 
-        {ifDetails(ImgPetrol) && (
+        {ifDetails(engine) && (
           <InfoItem>
-            <InfoImg src={ImgPetrol} alt="Petrol" />
+            <Benz />
             {engine}
           </InfoItem>
         )}
 
-        {ifDetails(ImgKitchen) && (
+        {ifDetails(details.kitchen) && (
           <InfoItem>
-            <InfoImg src={ImgKitchen} alt="Kitchen" />
+            <Kitchen/>
             {details.kitchen && 'Kitchen'}
           </InfoItem>
         )}
 
-        {ifDetails(ImgBeds) && (
+        {ifDetails(details.beds) && (
           <InfoItem>
-            <InfoImg src={ImgBeds} alt="beds" />
+            <Beds style={{marginRight:"8px"}}/>
             {details.beds} beds
           </InfoItem>
         )}
 
         {ifDetails(details.airConditioner) && (
           <InfoItem>
-            <InfoImg src={ImgAir} alt="Conditioner" />
+            <Air />
             {details.airConditioner}
             <p>air conditioner</p>
           </InfoItem>
@@ -75,21 +75,21 @@ const CamperFeatures = ({ data }) => {
 
         {ifDetails(details.CD) && (
           <InfoItem>
-            <InfoImg src={ImgCD} alt="Conditioner" />
+            <Cd />
             <p>CD</p>
           </InfoItem>
         )}
 
         {ifDetails(details.radio) && (
           <InfoItem>
-            <InfoImg src={ImgRadio} alt="Conditioner" />
+            <Radio />
             <p>Radio</p>
           </InfoItem>
         )}
 
         {ifDetails(details.hob) && (
           <InfoItem>
-            <InfoImg src={ImgHob} alt="Conditioner" />
+            <Hob style={{marginRight:"8px"}}/>
             {details.hob}
             <p>Hob</p>
           </InfoItem>

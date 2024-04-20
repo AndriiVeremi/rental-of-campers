@@ -4,9 +4,9 @@ import CamperReviewsList from 'components/CamperReviewsList/CamperReviewsList';
 import BookNow from 'components/BookNow/BookNow';
 import { corectPrice } from 'utils/corectPrice';
 
-import CloseImg from '../../images/close.svg';
-import StarImg from '../../images/star.svg';
-import MapImg from '../../images/map.svg';
+import { ReactComponent as Close } from '../../images/close.svg';
+import { ReactComponent as Star } from '../../images/star.svg';
+import { ReactComponent as Map } from '../../images/map.svg';
 
 import {
   ModalWrapper,
@@ -32,7 +32,6 @@ import {
 } from './CamperInfo.styled';
 
 const CamperInfo = ({ data, onClose }) => {
-
   const [isFeatures, setIsFeatures] = useState(true);
 
   const { name, price, rating, location, description, gallery, reviews } = data;
@@ -41,16 +40,16 @@ const CamperInfo = ({ data, onClose }) => {
     <ModalWrapper>
       <NameWrapper>
         <p>{name}</p>
-        <img src={CloseImg} alt="Close" onClick={() => onClose()} />
+        <Close onClick={() => onClose()} />
       </NameWrapper>
 
       <RatingWrapper>
         <Rating>
-        <img src={StarImg} alt="Maps" />
+          <Star />
           {rating} ({reviews.length} Reviews)
         </Rating>
         <Location>
-          <img src={MapImg} alt="Maps" />
+          <Map />
           {location}
         </Location>
       </RatingWrapper>
@@ -78,10 +77,10 @@ const CamperInfo = ({ data, onClose }) => {
 
       <InfoWrapper>
         <InfoList>
-          <InfoListItem style={isFeatures ? {borderBottom:'5px solid #E44848'} : {borderBottom:'none'}}>
+          <InfoListItem style={isFeatures ? { borderBottom: '5px solid #E44848' } : { borderBottom: 'none' }}>
             <InfoItemBtn onClick={() => setIsFeatures(true)}>Features</InfoItemBtn>
           </InfoListItem>
-          <InfoListItem style={!isFeatures ? {borderBottom:'5px solid #E44848'} : {borderBottom:'none'}}>
+          <InfoListItem style={!isFeatures ? { borderBottom: '5px solid #E44848' } : { borderBottom: 'none' }}>
             <InfoItemBtn onClick={() => setIsFeatures(false)}>Reviews</InfoItemBtn>
           </InfoListItem>
         </InfoList>
