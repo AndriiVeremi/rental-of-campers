@@ -41,8 +41,9 @@ a {
 }
 
 .active {
-  border-bottom: 2px solid #e44848;
+  color: #e44848;
 }
+
 /* 
 img {
   display: block;

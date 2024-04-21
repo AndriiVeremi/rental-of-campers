@@ -32,10 +32,12 @@ const rejectedAction = (state, { payload }) => {
 
 const handleFulfilledGet = (state, { payload }) => {
   state.items = payload;
+  state.length = payload.length;
 };
 
 const handleFulfilledLoad = (state, { payload }) => {
   state.items.push(...payload);
+  state.length = payload.length;
 };
 
 //-----------------------
@@ -44,6 +46,7 @@ const advertsSlice = createSlice({
   name: 'adverts',
   initialState: {
     items: [],
+    length: 0,
     isLoading: false,
     error: null,
   },

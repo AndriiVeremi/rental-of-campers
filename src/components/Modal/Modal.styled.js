@@ -11,7 +11,6 @@ export const Overlay = styled.div`
   align-items: center;
   z-index: 1200;
   background: rgba(18, 20, 23, 0.5);
-
 `;
 
 export const ModalContainer = styled.div`
@@ -23,5 +22,5 @@ export const ModalContainer = styled.div`
 `;
 
 export const ModalWrapper = styled.div`
-width: 982px;
+  width: 982px;
 `;

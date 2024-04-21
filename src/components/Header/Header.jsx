@@ -1,5 +1,4 @@
-import { NavLink } from 'react-router-dom';
-import { WrapperNav, Logo, ListNav, ListItem,  } from './Header.module';
+import { WrapperNav, Logo, ListNav, ListItem, ItemsLink  } from './Header.module';
 
 const Header = () => {
   return (
@@ -7,13 +6,13 @@ const Header = () => {
       <Logo>Rental Of Campers</Logo>
       <ListNav>
         <ListItem>
-          <NavLink to="/">Home</NavLink>
+          <ItemsLink to="/">Home</ItemsLink>
         </ListItem>
         <ListItem>
-          <NavLink to="/catalog">Catalog</NavLink>
+          <ItemsLink to="/catalog">Catalog</ItemsLink>
         </ListItem>
         <ListItem>
-          <NavLink to="/favorites">Favorites</NavLink>
+          <ItemsLink to="/favorites">Favorites</ItemsLink>
         </ListItem>
       </ListNav>
     </WrapperNav>

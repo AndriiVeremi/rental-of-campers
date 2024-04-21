@@ -35,3 +35,15 @@ export const Button = styled.button`
     border: 1px solid #e44848;
   }
 `;
+
+export const Errors = styled.h2`
+
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  color: #e44848;
+`;
+

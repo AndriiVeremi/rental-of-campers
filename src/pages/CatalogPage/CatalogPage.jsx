@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FiltersBar from 'components/FiltersBar/FiltersBar';
 import CatalogList from 'components/CatalogList/CatalogList';
+import Loaders from 'components/Loaders/Loaders';
 import { fetchCampers, loadMoreCampers } from 'store/operations';
 import { Modal } from 'components/Modal/Modal';
-import { selectCampers, selectIsLoading, selectError, } from 'store/selectors';
-
-import { CatalogPageWrapper, ListWrapper, Button } from './CatalogPage.module';
+import { selectCampers, selectRespLength, selectIsLoading, selectError } from 'store/selectors';
+import { CatalogPageWrapper, ListWrapper, Button, Errors } from './CatalogPage.module';
 
 const CatalogPage = () => {
   const campers = useSelector(selectCampers);
-
+  const respLength = useSelector(selectRespLength);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const dispatch = useDispatch();
@@ -27,14 +27,6 @@ const CatalogPage = () => {
     }
   }, [dispatch, page]);
 
-  if (isLoading && !error) {
-    return <b>Request in progress...</b>;
-  }
-
-  if (error) {
-    return <b>{error}</b>;
-  }
-
   const toggleModal = data => {
     setShowModal(!showModal);
     setSelectedCamper(data);
@@ -49,8 +41,10 @@ const CatalogPage = () => {
       <CatalogPageWrapper>
         <FiltersBar />
         <ListWrapper>
-          <CatalogList campers={campers} toggleModal={toggleModal} />
-          {campers.length > 0 && !isLoading && <Button onClick={onLoadMore}>Load more</Button>}
+          {isLoading && <Loaders/>}
+          {error && <Errors>error:{`${error}`}</Errors>}
+          {campers.length !== 0 && <CatalogList campers={campers} toggleModal={toggleModal} />}
+          {respLength > 1 && <Button onClick={onLoadMore}>Load more</Button>}
         </ListWrapper>
       </CatalogPageWrapper>
       {showModal && <Modal onClose={toggleModal} campers={selectedCamper} />}

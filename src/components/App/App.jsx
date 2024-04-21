@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import NavLayout from '../../layouts/NavLayout';
+import Loaders from 'components/Loaders/Loaders';
 import { ContainerApp } from './App.module';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
@@ -11,7 +12,7 @@ const PageNotFound = lazy(() => import('../../pages/PageNotFound/PageNotFound'))
 export const App = () => {
   return (
     <ContainerApp>
-      <Suspense fallback={<h1>loading...</h1>}>
+      <Suspense fallback={<Loaders/>}>
         <Routes>
           <Route path="/" element={<NavLayout />}>
             <Route index element={<HomePage />} />
