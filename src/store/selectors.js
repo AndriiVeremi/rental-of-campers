@@ -36,8 +36,4 @@ const flattenedArray = flatObjects(campers);
 
 console.log('flattenedArray',flattenedArray);
 
-//===================================
-
-
-
 });
