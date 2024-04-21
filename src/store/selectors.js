@@ -38,35 +38,6 @@ console.log('flattenedArray',flattenedArray);
 
 //===================================
 
-// const multiFilter = (arr, filters) => {
-//     return arr.filter(item => {
-//       // Filter by form transmission
-//       if (filters.transmission && item?.transmission !== 'automatic') {
-//         return false;
-//       }
-  
-//       // Filter by details
-//       const details = filters.details;
-//       if (Object.values(details).some(value => value)) {
-//         for (const key in details) {
-//           if (details[key] && !item.details[key]) {
-//             return false;
-//           }
-//         }
-//       }
-  
-//       // Filter by form
-//       const form = filters.form;
-//       if (Object.values(form).some(value => value)) {
-//         return (
-//           Object.keys(form)
-//             .filter(el => form[el])
-//             .indexOf(item.form) > -1
-//         );
-//       }
-  
-//       return true;
-//     });
-//   };
+
 
 });
