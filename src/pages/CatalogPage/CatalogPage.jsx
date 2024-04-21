@@ -4,12 +4,13 @@ import FiltersBar from 'components/FiltersBar/FiltersBar';
 import CatalogList from 'components/CatalogList/CatalogList';
 import { fetchCampers, loadMoreCampers } from 'store/operations';
 import { Modal } from 'components/Modal/Modal';
-import { selectCampers, selectIsLoading, selectError} from 'store/selectors';
+import { selectCampers, selectIsLoading, selectError, } from 'store/selectors';
 
 import { CatalogPageWrapper, ListWrapper, Button } from './CatalogPage.module';
 
 const CatalogPage = () => {
   const campers = useSelector(selectCampers);
+
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const dispatch = useDispatch();

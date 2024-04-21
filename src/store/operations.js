@@ -1,22 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getCampers } from 'api/campersAPI';
+import { getCampers, getCampersAll } from 'api/campersAPI';
 
 export const fetchCampers = createAsyncThunk(
-  'adverts/fetchAll',
+  'adverts/fetch',
    async (_, { rejectWithValue }) => {
   try {
     const { data } = await getCampers();
-    return data;
-  } catch (error) {
-    return rejectWithValue(error.message);
-  }
-});
-
-export const fetchCampersId = createAsyncThunk(
-  'adverts/fetchId',
-   async (id, { rejectWithValue }) => {
-  try {
-    const { data } = await getCampers(id);
     return data;
   } catch (error) {
     return rejectWithValue(error.message);
@@ -28,6 +17,17 @@ export const loadMoreCampers = createAsyncThunk(
    async (page, { rejectWithValue }) => {
   try {
     const { data } = await getCampers(page);
+    return data;
+  } catch (error) {
+    return rejectWithValue(error.message);
+  }
+});
+
+export const fetchCamperAll = createAsyncThunk(
+  'adverts/fetchAll',
+   async (_, { rejectWithValue }) => {
+  try {
+    const { data } = await getCampersAll();
     return data;
   } catch (error) {
     return rejectWithValue(error.message);

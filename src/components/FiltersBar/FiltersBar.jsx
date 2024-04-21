@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { ReactComponent as Transmision } from '../../images/transmision.svg';
 import { ReactComponent as Tv } from '../../images/tv.svg';
@@ -8,6 +9,8 @@ import { ReactComponent as Climat } from '../../images/vind.svg';
 import { ReactComponent as Van } from '../../images/campVan.svg';
 import { ReactComponent as Aalcon } from '../../images/campValcon.svg';
 import { ReactComponent as Integ } from '../../images/campInteg.svg';
+
+import { addFilters } from 'store/filtersSlice';
 
 import {
   BarApp,
@@ -19,12 +22,16 @@ import {
   BarLine,
   NameFilter,
   VehicleOptionsList,
-  OptionsLable,
   VehicleTypeList,
   Button,
+  CheckboxWrapper,
+  CheckboxInput,
+  CheckboxCheckmark,
 } from './FiltersBar.module';
 
 const FiltersBar = data => {
+  const dispatch = useDispatch();
+
   const [location, setLocation] = useState('');
   const [details, setDetails] = useState({
     ac: false,
@@ -56,9 +63,12 @@ const FiltersBar = data => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    console.log('location:', location);
-    console.log('details:', details);
-    console.log('type:', type);
+    dispatch(addFilters({ location, ...details, ...type }));
+
+    // console.log('location:', location);
+    // console.log('details:', details);
+    // console.log('type:', type);
+   
   };
 
   return (
@@ -76,48 +86,68 @@ const FiltersBar = data => {
 
           <VehicleOptionsList>
             <li>
-              <OptionsLable>
-                <input type="checkbox" name="ac" checked={details.ac} onChange={handleCheckboxChange} />
-                <Climat style={{ width: '32', height: '32' }} />
-                AC
-              </OptionsLable>
+              <CheckboxWrapper>
+                <CheckboxInput type="checkbox" name="ac" checked={details.ac} onChange={handleCheckboxChange} />
+                <CheckboxCheckmark checked={details.ac}>
+                  <Climat style={{ width: '32', height: '32' }} />
+                  AC
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
             </li>
 
             <li>
-              <OptionsLable>
-                <input
+              <CheckboxWrapper>
+                <CheckboxInput
                   type="checkbox"
                   name="transmision"
                   checked={details.transmision}
                   onChange={handleCheckboxChange}
                 />
-                <Transmision style={{ width: '32', height: '32' }} />
-                Automatic
-              </OptionsLable>
+                <CheckboxCheckmark checked={details.transmision}>
+                  <Transmision style={{ width: '32', height: '32' }} />
+                  Automatic
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
             </li>
 
             <li>
-              <OptionsLable>
-                <input type="checkbox" name="kitchen" checked={details.kitchen} onChange={handleCheckboxChange} />
-                <Kitchen style={{ width: '32', height: '32' }} />
-                Kitchen
-              </OptionsLable>
+              <CheckboxWrapper>
+                <CheckboxInput
+                  type="checkbox"
+                  name="kitchen"
+                  checked={details.kitchen}
+                  onChange={handleCheckboxChange}
+                />
+                <CheckboxCheckmark checked={details.kitchen}>
+                  <Kitchen style={{ width: '32', height: '32' }} />
+                  Kitchen
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
             </li>
 
             <li>
-              <OptionsLable>
-                <input type="checkbox" name="tv" checked={details.tv} onChange={handleCheckboxChange} />
-                <Tv style={{ width: '32', height: '32' }} />
-                TV
-              </OptionsLable>
+              <CheckboxWrapper>
+                <CheckboxInput type="checkbox" name="tv" checked={details.tv} onChange={handleCheckboxChange} />
+                <CheckboxCheckmark checked={details.tv}>
+                  <Tv style={{ width: '32', height: '32' }} />
+                  TV
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
             </li>
 
             <li>
-              <OptionsLable>
-                <input type="checkbox" name="shower" checked={details.showers} onChange={handleCheckboxChange} />
-                <Shover style={{ width: '32', height: '32' }} />
-                Shower/WC
-              </OptionsLable>
+              <CheckboxWrapper>
+                <CheckboxInput
+                  type="checkbox"
+                  name="shovers"
+                  checked={details.shovers}
+                  onChange={handleCheckboxChange}
+                />
+                <CheckboxCheckmark checked={details.shovers}>
+                  <Shover style={{ width: '32', height: '32' }} />
+                  Shower/WC
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
             </li>
           </VehicleOptionsList>
         </div>
@@ -128,27 +158,33 @@ const FiltersBar = data => {
 
           <VehicleTypeList>
             <li>
-              <OptionsLable>
-                <input type="checkbox" name="van" checked={type.van} onChange={handleCheckboxType} />
-                <Van style={{ width: '40px', height: '28px' }} />
-                Van
-              </OptionsLable>
+              <CheckboxWrapper>
+                <CheckboxInput type="checkbox" name="van" checked={type.van} onChange={handleCheckboxType} />
+                <CheckboxCheckmark checked={type.van}>
+                  <Van style={{ width: '40px', height: '28px' }} />
+                  Van
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
             </li>
 
             <li>
-              <OptionsLable>
-                <input type="checkbox" name="integ" checked={type.integ} onChange={handleCheckboxType} />
-                <Integ style={{ width: '40px', height: '28px' }} />
-                Fully Integrated
-              </OptionsLable>
+              <CheckboxWrapper>
+                <CheckboxInput type="checkbox" name="integ" checked={type.integ} onChange={handleCheckboxType} />
+                <CheckboxCheckmark checked={type.integ}>
+                  <Integ style={{ width: '40px', height: '28px' }} />
+                  Fully Integrated
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
             </li>
 
             <li>
-              <OptionsLable>
-                <input type="checkbox" name="alcove" checked={type.alcove} onChange={handleCheckboxType} />
-                <Aalcon style={{ width: '40px', height: '28px' }} />
-                Alcove
-              </OptionsLable>
+              <CheckboxWrapper>
+                <CheckboxInput type="checkbox" name="alcove" checked={type.alcove} onChange={handleCheckboxType} />
+                <CheckboxCheckmark checked={type.alcove}>
+                  <Aalcon style={{ width: '40px', height: '28px' }} />
+                  Alcove
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
             </li>
           </VehicleTypeList>
         </div>

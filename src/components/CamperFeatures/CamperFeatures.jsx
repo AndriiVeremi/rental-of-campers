@@ -17,7 +17,7 @@ import { ReactComponent as Radio } from "../../images/radio.svg";
 import { InfoWrapper, InfoList, InfoItem, InfoTitle, BarLine, DetailsList, DetailsItem, DetailsItemName} from './CamperFeatures.module';
 
 const CamperFeatures = ({ data }) => {
-console.log('data',data)
+
   const { adults, transmission, details, engine, form, length, width, height, tank, consumption } = data;
 
   return (

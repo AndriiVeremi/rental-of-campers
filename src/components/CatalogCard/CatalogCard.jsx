@@ -43,7 +43,6 @@ const CatalogCard = ({ campers, toggleModal }) => {
   const dispatch = useDispatch();
 
   const goFavorite = () => {
-    
     if (isFavorit(_id, favorites)) {
       dispatch(deleteFavorite(campers));
     } else {

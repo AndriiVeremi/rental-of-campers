@@ -1,16 +1,12 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Overlay, ModalContainer, ModalWrapper} from './Modal.styled';
+import { Overlay, ModalContainer, ModalWrapper } from './Modal.styled';
 import CamperInfo from 'components/CamperInfo/CamperInfo';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ campers, onClose }) => {
-
-console.log('campers', campers)
-
   useEffect(() => {
-    
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
         onClose();
@@ -22,7 +18,6 @@ console.log('campers', campers)
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-
   }, [onClose]);
 
   const handleBackdropClick = e => {
@@ -35,7 +30,7 @@ console.log('campers', campers)
     <Overlay onClick={handleBackdropClick}>
       <ModalContainer>
         <ModalWrapper>
-        <CamperInfo data={campers} onClose={onClose}/>
+          <CamperInfo data={campers} onClose={onClose} />
         </ModalWrapper>
       </ModalContainer>
     </Overlay>,

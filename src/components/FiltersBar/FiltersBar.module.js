@@ -64,38 +64,6 @@ export const VehicleOptionsList = styled.ul`
   margin-bottom: 32px;
 `;
 
-export const VehicleOptionsItem = styled.li`
-
-`;
-
-export const OptionsLable = styled.label`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 110px;
-  height: 95px;
-  gap: 8px;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.4;
-  border-radius: 10px;
-  border: 1px solid rgba(16, 24, 40, 0.2);
- 
-  &:hover {
-    cursor: pointer;
-  }
-
-  /* &:checked{
-    border: 1px solid red;
-    outline: 12px solid red;
-  } */
-`;
-
-
-
-
-
 export const Button = styled.button`
   display: inline-flex;
   padding: 16px 60px;
@@ -107,7 +75,7 @@ export const Button = styled.button`
   background: #e44848;
 
   color: #fff;
-  /* font-family: Inter; */
+  font-family: Inter;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -124,7 +92,6 @@ export const Button = styled.button`
 export const InfoImg = styled.img`
   width: 32px;
   height: 32px;
-  
 `;
 
 export const VehicleTypeList = styled.ul`
@@ -140,4 +107,48 @@ export const VehicleTypeList = styled.ul`
 export const TypeImg = styled.img`
   width: 40px;
   height: 28px;
+`;
+
+export const CheckboxWrapper = styled.label`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 110px;
+  height: 95px;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  border-radius: 10px;
+  border: 1px solid ${({ checked }) => (checked ? '#E44848' : '#cfd1d4')};
+
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+`;
+
+export const CheckboxInput = styled.input`
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+`;
+
+export const CheckboxCheckmark = styled.span`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  width: 110px;
+  height: 95px;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  border-radius: 10px;
+  border: 1px solid ${({ checked }) => (checked ? '#E44848' : '#cfd1d4')};
+
+  &:hover {
+  }
 `;
