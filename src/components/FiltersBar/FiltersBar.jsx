@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import MainButton from 'components/MainButton/MainButton';
+
 import { ReactComponent as Transmision } from '../../images/transmision.svg';
 import { ReactComponent as Tv } from '../../images/tv.svg';
 import { ReactComponent as Kitchen } from '../../images/kitchen.svg';
@@ -23,7 +25,6 @@ import {
   NameFilter,
   VehicleOptionsList,
   VehicleTypeList,
-  Button,
   CheckboxWrapper,
   CheckboxInput,
   CheckboxCheckmark,
@@ -189,9 +190,8 @@ const FiltersBar = data => {
           </VehicleTypeList>
         </div>
 
-        <Button type="submit" onClick={handleSubmit}>
-          Search
-        </Button>
+        <MainButton type="submit" size="large" onClick={handleSubmit}>Search</MainButton>
+
       </BarForm>
     </BarApp>
   );

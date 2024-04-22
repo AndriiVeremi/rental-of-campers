@@ -6,7 +6,8 @@ import Loaders from 'components/Loaders/Loaders';
 import { fetchCampers, loadMoreCampers } from 'store/operations';
 import { Modal } from 'components/Modal/Modal';
 import { selectCampers, selectRespLength, selectIsLoading, selectError } from 'store/selectors';
-import { CatalogPageWrapper, ListWrapper, Button, Errors } from './CatalogPage.module';
+import { CatalogPageWrapper, ListWrapper, Errors } from './CatalogPage.module';
+import { LoadMoreButton } from 'components/MainButton/MainButton.styled';
 
 const CatalogPage = () => {
   const campers = useSelector(selectCampers);
@@ -44,7 +45,7 @@ const CatalogPage = () => {
           {isLoading && <Loaders/>}
           {error && <Errors>error:{`${error}`}</Errors>}
           {campers.length !== 0 && <CatalogList campers={campers} toggleModal={toggleModal} />}
-          {respLength > 1 && <Button onClick={onLoadMore}>Load more</Button>}
+          {respLength > 1 && <LoadMoreButton type="button" onClick={onLoadMore}>Load more</LoadMoreButton>}
         </ListWrapper>
       </CatalogPageWrapper>
       {showModal && <Modal onClose={toggleModal} campers={selectedCamper} />}

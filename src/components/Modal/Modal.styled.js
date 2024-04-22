@@ -19,6 +19,7 @@ export const ModalContainer = styled.div`
   left: 50%;
   overflow: hidden;
   transform: translate(-50%, -50%);
+  border-radius: 20px;
 `;
 
 export const ModalWrapper = styled.div`

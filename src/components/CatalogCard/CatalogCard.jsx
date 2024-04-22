@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, deleteFavorite } from 'store/favoritesSlice';
 import { selectFavorites } from 'store/selectors';
 
+import MainButton from 'components/MainButton/MainButton';
+
 import { sliceText } from 'utils/sliceText';
 import { corectPrice } from 'utils/corectPrice';
 import { ifDetails } from 'utils/ifDetails';
@@ -31,7 +33,7 @@ import {
   InfoWrapper,
   InfoList,
   InfoItem,
-  Button,
+  // Button,
 } from './CatalogCard.module';
 
 const CatalogCard = ({ campers, toggleModal }) => {
@@ -130,9 +132,7 @@ const CatalogCard = ({ campers, toggleModal }) => {
           </InfoList>
         </InfoWrapper>
 
-        <Button type="button" onClick={() => toggleModal(campers)}>
-          Show more
-        </Button>
+        <MainButton type="button" size="medium" onClick={() => toggleModal(campers)}>Show more</MainButton>
       </div>
     </ListItem>
   );

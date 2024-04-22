@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 // import { useDispatch } from 'react-redux';
+import MainButton from 'components/MainButton/MainButton';
 
 import {
   BookNowWrapper,
@@ -10,7 +11,6 @@ import {
   BookNowLable,
   BookNowInput,
   BookNowTextarea,
-  BookNowBtn,
 } from './BookNow.styled';
 
 const BookNow = () => {
@@ -95,7 +95,7 @@ const BookNow = () => {
           />
         </BookNowLable>
 
-        <BookNowBtn type="submit">Submit</BookNowBtn>
+        <MainButton type="submit" size="small" >Submit</MainButton>
       </BookNowForm>
     </BookNowWrapper>
   );
