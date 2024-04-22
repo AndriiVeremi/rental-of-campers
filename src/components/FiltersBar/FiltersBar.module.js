@@ -17,7 +17,7 @@ export const BarName = styled.label`
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; /* 150% */
+  line-height: 24px; 
 `;
 
 export const BarInput = styled.input`
@@ -35,17 +35,15 @@ export const BarInput = styled.input`
 export const BarNameFilter = styled.h2`
   color: rgba(16, 24, 40, 0.6);
   font-size: 16px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 24px; /* 150% */
+  line-height: 24px; /
   margin-bottom: 14px;
 `;
 
 export const NameFilter = styled.p`
   font-size: 20px;
-  font-style: normal;
   font-weight: 600;
-  line-height: 24px; /* 120% */
+  line-height: 24px; 
   margin-bottom: 24px;
 `;
 

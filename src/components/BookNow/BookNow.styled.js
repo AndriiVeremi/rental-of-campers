@@ -8,27 +8,21 @@ export const BookNowWrapper = styled.div`
 `;
 
 export const BookNowInfo = styled.div`
-  /* display: flex;
-flex-direction: column; */
   margin-bottom: 24px;
 `;
 
 export const BookTitle = styled.h2`
   color: #101828;
-  font-family: Inter;
   font-size: 20px;
-  font-style: normal;
   font-weight: 600;
-  line-height: 24px; /* 120% */
+  line-height: 24px; 
 `;
 
 export const BookSubTitle = styled.h3`
   color: #475467;
-  font-family: Inter;
   font-size: 16px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px; 
 `;
 
 export const BookNowForm = styled.form`
@@ -47,11 +41,8 @@ export const BookNowInput = styled.input`
   border: none;
 
   color: rgba(16, 24, 40, 0.6);
-  font-family: Inter;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px; /* 125% */
+  line-height: 20px; 
   width: 365px;
 `;
 
@@ -61,12 +52,8 @@ export const BookNowTextarea = styled.textarea`
   padding: 18px;
 
   color: rgba(16, 24, 40, 0.6);
-  font-family: Inter;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px; /* 125% */
+  line-height: 20px; 
   border: none;
   width: 365px;
 `;
-

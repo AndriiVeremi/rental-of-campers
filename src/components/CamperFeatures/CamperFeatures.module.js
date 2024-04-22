@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const InfoWrapper = styled.div``;
 
@@ -26,14 +26,11 @@ export const InfoImg = styled.img`
 `;
 
 export const InfoTitle = styled.h2`
- margin-bottom: 24px;
-
-color: #101828;
-font-family: Inter;
-font-size: 20px;
-font-style: normal;
-font-weight: 600;
-line-height: 24px; /* 120% */
+  margin-bottom: 24px;
+  color: #101828;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px; 
 `;
 
 export const BarLine = styled.div`
@@ -42,32 +39,29 @@ export const BarLine = styled.div`
 `;
 
 export const DetailsList = styled.ul`
- display: flex;
- gap: 14px;
- flex-direction: column;
+  display: flex;
+  gap: 14px;
+  flex-direction: column;
 `;
 
 export const DetailsItem = styled.li`
- display: flex;
- justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const DetailsItemName = styled.p`
- color: #101828;
-text-align: center;
-font-family: Inter;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: 24px; /* 133.333% */
+  color: #101828;
+  text-align: center;
+  font-size: 18px;
+
+  font-weight: 500;
+  line-height: 24px; 
 `;
 
 export const DetailsItemResult = styled.span`
- color: #101828;
-text-align: center;
-font-family: Inter;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: 24px; /* 133.333% */
+  color: #101828;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px; 
 `;

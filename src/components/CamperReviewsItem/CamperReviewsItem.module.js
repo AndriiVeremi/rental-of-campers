@@ -23,27 +23,20 @@ margin-right: 16px;
 
 export const ReviewAvatarName = styled.h2`
 color: #E44848;
-font-family: Inter;
 font-size: 24px;
-font-style: normal;
 font-weight: 600;
-line-height: 30px; /* 125% */
+line-height: 30px;
 `;
 
 export const ReviewName = styled.p`
 color: #101828;
-font-family: Inter;
 font-size: 18px;
-font-style: normal;
 font-weight: 600;
-line-height: 24px; /* 133.333% */
+line-height: 24px; 
 `;
 
 export const ReviewComment = styled.p`
 color: #475467;
-font-family: Inter;
 font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 24px; /* 150% */
+line-height: 24px; 
 `;

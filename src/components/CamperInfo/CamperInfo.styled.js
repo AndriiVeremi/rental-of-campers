@@ -36,7 +36,7 @@ export const NameWrapper = styled.div`
   color: #101828;
   font-size: 24px;
   font-weight: 600;
-  line-height: 30px; /* 125% */
+  line-height: 30px; 
 
   margin-bottom: 10px;
 `;
@@ -51,22 +51,16 @@ export const RatingWrapper = styled.div`
 export const Rating = styled.span`
   display: flex;
   gap: 5px;
-  /* font-family: Inter; */
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px; 
   text-decoration-line: underline;
 `;
 
 export const Location = styled.span`
   display: flex;
   gap: 5px;
-  /* font-family: Inter; */
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
   text-decoration-line: underline;
 `;
 
@@ -76,11 +70,9 @@ export const PriceWrapper = styled.div`
 
 export const Price = styled.p`
   color: #101828;
-  font-family: Inter;
   font-size: 24px;
-  font-style: normal;
   font-weight: 600;
-  line-height: 30px; /* 125% */
+  line-height: 30px; 
 `;
 
 export const GalleryListWrapper = styled.div`
@@ -114,11 +106,8 @@ export const DescriptionWrapper = styled.div`
 
 export const Description = styled.p`
   color: #475467;
-  font-family: Inter;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
 `;
 
 export const InfoWrapper = styled.div``;
@@ -137,7 +126,6 @@ export const InfoItemBtn = styled.button`
   background: none;
   border: none;
   color: #101828;
-  font-family: Inter;
   font-size: 20px;
   font-weight: 600;
   line-height: 24px; /* 120% */

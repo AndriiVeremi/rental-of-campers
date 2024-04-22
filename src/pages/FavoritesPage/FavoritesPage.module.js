@@ -24,10 +24,9 @@ export const Button = styled.button`
   border: 1px solid rgba(71, 84, 103, 0.2);
 
   color: #101828;
-  font-family: Inter;
   font-size: 16px;
   font-weight: 500;
-  line-height: 24px; /* 150% */
+  line-height: 24px; 
   letter-spacing: -0.08px;
   outline: none;
 
