@@ -5,7 +5,7 @@ import CatalogList from 'components/CatalogList/CatalogList';
 import Loaders from 'components/Loaders/Loaders';
 import { fetchCampers, loadMoreCampers } from 'store/operations';
 import { Modal } from 'components/Modal/Modal';
-import { selectCampers, selectRespLength, selectIsLoading, selectError } from 'store/selectors';
+import { selectCampers, selectRespLength, selectIsLoading, selectError, selectFilteredCampers  } from 'store/selectors';
 import { CatalogPageWrapper, ListWrapper, Errors } from './CatalogPage.module';
 import { LoadMoreButton } from 'components/MainButton/MainButton.styled';
 
@@ -14,11 +14,19 @@ const CatalogPage = () => {
   const respLength = useSelector(selectRespLength);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+
+  //----------------------------------------
+  const camp = useSelector(selectFilteredCampers);
+  console.log('FiltredCamper', camp)
+  //----------------------------------------
+
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
   const [selectedCamper, setSelectedCamper] = useState(null);
   const [page, setPage] = useState(1);
+
+
 
   useEffect(() => {
     if (page === 1) {

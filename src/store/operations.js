@@ -24,7 +24,7 @@ export const loadMoreCampers = createAsyncThunk(
 });
 
 export const fetchCamperAll = createAsyncThunk(
-  'adverts/fetchAll',
+  'filters/fetchAll',
    async (_, { rejectWithValue }) => {
   try {
     const { data } = await getCampersAll();

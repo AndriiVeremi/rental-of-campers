@@ -123,6 +123,4 @@ export const CheckboxCheckmark = styled.span`
   border-radius: 10px;
   border: 1px solid ${({ checked }) => (checked ? '#E44848' : '#cfd1d4')};
 
-  &:hover {
-  }
 `;

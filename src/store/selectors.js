@@ -7,33 +7,29 @@ export const selectError = state => state.adverts.error;
 
 export const selectFavorites = state => state.favorites.items;
 
-export const selectCampersFiltered = state => state.filters.items;
+export const selectAllCampers = state => state.filters.items;
+export const selectFiltered = state => state.filters.filters;
 
-export const selectFilteredContacts = createSelector([selectCampers, selectCampersFiltered], (campers, filters) => {
-  console.log('campers', campers);
-  console.log('filters', filters);
+export const selectFilteredCampers = createSelector([selectAllCampers, selectFiltered], (campers, filters) => {
+  console.log('selectCampers', campers);
+  console.log('selectFilters', filters);
 
-  function flatObjects(campers) {
-    function flatten(object) {
-        const result = {};
-        for (const key in object) {
-            if (typeof object[key] === 'object' && object[key] !== null) {
-                const flattenedValue = flatten(object[key]);
-                for (const flattenedKey in flattenedValue) {
-                    result[key + '.' + flattenedKey] = flattenedValue[flattenedKey];
-                }
-            } else {
-                result[key] = object[key];
-            }
+return campers.filter(item => {
+    for (const key in filters) {
+      if (filters[key] && item.hasOwnProperty(key) && filters[key] === true) {
+        return true;
+      }
+      if (typeof filters[key] === 'object' && filters[key] !== null) {
+        for (const subKey in filters[key]) {
+          if (filters[key][subKey] && item[key] && item[key].hasOwnProperty(subKey) && filters[key][subKey] === true) {
+            return true;
+          }
         }
-        return result;
+      }
     }
-
-    return campers.map(obj => flatten({ ...obj }));
-}
-
-const flattenedArray = flatObjects(campers);
-
-console.log('flattenedArray',flattenedArray);
+    return false;
+  });
 
 });
+
+

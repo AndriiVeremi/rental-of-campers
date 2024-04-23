@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { addFilters } from 'store/filtersSlice';
+import { fetchCamperAll } from 'store/operations';
+
 import MainButton from 'components/MainButton/MainButton';
 
 import { ReactComponent as Transmision } from '../../images/transmision.svg';
@@ -11,8 +14,6 @@ import { ReactComponent as Climat } from '../../images/vind.svg';
 import { ReactComponent as Van } from '../../images/campVan.svg';
 import { ReactComponent as Aalcon } from '../../images/campValcon.svg';
 import { ReactComponent as Integ } from '../../images/campInteg.svg';
-
-import { addFilters } from 'store/filtersSlice';
 
 import {
   BarApp,
@@ -64,12 +65,11 @@ const FiltersBar = data => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    dispatch(addFilters({ location, ...details, ...type }));
+    dispatch(addFilters({ location, details, type }));
+    dispatch(fetchCamperAll());
 
-    // console.log('location:', location);
-    // console.log('details:', details);
-    // console.log('type:', type);
-   
+    console.log('dispatchFilters:', { location, ...details, ...type });
+ 
   };
 
   return (
