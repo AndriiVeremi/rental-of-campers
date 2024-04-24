@@ -35,21 +35,30 @@ const FiltersBar = data => {
   const dispatch = useDispatch();
 
   const [location, setLocation] = useState('');
-  const [details, setDetails] = useState({
-    ac: false,
-    transmision: false,
-    kitchen: false,
-    tv: false,
-    shovers: false,
+
+  const [transmission, setTransmission] = useState({
+    transmission: false,
   });
-  const [type, setTypeCamp] = useState({
-    van: false,
+
+  const [details, setDetails] = useState({
+    airConditioner: false,
+    kitchen: false,
+    TV: false,
+    shower: false,
+  });
+  const [form, setForm] = useState({
+    panelTruck: false,
     integ: false,
     alcove: false,
   });
 
   const handleChangeLocation = e => {
     setLocation(e.target.value);
+  };
+
+  const handleChangeTransmision = e => {
+    const { name, checked } = e.target;
+    setTransmission({ ...transmission, [name]: checked });
   };
 
   const handleCheckboxChange = e => {
@@ -59,17 +68,16 @@ const FiltersBar = data => {
 
   const handleCheckboxType = e => {
     const { name, checked } = e.target;
-    setTypeCamp({ ...type, [name]: checked });
+    setForm({ ...form, [name]: checked });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    dispatch(addFilters({ location, details, type }));
+    dispatch(addFilters({ location, transmission, details, form }));
     dispatch(fetchCamperAll());
 
-    console.log('dispatchFilters:', { location, ...details, ...type });
- 
+    console.log('dispatchFilters:', { location, transmission, details, form });
   };
 
   return (
@@ -88,8 +96,13 @@ const FiltersBar = data => {
           <VehicleOptionsList>
             <li>
               <CheckboxWrapper>
-                <CheckboxInput type="checkbox" name="ac" checked={details.ac} onChange={handleCheckboxChange} />
-                <CheckboxCheckmark checked={details.ac}>
+                <CheckboxInput
+                  type="checkbox"
+                  name="airConditioner"
+                  checked={details.airConditioner}
+                  onChange={handleCheckboxChange}
+                />
+                <CheckboxCheckmark checked={details.airConditioner}>
                   <Climat style={{ width: '32', height: '32' }} />
                   AC
                 </CheckboxCheckmark>
@@ -100,11 +113,11 @@ const FiltersBar = data => {
               <CheckboxWrapper>
                 <CheckboxInput
                   type="checkbox"
-                  name="transmision"
-                  checked={details.transmision}
-                  onChange={handleCheckboxChange}
+                  name="transmission"
+                  checked={transmission.transmission}
+                  onChange={handleChangeTransmision}
                 />
-                <CheckboxCheckmark checked={details.transmision}>
+                <CheckboxCheckmark checked={transmission.transmission}>
                   <Transmision style={{ width: '32', height: '32' }} />
                   Automatic
                 </CheckboxCheckmark>
@@ -128,8 +141,8 @@ const FiltersBar = data => {
 
             <li>
               <CheckboxWrapper>
-                <CheckboxInput type="checkbox" name="tv" checked={details.tv} onChange={handleCheckboxChange} />
-                <CheckboxCheckmark checked={details.tv}>
+                <CheckboxInput type="checkbox" name="TV" checked={details.TV} onChange={handleCheckboxChange} />
+                <CheckboxCheckmark checked={details.TV}>
                   <Tv style={{ width: '32', height: '32' }} />
                   TV
                 </CheckboxCheckmark>
@@ -138,13 +151,8 @@ const FiltersBar = data => {
 
             <li>
               <CheckboxWrapper>
-                <CheckboxInput
-                  type="checkbox"
-                  name="shovers"
-                  checked={details.shovers}
-                  onChange={handleCheckboxChange}
-                />
-                <CheckboxCheckmark checked={details.shovers}>
+                <CheckboxInput type="checkbox" name="shower" checked={details.shower} onChange={handleCheckboxChange} />
+                <CheckboxCheckmark checked={details.shower}>
                   <Shover style={{ width: '32', height: '32' }} />
                   Shower/WC
                 </CheckboxCheckmark>
@@ -160,8 +168,13 @@ const FiltersBar = data => {
           <VehicleTypeList>
             <li>
               <CheckboxWrapper>
-                <CheckboxInput type="checkbox" name="van" checked={type.van} onChange={handleCheckboxType} />
-                <CheckboxCheckmark checked={type.van}>
+                <CheckboxInput
+                  type="checkbox"
+                  name="panelTruck"
+                  checked={form.panelTruck}
+                  onChange={handleCheckboxType}
+                />
+                <CheckboxCheckmark checked={form.panelTruck}>
                   <Van style={{ width: '40px', height: '28px' }} />
                   Van
                 </CheckboxCheckmark>
@@ -170,8 +183,8 @@ const FiltersBar = data => {
 
             <li>
               <CheckboxWrapper>
-                <CheckboxInput type="checkbox" name="integ" checked={type.integ} onChange={handleCheckboxType} />
-                <CheckboxCheckmark checked={type.integ}>
+                <CheckboxInput type="checkbox" name="integ" checked={form.integ} onChange={handleCheckboxType} />
+                <CheckboxCheckmark checked={form.integ}>
                   <Integ style={{ width: '40px', height: '28px' }} />
                   Fully Integrated
                 </CheckboxCheckmark>
@@ -180,8 +193,8 @@ const FiltersBar = data => {
 
             <li>
               <CheckboxWrapper>
-                <CheckboxInput type="checkbox" name="alcove" checked={type.alcove} onChange={handleCheckboxType} />
-                <CheckboxCheckmark checked={type.alcove}>
+                <CheckboxInput type="checkbox" name="alcove" checked={form.alcove} onChange={handleCheckboxType} />
+                <CheckboxCheckmark checked={form.alcove}>
                   <Aalcon style={{ width: '40px', height: '28px' }} />
                   Alcove
                 </CheckboxCheckmark>
@@ -190,8 +203,9 @@ const FiltersBar = data => {
           </VehicleTypeList>
         </div>
 
-        <MainButton type="submit" size="large" onClick={handleSubmit}>Search</MainButton>
-
+        <MainButton type="submit" size="large" onClick={handleSubmit}>
+          Search
+        </MainButton>
       </BarForm>
     </BarApp>
   );

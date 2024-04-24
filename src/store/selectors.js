@@ -11,77 +11,30 @@ export const selectAllCampers = state => state.filters.items;
 export const selectFiltered = state => state.filters.filters;
 
 export const selectFilteredCampers = createSelector([selectAllCampers, selectFiltered], (campers, filters) => {
-  console.log('selectCampers', campers);
-  console.log('selectFilters', filters);
+  return campers.filter(item => {
 
-//   const isEmpty = (obj) => {
-//     return Object.keys(obj).length === 0 && obj.constructor === Object;
-//   };
+    if (!item.location.toLowerCase().includes(filters.location.toLowerCase())) {
+      return false;
+    }
 
-//     return campers.filter(item => {
-//       for (const key in filters) {
-//         if ((filters[key] === true || (typeof filters[key] === 'string' && filters[key].trim() !== '')) && (typeof item[key] === 'object' ? !isEmpty(item[key]) : item.hasOwnProperty(key))) {
-//           return true;
-//         }
-//         if (typeof filters[key] === 'object' && filters[key] !== null) {
-//           for (const subKey in filters[key]) {
-//             if ((filters[key][subKey] === true || (typeof filters[key][subKey] === 'string' && filters[key][subKey].trim() !== '')) && (item[key] && typeof item[key] === 'object' ? !isEmpty(item[key]) && item[key].hasOwnProperty(subKey) : item.hasOwnProperty(subKey))) {
-//               return true;
-//             }
-//           }
-//         }
-//       }
-//       return false;
-//     });
+    if (filters.transmission.transmission && item.transmission !== 'automatic') {
+      return false;
+    }
 
-
-if (!filters || Object.keys(filters).length === 0 || !Array.isArray(campers) || campers.length === 0) {
-    return [];
-  }
-
-  const isMatching = (obj1, obj2) => {
-    for (let key in obj1) {
-      if (typeof obj1[key] === 'object') {
-        if (!isMatching(obj1[key], obj2[key])) {
+    const details = filters.details;
+    if (Object.keys(details).some(key => details[key])) {
+      for (const key in details) {
+        if (details[key] && !item.details[key]) {
           return false;
         }
-      } else if (obj1[key] && !obj2[key]) {
-        return false;
       }
     }
+
+    const form = filters.form;
+    if (Object.keys(form).some(key => form[key])) {
+      return Object.keys(form).some(key => form[key] && item.form === key);
+    }
+
     return true;
-  };
-
-  return campers.filter(camper => {
-    return Object.keys(filters).some(key => {
-      if (typeof filters[key] === 'object' && filters[key] !== null) {
-        return isMatching(filters[key], camper[key]);
-      } else {
-        return filters[key] && camper[key];
-      }
-    });
   });
-
-
-
-
-//   return campers.filter(item => {
-//       for (const key in filters) {
-//         if ((filters[key] === true || (typeof filters[key] === 'string' && filters[key].trim() !== '')) && item.hasOwnProperty(key)) {
-//           return true;
-//         }
-//         if (typeof filters[key] === 'object' && filters[key] !== null) {
-//           for (const subKey in filters[key]) {
-//             if ((filters[key][subKey] === true || (typeof filters[key][subKey] === 'string' && filters[key][subKey].trim() !== '')) && item[key] && item[key].hasOwnProperty(subKey)) {
-//               return true;
-//             }
-//           }
-//         }
-//       }
-//       return false;
-//     });
-
-
 });
-
-//---------------------------------------------------------------------
