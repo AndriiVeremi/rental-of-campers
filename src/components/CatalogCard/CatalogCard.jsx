@@ -7,7 +7,7 @@ import MainButton from 'components/MainButton/MainButton';
 
 import { sliceText } from 'utils/sliceText';
 import { corectPrice } from 'utils/corectPrice';
-import { ifDetails } from 'utils/ifDetails';
+import { ifDetails, renderIfDetails } from 'utils/ifDetails';
 import { isFavorit } from 'utils/isFavorit';
 
 import { ReactComponent as Adult } from '../../images/adult.svg';
@@ -41,7 +41,6 @@ import {
   DescriptionText,
   InfoWrapper,
   InfoList,
-  InfoItem,
   Haerts,
   Maps
 } from './CatalogCard.module';
@@ -114,124 +113,23 @@ const CatalogCard = ({ campers, toggleModal }) => {
 
         <InfoWrapper>
           <InfoList>
-            {ifDetails(campers.adults) && (
-              <InfoItem>
-                <Adult style={{ marginRight: '8px' }} />
-                {adults} adults
-              </InfoItem>
-            )}
-
-            {ifDetails(campers.transmission) && (
-              <InfoItem>
-                <Transmision style={{ marginRight: '8px' }} />
-                {transmission}
-              </InfoItem>
-            )}
-
-            {ifDetails(campers.engine) && (
-              <InfoItem>
-                <Benz style={{ marginRight: '8px' }} />
-                {engine}
-              </InfoItem>
-            )}
-
-            {ifDetails(campers.details.kitchen) && (
-              <InfoItem>
-                <Kitchen style={{ marginRight: '8px' }} />
-                {details.kitchen && 'kitchen'}
-              </InfoItem>
-            )}
-
-            {ifDetails(campers.details.beds) && (
-              <InfoItem>
-                <Beds style={{ marginRight: '8px' }} />
-                {details.beds} beds
-              </InfoItem>
-            )}
-
-            {ifDetails(campers.details.airConditioner) && (
-              <InfoItem>
-                <Vind style={{ marginRight: '8px' }} />
-                {details.airConditioner && 'ac'}
-              </InfoItem>
-            )}
-
-            {ifDetails(campers.details.bathroom) && (
-              <InfoItem>
-                <Bathroom style={{ marginRight: '8px' }} />
-                {details.bathroom && 'bathroom'}
-              </InfoItem>
-            )}
-
-            {ifDetails(campers.children) && (
-              <InfoItem>
-                <Children style={{ marginRight: '8px' }} />
-                {children} children
-              </InfoItem>
-            )}
-
-            {ifDetails(campers.details.gas) && (
-              <InfoItem>
-                <Gas style={{ marginRight: '8px' }} />
-                gas {details.gas}
-              </InfoItem>
-            )}
-
-            {ifDetails(campers.details.microwave) && (
-              <InfoItem>
-                <Microwave style={{ marginRight: '8px' }} />
-                {details.microwave && 'microwave'}
-              </InfoItem>
-            )}
-
-            {ifDetails(campers.details.toilet) && (
-              <InfoItem>
-                <Toilet style={{ marginRight: '8px' }} />
-                {details.toilet && 'toilet'}
-              </InfoItem>
-            )}
-
-            {ifDetails(campers.details.water) && (
-              <InfoItem>
-                <Water style={{ marginRight: '8px' }} />
-                water {details.water}
-              </InfoItem>
-            )}
-
-            {ifDetails(campers.details.CD) && (
-              <InfoItem>
-                <Cd style={{ marginRight: '8px' }} />
-                {details.CD && 'cd'}
-              </InfoItem>
-            )}
-
-            {ifDetails(campers.details.freezer) && (
-              <InfoItem>
-                <Hob style={{ marginRight: '8px' }} />
-                {details.freezer} hob
-              </InfoItem>
-            )}
-
-            {ifDetails(details.TV) && (
-              <InfoItem>
-                <TV style={{ marginRight: '8px' }} />
-                {details.TV && 'tv'}
-              </InfoItem>
-            )}
-
-            {ifDetails(campers.details.freezer) && (
-              <InfoItem>
-                <Freezer style={{ marginRight: '8px' }} />
-                {details.freezer && 'treezer'}
-              </InfoItem>
-            )}
-
-            {ifDetails(campers.details.radio) && (
-              <InfoItem>
-                <Radio style={{ marginRight: '8px' }} />
-                {details.radio && 'radio'}
-              </InfoItem>
-            )}
+            {renderIfDetails(ifDetails(adults), <Adult style={{ marginRight: '8px' }} />, `${adults} adults`)}
+            {renderIfDetails(ifDetails(transmission), <Transmision style={{ marginRight: '8px' }} />, transmission)}
+            {renderIfDetails(ifDetails(engine), <Benz style={{ marginRight: '8px' }} />, engine)}
+            {renderIfDetails(ifDetails(details.kitchen), <Kitchen style={{ marginRight: '8px' }} />, details.kitchen && 'kitchen')}
+            {renderIfDetails(ifDetails(details.beds), <Beds style={{ marginRight: '8px' }} />, `${details.beds} beds`)}
+            {renderIfDetails(ifDetails(details.airConditioner), <Vind style={{ marginRight: '8px' }} />, details.airConditioner && 'ac')}
+            {renderIfDetails(ifDetails(details.bathroom), <Bathroom style={{ marginRight: '8px' }} />, details.bathroom && 'bathroom')}
+            {renderIfDetails(ifDetails(children), <Children style={{ marginRight: '8px' }} />, `${children} children`)}
+            {renderIfDetails(ifDetails(details.gas), <Gas style={{ marginRight: '8px' }} />, `gas ${details.gas}`)}
+            {renderIfDetails(ifDetails(details.microwave), <Microwave style={{ marginRight: '8px' }} />, details.microwave && 'microwave')}
+            {renderIfDetails(ifDetails(details.toilet), <Toilet style={{ marginRight: '8px' }} />, details.toilet && 'toilet')}
+            {renderIfDetails(ifDetails(details.water), <Water style={{ marginRight: '8px' }} />, `water ${details.water}`)}
+            {renderIfDetails(ifDetails(details.CD), <Cd style={{ marginRight: '8px' }} />, details.CD && 'cd')}
+            {renderIfDetails(ifDetails(details.freezer), <Hob style={{ marginRight: '8px' }} />, `${details.freezer} hob`)}
+            {renderIfDetails(ifDetails(details.TV), <TV style={{ marginRight: '8px' }} />, details.TV && 'tv')}
+            {renderIfDetails(ifDetails(details.freezer), <Freezer style={{ marginRight: '8px' }} />, details.freezer && 'treezer')}
+            {renderIfDetails(ifDetails(details.radio), <Radio style={{ marginRight: '8px' }} />, details.radio && 'radio')}
           </InfoList>
         </InfoWrapper>
 
@@ -241,6 +139,172 @@ const CatalogCard = ({ campers, toggleModal }) => {
       </div>
     </ListItem>
   );
+
+  // return (
+  //   <ListItem key={_id}>
+  //     <ImageItemWrapper>
+  //       <ImageItem src={gallery[0]} alt={name} />
+  //     </ImageItemWrapper>
+  //     <div>
+  //       <NameWrapper>
+  //         <p>{name}</p>
+  //         <PriceContein>
+  //           <p>&euro;{corectPrice(price)}</p>
+  //           <Haerts
+  //             style={
+  //               isFavorit(_id, favorites) ? { fill: '#E44848', stroke: '#E44848' } : { fill: '#fff', stroke: '#101828' }
+  //             }
+  //             onClick={goFavorite}
+  //             width={24}
+  //             alt="Haert"
+  //           />
+  //         </PriceContein>
+  //       </NameWrapper>
+
+  //       <RatingWrapper>
+  //         <Rating>
+  //           <Star style={{ marginRight: '8px' }} />
+  //           {rating} ({reviews.length} Reviews)
+  //         </Rating>
+  //         <span>
+  //           <Maps style={{ marginRight: '8px'}} />
+  //           {location}
+  //         </span>
+  //       </RatingWrapper>
+
+  //       <Description>
+  //         <DescriptionText>{sliceText(description)}...</DescriptionText>
+  //       </Description>
+
+  //       <InfoWrapper>
+  //         <InfoList>
+  //           {ifDetails(campers.adults) && (
+  //             <InfoItem>
+  //               <Adult style={{ marginRight: '8px' }} />
+  //               {adults} adults
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(campers.transmission) && (
+  //             <InfoItem>
+  //               <Transmision style={{ marginRight: '8px' }} />
+  //               {transmission}
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(campers.engine) && (
+  //             <InfoItem>
+  //               <Benz style={{ marginRight: '8px' }} />
+  //               {engine}
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(campers.details.kitchen) && (
+  //             <InfoItem>
+  //               <Kitchen style={{ marginRight: '8px' }} />
+  //               {details.kitchen && 'kitchen'}
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(campers.details.beds) && (
+  //             <InfoItem>
+  //               <Beds style={{ marginRight: '8px' }} />
+  //               {details.beds} beds
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(campers.details.airConditioner) && (
+  //             <InfoItem>
+  //               <Vind style={{ marginRight: '8px' }} />
+  //               {details.airConditioner && 'ac'}
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(campers.details.bathroom) && (
+  //             <InfoItem>
+  //               <Bathroom style={{ marginRight: '8px' }} />
+  //               {details.bathroom && 'bathroom'}
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(campers.children) && (
+  //             <InfoItem>
+  //               <Children style={{ marginRight: '8px' }} />
+  //               {children} children
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(campers.details.gas) && (
+  //             <InfoItem>
+  //               <Gas style={{ marginRight: '8px' }} />
+  //               gas {details.gas}
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(campers.details.microwave) && (
+  //             <InfoItem>
+  //               <Microwave style={{ marginRight: '8px' }} />
+  //               {details.microwave && 'microwave'}
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(campers.details.toilet) && (
+  //             <InfoItem>
+  //               <Toilet style={{ marginRight: '8px' }} />
+  //               {details.toilet && 'toilet'}
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(campers.details.water) && (
+  //             <InfoItem>
+  //               <Water style={{ marginRight: '8px' }} />
+  //               water {details.water}
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(campers.details.CD) && (
+  //             <InfoItem>
+  //               <Cd style={{ marginRight: '8px' }} />
+  //               {details.CD && 'cd'}
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(campers.details.freezer) && (
+  //             <InfoItem>
+  //               <Hob style={{ marginRight: '8px' }} />
+  //               {details.freezer} hob
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(details.TV) && (
+  //             <InfoItem>
+  //               <TV style={{ marginRight: '8px' }} />
+  //               {details.TV && 'tv'}
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(campers.details.freezer) && (
+  //             <InfoItem>
+  //               <Freezer style={{ marginRight: '8px' }} />
+  //               {details.freezer && 'treezer'}
+  //             </InfoItem>
+  //           )}
+
+  //           {ifDetails(campers.details.radio) && (
+  //             <InfoItem>
+  //               <Radio style={{ marginRight: '8px' }} />
+  //               {details.radio && 'radio'}
+  //             </InfoItem>
+  //           )}
+  //         </InfoList>
+  //       </InfoWrapper>
+
+  //       <MainButton type="button" size="medium" onClick={() => toggleModal(campers)}>
+  //         Show more
+  //       </MainButton>
+  //     </div>
+  //   </ListItem>
+  // );
 };
 
 export default CatalogCard;

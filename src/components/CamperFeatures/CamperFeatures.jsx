@@ -1,132 +1,105 @@
-import { ifDetails } from 'utils/ifDetails';
+import { ifDetails, renderIfDetails } from 'utils/ifDetails';
 import { corectDetails } from 'utils/corectDetails';
 import { upperText } from 'utils/upperText';
 
-import { ReactComponent as Adult } from "../../images/adult.svg";
-import { ReactComponent as Transmision } from "../../images/transmision.svg";
-import { ReactComponent as Benz } from "../../images/benz.svg";
-import { ReactComponent as Kitchen } from "../../images/kitchen.svg";
-import { ReactComponent as Beds } from "../../images/beds.svg";
-import { ReactComponent as Vind } from "../../images/vind.svg";
-import { ReactComponent as Air } from "../../images/air.svg";
-import { ReactComponent as Cd } from "../../images/cd.svg";
-import { ReactComponent as Hob } from "../../images/hob.svg";
-import { ReactComponent as Radio } from "../../images/radio.svg";
+import { ReactComponent as Adult } from '../../images/adult.svg';
+import { ReactComponent as Transmision } from '../../images/transmision.svg';
+import { ReactComponent as Benz } from '../../images/benz.svg';
+import { ReactComponent as Kitchen } from '../../images/kitchen.svg';
+import { ReactComponent as Beds } from '../../images/beds.svg';
+import { ReactComponent as Vind } from '../../images/vind.svg';
+import { ReactComponent as Gas } from '../../images/gas.svg';
+import { ReactComponent as Microwave } from '../../images/microwave.svg';
+import { ReactComponent as Toilet } from '../../images/toilet.svg';
+import { ReactComponent as Water } from '../../images/water.svg';
+import { ReactComponent as Cd } from '../../images/cd.svg';
+import { ReactComponent as Hob } from '../../images/hob.svg';
+import { ReactComponent as TV } from '../../images/tv.svg';
+import { ReactComponent as Freezer } from '../../images/freezer.svg';
+import { ReactComponent as Radio } from '../../images/radio.svg';
 
-
-import { InfoWrapper, InfoList, InfoItem, InfoTitle, BarLine, DetailsList, DetailsItem, DetailsItemName} from './CamperFeatures.module';
+import {
+  InfoWrapper,
+  InfoList,
+  InfoTitle,
+  BarLine,
+  DetailsList,
+  DetailsItem,
+  DetailsItemName,
+} from './CamperFeatures.module';
 
 const CamperFeatures = ({ data }) => {
-
   const { adults, transmission, details, engine, form, length, width, height, tank, consumption } = data;
 
   return (
     <InfoWrapper>
       <InfoList>
-        {ifDetails(adults) && (
-          <InfoItem>
-            <Adult />
-            {adults} adults
-          </InfoItem>
+        {renderIfDetails(ifDetails(adults), <Adult style={{ marginRight: '8px' }} />, `${adults} adults`)}
+        {renderIfDetails(ifDetails(transmission), <Transmision style={{ marginRight: '8px' }} />, transmission)}
+        {renderIfDetails(ifDetails(engine), <Benz style={{ marginRight: '8px' }} />, engine)}
+        {renderIfDetails(
+          ifDetails(details.kitchen),
+          <Kitchen style={{ marginRight: '8px' }} />,
+          details.kitchen && 'kitchen'
         )}
-
-        {ifDetails(transmission) && (
-          <InfoItem>
-             <Transmision style={{marginRight:"8px"}}/>
-            {transmission}
-          </InfoItem>
+        {renderIfDetails(ifDetails(details.beds), <Beds style={{ marginRight: '8px' }} />, `${details.beds} beds`)}
+        {renderIfDetails(
+          ifDetails(details.airConditioner),
+          <Vind style={{ marginRight: '8px' }} />,
+          details.airConditioner && 'ac'
         )}
-
-        {ifDetails(details.airConditioner) && (
-          <InfoItem>
-            <Vind />
-            {details.airConditioner && 'AC'}
-          </InfoItem>
+        {renderIfDetails(ifDetails(details.gas), <Gas style={{ marginRight: '8px' }} />, `gas ${details.gas}`)}
+        {renderIfDetails(
+          ifDetails(details.microwave),
+          <Microwave style={{ marginRight: '8px' }} />,
+          details.microwave && 'microwave'
         )}
-
-        {ifDetails(engine) && (
-          <InfoItem>
-            <Benz />
-            {engine}
-          </InfoItem>
+        {renderIfDetails(
+          ifDetails(details.toilet),
+          <Toilet style={{ marginRight: '8px' }} />,
+          details.toilet && 'toilet'
         )}
-
-        {ifDetails(details.kitchen) && (
-          <InfoItem>
-            <Kitchen/>
-            {details.kitchen && 'Kitchen'}
-          </InfoItem>
+        {renderIfDetails(ifDetails(details.water), <Water style={{ marginRight: '8px' }} />, `water ${details.water}`)}
+        {renderIfDetails(ifDetails(details.CD), <Cd style={{ marginRight: '8px' }} />, details.CD && 'cd')}
+        {renderIfDetails(ifDetails(details.freezer), <Hob style={{ marginRight: '8px' }} />, `${details.freezer} hob`)}
+        {renderIfDetails(ifDetails(details.TV), <TV style={{ marginRight: '8px' }} />, details.TV && 'tv')}
+        {renderIfDetails(
+          ifDetails(details.freezer),
+          <Freezer style={{ marginRight: '8px' }} />,
+          details.freezer && 'treezer'
         )}
-
-        {ifDetails(details.beds) && (
-          <InfoItem>
-            <Beds style={{marginRight:"8px"}}/>
-            {details.beds} beds
-          </InfoItem>
-        )}
-
-        {ifDetails(details.airConditioner) && (
-          <InfoItem>
-            <Air />
-            {details.airConditioner}
-            <p>air conditioner</p>
-          </InfoItem>
-        )}
-
-        {ifDetails(details.CD) && (
-          <InfoItem>
-            <Cd />
-            <p>CD</p>
-          </InfoItem>
-        )}
-
-        {ifDetails(details.radio) && (
-          <InfoItem>
-            <Radio />
-            <p>Radio</p>
-          </InfoItem>
-        )}
-
-        {ifDetails(details.hob) && (
-          <InfoItem>
-            <Hob style={{marginRight:"8px"}}/>
-            {details.hob}
-            <p>Hob</p>
-          </InfoItem>
-        )}
+        {renderIfDetails(ifDetails(details.radio), <Radio style={{ marginRight: '8px' }} />, details.radio && 'radio')}
       </InfoList>
 
       <InfoTitle>Vehicle details</InfoTitle>
       <BarLine></BarLine>
 
-  
-        <DetailsList>
-          <DetailsItem>
-            <DetailsItemName>Form</DetailsItemName>
-            <DetailsItemName>{upperText(form)}</DetailsItemName>
-          </DetailsItem>
-          <DetailsItem>
-            <DetailsItemName>Length</DetailsItemName>
-            <DetailsItemName>{corectDetails(length)}</DetailsItemName>
-          </DetailsItem>
-          <DetailsItem>
-            <DetailsItemName>Width</DetailsItemName>
-            <DetailsItemName>{corectDetails(width)}</DetailsItemName>
-          </DetailsItem>
-          <DetailsItem>
-            <DetailsItemName>Height</DetailsItemName>
-            <DetailsItemName>{corectDetails(height)}</DetailsItemName>
-          </DetailsItem>
-          <DetailsItem>
-            <DetailsItemName>Tank</DetailsItemName>
-            <DetailsItemName>{corectDetails(tank)}</DetailsItemName>
-          </DetailsItem>
-          <DetailsItem>
-            <DetailsItemName>Consumption</DetailsItemName>
-            <DetailsItemName>{consumption}</DetailsItemName>
-          </DetailsItem>
-        </DetailsList>
-     
+      <DetailsList>
+        <DetailsItem>
+          <DetailsItemName>Form</DetailsItemName>
+          <DetailsItemName>{upperText(form)}</DetailsItemName>
+        </DetailsItem>
+        <DetailsItem>
+          <DetailsItemName>Length</DetailsItemName>
+          <DetailsItemName>{corectDetails(length)}</DetailsItemName>
+        </DetailsItem>
+        <DetailsItem>
+          <DetailsItemName>Width</DetailsItemName>
+          <DetailsItemName>{corectDetails(width)}</DetailsItemName>
+        </DetailsItem>
+        <DetailsItem>
+          <DetailsItemName>Height</DetailsItemName>
+          <DetailsItemName>{corectDetails(height)}</DetailsItemName>
+        </DetailsItem>
+        <DetailsItem>
+          <DetailsItemName>Tank</DetailsItemName>
+          <DetailsItemName>{corectDetails(tank)}</DetailsItemName>
+        </DetailsItem>
+        <DetailsItem>
+          <DetailsItemName>Consumption</DetailsItemName>
+          <DetailsItemName>{consumption}</DetailsItemName>
+        </DetailsItem>
+      </DetailsList>
     </InfoWrapper>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import NotFound from '../../images/error.webp';
+import NotFound from '../../images/pictures/error.webp';
 import { ContainerNotFound, NotFoundInfo, NotFoundBtnArea, NotFoundBtn } from './PageNotFound.styled.js';
 
 const PageNotFound = () => {

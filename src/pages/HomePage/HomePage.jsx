@@ -1,6 +1,7 @@
-import { InfoWrapper, InfoTitle, TextWrapper, DescriptionTitle } from "./HomePage.module";
-
 import { ReactComponent as Van } from '../../images/campVan.svg';
+import HomeImg from '../../images/pictures/home.jpg';
+
+import { InfoWrapper, InfoTitle, TextWrapper, DescriptionTitle } from "./HomePage.module";
 
 const HomePage = () => {
 
@@ -24,6 +25,13 @@ const HomePage = () => {
         adventure in style with our camper rental.
       </p>
       </TextWrapper>
+      <img
+        src={HomeImg}
+        alt="HomeImg"
+        width={'600px'}
+        height={'600px'}
+      />
+      
     </InfoWrapper>
   );
 };
