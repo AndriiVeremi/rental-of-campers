@@ -36,7 +36,6 @@ export const BarNameFilter = styled.h2`
   color: rgba(16, 24, 40, 0.6);
   font-size: 16px;
   font-weight: 500;
-  line-height: 24px; /
   margin-bottom: 14px;
 `;
 
@@ -95,8 +94,6 @@ export const CheckboxWrapper = styled.label`
   font-weight: 500;
   line-height: 1.4;
   border-radius: 10px;
-  border: 1px solid ${({ checked }) => (checked ? '#E44848' : '#cfd1d4')};
-
   display: inline-block;
   cursor: pointer;
   font-size: 16px;
@@ -122,5 +119,10 @@ export const CheckboxCheckmark = styled.span`
   line-height: 1.4;
   border-radius: 10px;
   border: 1px solid ${({ checked }) => (checked ? '#E44848' : '#cfd1d4')};
-
+  transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* stroke:#101828; */
+  /* fille: #101828; */
+  &:hover {
+    scale: 1.03;
+  }
 `;

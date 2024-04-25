@@ -1,12 +1,12 @@
-import { InfoWrapper, InfoImg, InfoTitle, TextWrapper, DescriptionTitle } from "./HomePage.module";
+import { InfoWrapper, InfoTitle, TextWrapper, DescriptionTitle } from "./HomePage.module";
 
-import camper from '../../images/campVan.svg'
+import { ReactComponent as Van } from '../../images/campVan.svg';
 
 const HomePage = () => {
 
   return (
     <InfoWrapper>
-      <InfoImg src={camper}  alt="camper" />
+      <Van style={{ width: '300px', height: '300px' }} />
       <InfoTitle>Hello!</InfoTitle>
       <TextWrapper>
       <DescriptionTitle>Captivating adventures await you with our camper rental!</DescriptionTitle>

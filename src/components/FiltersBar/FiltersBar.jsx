@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { addFilters } from 'store/filtersSlice';
+import { addFilters } from 'store/advertsSlice';
 import { fetchCamperAll } from 'store/operations';
 
 import MainButton from 'components/MainButton/MainButton';
@@ -14,6 +14,18 @@ import { ReactComponent as Climat } from '../../images/vind.svg';
 import { ReactComponent as Van } from '../../images/campVan.svg';
 import { ReactComponent as Aalcon } from '../../images/campValcon.svg';
 import { ReactComponent as Integ } from '../../images/campInteg.svg';
+
+import { ReactComponent as Bathroom } from '../../images/bathroom.svg';
+import { ReactComponent as Children } from '../../images/children.svg';
+import { ReactComponent as Gas } from '../../images/gas.svg';
+import { ReactComponent as Microwave } from '../../images/microwave.svg';
+import { ReactComponent as Toilet } from '../../images/toilet.svg';
+import { ReactComponent as Water } from '../../images/water.svg';
+import { ReactComponent as Cd } from '../../images/cd.svg';
+import { ReactComponent as Hob } from '../../images/hob.svg';
+import { ReactComponent as Freezer } from '../../images/freezer.svg';
+import { ReactComponent as Radio } from '../../images/radio.svg';
+
 
 import {
   BarApp,
@@ -45,7 +57,18 @@ const FiltersBar = data => {
     kitchen: false,
     TV: false,
     shower: false,
+    bathroom: false, 
+    children: false,
+    gas: false,
+    microwave: false,
+    toilet: false,
+    water: false, 
+    CD: false,
+    hob: false,
+    freezer: false,
+    radio: false,
   });
+
   const [form, setForm] = useState({
     panelTruck: false,
     integ: false,
@@ -77,7 +100,6 @@ const FiltersBar = data => {
     dispatch(addFilters({ location, transmission, details, form }));
     dispatch(fetchCamperAll());
 
-    console.log('dispatchFilters:', { location, transmission, details, form });
   };
 
   return (
@@ -85,7 +107,7 @@ const FiltersBar = data => {
       <BarForm>
         <BarInfo>
           <BarName>Location</BarName>
-          <BarInput value={location} onChange={handleChangeLocation} required placeholder="Kyiv, Ukraine" />
+          <BarInput value={location} onChange={handleChangeLocation} required placeholder="City" />
         </BarInfo>
 
         <div>
@@ -158,6 +180,102 @@ const FiltersBar = data => {
                 </CheckboxCheckmark>
               </CheckboxWrapper>
             </li>
+
+
+            <li>
+              <CheckboxWrapper>
+                <CheckboxInput type="checkbox" name="bathroom" checked={details.bathroom} onChange={handleCheckboxChange} />
+                <CheckboxCheckmark checked={details.bathroom}>
+                  <Bathroom style={{ width: '32', height: '32' }} />
+                  Bathroom
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
+            </li>
+            <li>
+              <CheckboxWrapper>
+                <CheckboxInput type="checkbox" name="children" checked={details.children} onChange={handleCheckboxChange} />
+                <CheckboxCheckmark checked={details.children}>
+                  <Children style={{ width: '32', height: '32' }} />
+                  Children
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
+            </li>
+            <li>
+              <CheckboxWrapper>
+                <CheckboxInput type="checkbox" name="gas" checked={details.gas} onChange={handleCheckboxChange} />
+                <CheckboxCheckmark checked={details.gas}>
+                  <Gas style={{ width: '32', height: '32' }} />
+                  Gas
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
+            </li>
+            <li>
+              <CheckboxWrapper>
+                <CheckboxInput type="checkbox" name="microwave" checked={details.microwave} onChange={handleCheckboxChange} />
+                <CheckboxCheckmark checked={details.microwave}>
+                  <Microwave style={{ width: '32', height: '32' }} />
+                  Microwave
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
+            </li>
+            <li>
+              <CheckboxWrapper>
+                <CheckboxInput type="checkbox" name="toilet" checked={details.toilet} onChange={handleCheckboxChange} />
+                <CheckboxCheckmark checked={details.toilet}>
+                  <Toilet style={{ width: '32', height: '32' }} />
+                  Toilet
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
+            </li>
+            <li>
+              <CheckboxWrapper>
+                <CheckboxInput type="checkbox" name="water" checked={details.water} onChange={handleCheckboxChange} />
+                <CheckboxCheckmark checked={details.water}>
+                  <Water style={{ width: '32', height: '32' }} />
+                  Water
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
+            </li>
+            <li>
+              <CheckboxWrapper>
+                <CheckboxInput type="checkbox" name="CD" checked={details.CD} onChange={handleCheckboxChange} />
+                <CheckboxCheckmark checked={details.CD}>
+                  <Cd style={{ width: '32', height: '32' }} />
+                  CD
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
+            </li>
+            <li>
+              <CheckboxWrapper>
+                <CheckboxInput type="checkbox" name="hob" checked={details.hob} onChange={handleCheckboxChange} />
+                <CheckboxCheckmark checked={details.hob}>
+                  <Hob style={{ width: '32', height: '32' }} />
+                  Hob
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
+            </li>
+            <li>
+              <CheckboxWrapper>
+                <CheckboxInput type="checkbox" name="freezer" checked={details.freezer} onChange={handleCheckboxChange} />
+                <CheckboxCheckmark checked={details.freezer}>
+                  <Freezer style={{ width: '32', height: '32' }} />
+                  Freezer
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
+            </li>
+            <li>
+              <CheckboxWrapper>
+                <CheckboxInput type="checkbox" name="radio" checked={details.radio} onChange={handleCheckboxChange} />
+                <CheckboxCheckmark checked={details.radio}>
+                  <Radio style={{ width: '32', height: '32' }} />
+                  Radio
+                </CheckboxCheckmark>
+              </CheckboxWrapper>
+            </li>
+
+
+
+            
           </VehicleOptionsList>
         </div>
 

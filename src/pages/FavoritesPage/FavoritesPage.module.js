@@ -10,27 +10,7 @@ export const ListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 `;
 
-export const Button = styled.button`
-  display: inline-flex;
-  padding: 16px 32px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  background-color: #fff;
 
-  border-radius: 200px;
-  border: 1px solid rgba(71, 84, 103, 0.2);
-
-  color: #101828;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px; 
-  letter-spacing: -0.08px;
-  outline: none;
-
-  &:hover {
-    border: 1px solid #e44848;
-  }
-`;

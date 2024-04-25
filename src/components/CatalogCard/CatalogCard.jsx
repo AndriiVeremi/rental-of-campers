@@ -18,7 +18,18 @@ import { ReactComponent as Beds } from '../../images/beds.svg';
 import { ReactComponent as Vind } from '../../images/vind.svg';
 import { ReactComponent as Map } from '../../images/map.svg';
 import { ReactComponent as Star } from '../../images/star.svg';
-import { ReactComponent as Haert } from '../../images/heart.svg';
+
+import { ReactComponent as Bathroom } from '../../images/bathroom.svg';
+import { ReactComponent as Children } from '../../images/children.svg';
+import { ReactComponent as Gas } from '../../images/gas.svg';
+import { ReactComponent as Microwave } from '../../images/microwave.svg';
+import { ReactComponent as Toilet } from '../../images/toilet.svg';
+import { ReactComponent as Water } from '../../images/water.svg';
+import { ReactComponent as Cd } from '../../images/cd.svg';
+import { ReactComponent as Hob } from '../../images/hob.svg';
+import { ReactComponent as TV } from '../../images/tv.svg';
+import { ReactComponent as Freezer } from '../../images/freezer.svg';
+import { ReactComponent as Radio } from '../../images/radio.svg';
 
 import {
   ListItem,
@@ -33,13 +44,27 @@ import {
   InfoWrapper,
   InfoList,
   InfoItem,
-  // Button,
+  Haerts,
 } from './CatalogCard.module';
 
 const CatalogCard = ({ campers, toggleModal }) => {
+  const {
+    _id,
+    name,
+    gallery,
+    price,
+    rating,
+    children,
+    reviews,
+    location,
+    description,
+    adults,
+    transmission,
+    engine,
+    details,
+  } = campers;
 
-  const { _id, name, gallery, price, rating, reviews, location, description, adults, transmission, engine, details } =
-    campers;
+  console.log('details', campers);
 
   const favorites = useSelector(selectFavorites);
   const dispatch = useDispatch();
@@ -62,8 +87,10 @@ const CatalogCard = ({ campers, toggleModal }) => {
           <p>{name}</p>
           <PriceContein>
             <p>&euro;{corectPrice(price)}</p>
-            <Haert
-              style={isFavorit(_id, favorites) ? { fill: '#E44848', stroke: '#E44848' } : { fill: '#fff', stroke: '#101828' }}
+            <Haerts
+              style={
+                isFavorit(_id, favorites) ? { fill: '#E44848', stroke: '#E44848' } : { fill: '#fff', stroke: '#101828' }
+              }
               onClick={goFavorite}
               width={24}
               alt="Haert"
@@ -91,7 +118,7 @@ const CatalogCard = ({ campers, toggleModal }) => {
             {ifDetails(campers.ImgAdults) && (
               <InfoItem>
                 <Adult style={{ marginRight: '8px' }} />
-                {adults} adults
+                {adults} Adults
               </InfoItem>
             )}
 
@@ -119,7 +146,7 @@ const CatalogCard = ({ campers, toggleModal }) => {
             {ifDetails(campers.ImgBeds) && (
               <InfoItem>
                 <Beds style={{ marginRight: '8px' }} />
-                {details.beds} beds
+                {details.beds} Beds
               </InfoItem>
             )}
 
@@ -129,10 +156,89 @@ const CatalogCard = ({ campers, toggleModal }) => {
                 {details.airConditioner && 'AC'}
               </InfoItem>
             )}
+
+            {ifDetails(campers.ImgBathroom) && (
+              <InfoItem>
+                <Bathroom style={{ marginRight: '8px' }} />
+                {details.bathroom && 'Bathroom'}
+              </InfoItem>
+            )}
+
+            {ifDetails(campers.ImgChildren) && (
+              <InfoItem>
+                <Children style={{ marginRight: '8px' }} />
+                {children} Children
+              </InfoItem>
+            )}
+
+            {ifDetails(campers.ImgGas) && (
+              <InfoItem>
+                <Gas style={{ marginRight: '8px' }} />
+                Gas {details.gas}
+              </InfoItem>
+            )}
+
+            {ifDetails(campers.ImgMicrowave) && (
+              <InfoItem>
+                <Microwave style={{ marginRight: '8px' }} />
+                {details.microwave && 'Microwave'}
+              </InfoItem>
+            )}
+
+            {ifDetails(campers.ImgToilet) && (
+              <InfoItem>
+                <Toilet style={{ marginRight: '8px' }} />
+                {details.toilet && 'Toilet'}
+              </InfoItem>
+            )}
+
+            {ifDetails(campers.ImgWater) && (
+              <InfoItem>
+                <Water style={{ marginRight: '8px' }} />
+                Water {details.water}
+              </InfoItem>
+            )}
+
+            {ifDetails(campers.ImgWater) && (
+              <InfoItem>
+                <Cd style={{ marginRight: '8px' }} />
+                {details.CD && 'CD'}
+              </InfoItem>
+            )}
+
+            {ifDetails(campers.ImgWater) && (
+              <InfoItem>
+                <Hob style={{ marginRight: '8px' }} />
+                {details.hob} Hob
+              </InfoItem>
+            )}
+
+            {ifDetails(campers.ImgWater) && (
+              <InfoItem>
+                <TV style={{ marginRight: '8px' }} />
+                {details.TV && 'TV'}
+              </InfoItem>
+            )}
+
+            {ifDetails(campers.ImgWater) && (
+              <InfoItem>
+                <Freezer style={{ marginRight: '8px' }} />
+                {details.freezer && 'Freezer'}
+              </InfoItem>
+            )}
+
+            {ifDetails(campers.ImgWater) && (
+              <InfoItem>
+                <Radio style={{ marginRight: '8px' }} />
+                {details.radio && 'Radio'}
+              </InfoItem>
+            )}
           </InfoList>
         </InfoWrapper>
 
-        <MainButton type="button" size="medium" onClick={() => toggleModal(campers)}>Show more</MainButton>
+        <MainButton type="button" size="medium" onClick={() => toggleModal(campers)}>
+          Show more
+        </MainButton>
       </div>
     </ListItem>
   );

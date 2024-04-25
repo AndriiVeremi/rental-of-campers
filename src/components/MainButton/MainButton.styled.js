@@ -30,6 +30,7 @@ export const Button = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     background: #d84343;
@@ -56,6 +57,7 @@ export const LoadMoreButton = styled.button`
   letter-spacing: -0.08px;
   outline: none;
   cursor: pointer;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     border: 1px solid #e44848;

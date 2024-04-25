@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactComponent as Haert } from '../../images/heart.svg';
 
 export const List = styled.ul`
   width: 888px;
@@ -33,10 +34,9 @@ export const NameWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   color: #101828;
-
   font-size: 24px;
   font-weight: 600;
-  line-height: 30px; /* 125% */
+  line-height: 30px;
   margin-bottom: 8px;
 `;
 
@@ -54,14 +54,10 @@ export const RatingWrapper = styled.div`
 `;
 
 export const Rating = styled.span`
-  /* font-family: Inter; */
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
   text-decoration-line: underline;
 `;
-
 
 export const Description = styled.div`
   margin-bottom: 24px;
@@ -72,12 +68,11 @@ export const DescriptionText = styled.p`
   color: #475467;
 
   text-overflow: ellipsis;
-  /* Main text */
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
 `;
 
 export const InfoWrapper = styled.div``;
@@ -99,28 +94,9 @@ export const InfoItem = styled.li`
   mix-blend-mode: multiply;
 `;
 
-export const Button = styled.button`
-  display: inline-flex;
-  padding: 16px 40px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-
-  border-radius: 200px;
-  background: #e44848;
-
-  color: #fff;
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 24px; /* 150% */
-  letter-spacing: -0.08px;
-  border: none;
-  outline: none;
-
-  &:hover,
-  &:focus  {
-    background: #d84343;
+export const Haerts = styled(Haert)`
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    scale: 1.2;
   }
 `;
