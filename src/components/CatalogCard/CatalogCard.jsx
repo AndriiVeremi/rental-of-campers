@@ -16,9 +16,7 @@ import { ReactComponent as Benz } from '../../images/benz.svg';
 import { ReactComponent as Kitchen } from '../../images/kitchen.svg';
 import { ReactComponent as Beds } from '../../images/beds.svg';
 import { ReactComponent as Vind } from '../../images/vind.svg';
-import { ReactComponent as Map } from '../../images/map.svg';
 import { ReactComponent as Star } from '../../images/star.svg';
-
 import { ReactComponent as Bathroom } from '../../images/bathroom.svg';
 import { ReactComponent as Children } from '../../images/children.svg';
 import { ReactComponent as Gas } from '../../images/gas.svg';
@@ -45,6 +43,7 @@ import {
   InfoList,
   InfoItem,
   Haerts,
+  Maps
 } from './CatalogCard.module';
 
 const CatalogCard = ({ campers, toggleModal }) => {
@@ -104,7 +103,7 @@ const CatalogCard = ({ campers, toggleModal }) => {
             {rating} ({reviews.length} Reviews)
           </Rating>
           <span>
-            <Map style={{ marginRight: '8px' }} />
+            <Maps style={{ marginRight: '8px'}} />
             {location}
           </span>
         </RatingWrapper>
@@ -115,122 +114,122 @@ const CatalogCard = ({ campers, toggleModal }) => {
 
         <InfoWrapper>
           <InfoList>
-            {ifDetails(campers.ImgAdults) && (
+            {ifDetails(campers.adults) && (
               <InfoItem>
                 <Adult style={{ marginRight: '8px' }} />
-                {adults} Adults
+                {adults} adults
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgTransmision) && (
+            {ifDetails(campers.transmission) && (
               <InfoItem>
                 <Transmision style={{ marginRight: '8px' }} />
                 {transmission}
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgPetrol) && (
+            {ifDetails(campers.engine) && (
               <InfoItem>
                 <Benz style={{ marginRight: '8px' }} />
                 {engine}
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgKitchen) && (
+            {ifDetails(campers.details.kitchen) && (
               <InfoItem>
                 <Kitchen style={{ marginRight: '8px' }} />
-                {details.kitchen && 'Kitchen'}
+                {details.kitchen && 'kitchen'}
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgBeds) && (
+            {ifDetails(campers.details.beds) && (
               <InfoItem>
                 <Beds style={{ marginRight: '8px' }} />
-                {details.beds} Beds
+                {details.beds} beds
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgClimat) && (
+            {ifDetails(campers.details.airConditioner) && (
               <InfoItem>
                 <Vind style={{ marginRight: '8px' }} />
-                {details.airConditioner && 'AC'}
+                {details.airConditioner && 'ac'}
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgBathroom) && (
+            {ifDetails(campers.details.bathroom) && (
               <InfoItem>
                 <Bathroom style={{ marginRight: '8px' }} />
-                {details.bathroom && 'Bathroom'}
+                {details.bathroom && 'bathroom'}
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgChildren) && (
+            {ifDetails(campers.children) && (
               <InfoItem>
                 <Children style={{ marginRight: '8px' }} />
-                {children} Children
+                {children} children
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgGas) && (
+            {ifDetails(campers.details.gas) && (
               <InfoItem>
                 <Gas style={{ marginRight: '8px' }} />
-                Gas {details.gas}
+                gas {details.gas}
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgMicrowave) && (
+            {ifDetails(campers.details.microwave) && (
               <InfoItem>
                 <Microwave style={{ marginRight: '8px' }} />
-                {details.microwave && 'Microwave'}
+                {details.microwave && 'microwave'}
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgToilet) && (
+            {ifDetails(campers.details.toilet) && (
               <InfoItem>
                 <Toilet style={{ marginRight: '8px' }} />
-                {details.toilet && 'Toilet'}
+                {details.toilet && 'toilet'}
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgWater) && (
+            {ifDetails(campers.details.water) && (
               <InfoItem>
                 <Water style={{ marginRight: '8px' }} />
-                Water {details.water}
+                water {details.water}
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgWater) && (
+            {ifDetails(campers.details.CD) && (
               <InfoItem>
                 <Cd style={{ marginRight: '8px' }} />
-                {details.CD && 'CD'}
+                {details.CD && 'cd'}
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgWater) && (
+            {ifDetails(campers.details.freezer) && (
               <InfoItem>
                 <Hob style={{ marginRight: '8px' }} />
-                {details.hob} Hob
+                {details.freezer} hob
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgWater) && (
+            {ifDetails(details.TV) && (
               <InfoItem>
                 <TV style={{ marginRight: '8px' }} />
-                {details.TV && 'TV'}
+                {details.TV && 'tv'}
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgWater) && (
+            {ifDetails(campers.details.freezer) && (
               <InfoItem>
                 <Freezer style={{ marginRight: '8px' }} />
-                {details.freezer && 'Freezer'}
+                {details.freezer && 'treezer'}
               </InfoItem>
             )}
 
-            {ifDetails(campers.ImgWater) && (
+            {ifDetails(campers.details.radio) && (
               <InfoItem>
                 <Radio style={{ marginRight: '8px' }} />
-                {details.radio && 'Radio'}
+                {details.radio && 'radio'}
               </InfoItem>
             )}
           </InfoList>

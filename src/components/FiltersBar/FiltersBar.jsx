@@ -5,6 +5,7 @@ import { addFilters } from 'store/advertsSlice';
 import { fetchCamperAll } from 'store/operations';
 
 import MainButton from 'components/MainButton/MainButton';
+import { MoreButton } from 'components/MainButton/MainButton.styled';
 
 import { ReactComponent as Transmision } from '../../images/transmision.svg';
 import { ReactComponent as Tv } from '../../images/tv.svg';
@@ -14,7 +15,6 @@ import { ReactComponent as Climat } from '../../images/vind.svg';
 import { ReactComponent as Van } from '../../images/campVan.svg';
 import { ReactComponent as Aalcon } from '../../images/campValcon.svg';
 import { ReactComponent as Integ } from '../../images/campInteg.svg';
-
 import { ReactComponent as Bathroom } from '../../images/bathroom.svg';
 import { ReactComponent as Children } from '../../images/children.svg';
 import { ReactComponent as Gas } from '../../images/gas.svg';
@@ -41,39 +41,48 @@ import {
   CheckboxWrapper,
   CheckboxInput,
   CheckboxCheckmark,
+  Maps,
+  MapsWrap,
+  WrapperButton
 } from './FiltersBar.module';
 
 const FiltersBar = data => {
   const dispatch = useDispatch();
 
-  const [location, setLocation] = useState('');
-
-  const [transmission, setTransmission] = useState({
+  const initialStateLocation = '';
+  const initialStateTransmission = {
     transmission: false,
-  });
+  };
 
-  const [details, setDetails] = useState({
+  const initialStateDetails = {
     airConditioner: false,
     kitchen: false,
     TV: false,
     shower: false,
-    bathroom: false, 
+    bathroom: false,
     children: false,
     gas: false,
     microwave: false,
     toilet: false,
-    water: false, 
+    water: false,
     CD: false,
     hob: false,
     freezer: false,
     radio: false,
-  });
-
-  const [form, setForm] = useState({
+  };
+  const initialStateForm = {
     panelTruck: false,
     integ: false,
     alcove: false,
-  });
+  };
+
+  const [location, setLocation] = useState(initialStateLocation);
+
+  const [transmission, setTransmission] = useState(initialStateTransmission);
+
+  const [details, setDetails] = useState(initialStateDetails);
+
+  const [form, setForm] = useState(initialStateForm);
 
   const handleChangeLocation = e => {
     setLocation(e.target.value);
@@ -96,10 +105,16 @@ const FiltersBar = data => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
     dispatch(addFilters({ location, transmission, details, form }));
     dispatch(fetchCamperAll());
+  };
 
+  const handleReset = e => {
+    e.preventDefault();
+    setLocation(initialStateLocation);
+    setTransmission(initialStateTransmission);
+    setDetails(initialStateDetails);
+    setForm(initialStateForm);
   };
 
   return (
@@ -107,7 +122,10 @@ const FiltersBar = data => {
       <BarForm>
         <BarInfo>
           <BarName>Location</BarName>
-          <BarInput value={location} onChange={handleChangeLocation} required placeholder="City" />
+          <MapsWrap>
+            <BarInput value={location} onChange={handleChangeLocation} required placeholder="City" />
+            <Maps style={{ marginRight: '8px', width: '18', height: '20' }} />
+          </MapsWrap>
         </BarInfo>
 
         <div>
@@ -181,25 +199,36 @@ const FiltersBar = data => {
               </CheckboxWrapper>
             </li>
 
-
             <li>
               <CheckboxWrapper>
-                <CheckboxInput type="checkbox" name="bathroom" checked={details.bathroom} onChange={handleCheckboxChange} />
+                <CheckboxInput
+                  type="checkbox"
+                  name="bathroom"
+                  checked={details.bathroom}
+                  onChange={handleCheckboxChange}
+                />
                 <CheckboxCheckmark checked={details.bathroom}>
                   <Bathroom style={{ width: '32', height: '32' }} />
                   Bathroom
                 </CheckboxCheckmark>
               </CheckboxWrapper>
             </li>
+
             <li>
               <CheckboxWrapper>
-                <CheckboxInput type="checkbox" name="children" checked={details.children} onChange={handleCheckboxChange} />
+                <CheckboxInput
+                  type="checkbox"
+                  name="children"
+                  checked={details.children}
+                  onChange={handleCheckboxChange}
+                />
                 <CheckboxCheckmark checked={details.children}>
                   <Children style={{ width: '32', height: '32' }} />
                   Children
                 </CheckboxCheckmark>
               </CheckboxWrapper>
             </li>
+
             <li>
               <CheckboxWrapper>
                 <CheckboxInput type="checkbox" name="gas" checked={details.gas} onChange={handleCheckboxChange} />
@@ -209,15 +238,22 @@ const FiltersBar = data => {
                 </CheckboxCheckmark>
               </CheckboxWrapper>
             </li>
+
             <li>
               <CheckboxWrapper>
-                <CheckboxInput type="checkbox" name="microwave" checked={details.microwave} onChange={handleCheckboxChange} />
+                <CheckboxInput
+                  type="checkbox"
+                  name="microwave"
+                  checked={details.microwave}
+                  onChange={handleCheckboxChange}
+                />
                 <CheckboxCheckmark checked={details.microwave}>
                   <Microwave style={{ width: '32', height: '32' }} />
                   Microwave
                 </CheckboxCheckmark>
               </CheckboxWrapper>
             </li>
+
             <li>
               <CheckboxWrapper>
                 <CheckboxInput type="checkbox" name="toilet" checked={details.toilet} onChange={handleCheckboxChange} />
@@ -227,6 +263,7 @@ const FiltersBar = data => {
                 </CheckboxCheckmark>
               </CheckboxWrapper>
             </li>
+
             <li>
               <CheckboxWrapper>
                 <CheckboxInput type="checkbox" name="water" checked={details.water} onChange={handleCheckboxChange} />
@@ -236,6 +273,7 @@ const FiltersBar = data => {
                 </CheckboxCheckmark>
               </CheckboxWrapper>
             </li>
+
             <li>
               <CheckboxWrapper>
                 <CheckboxInput type="checkbox" name="CD" checked={details.CD} onChange={handleCheckboxChange} />
@@ -245,6 +283,7 @@ const FiltersBar = data => {
                 </CheckboxCheckmark>
               </CheckboxWrapper>
             </li>
+
             <li>
               <CheckboxWrapper>
                 <CheckboxInput type="checkbox" name="hob" checked={details.hob} onChange={handleCheckboxChange} />
@@ -254,15 +293,22 @@ const FiltersBar = data => {
                 </CheckboxCheckmark>
               </CheckboxWrapper>
             </li>
+
             <li>
               <CheckboxWrapper>
-                <CheckboxInput type="checkbox" name="freezer" checked={details.freezer} onChange={handleCheckboxChange} />
+                <CheckboxInput
+                  type="checkbox"
+                  name="freezer"
+                  checked={details.freezer}
+                  onChange={handleCheckboxChange}
+                />
                 <CheckboxCheckmark checked={details.freezer}>
                   <Freezer style={{ width: '32', height: '32' }} />
                   Freezer
                 </CheckboxCheckmark>
               </CheckboxWrapper>
             </li>
+
             <li>
               <CheckboxWrapper>
                 <CheckboxInput type="checkbox" name="radio" checked={details.radio} onChange={handleCheckboxChange} />
@@ -272,10 +318,6 @@ const FiltersBar = data => {
                 </CheckboxCheckmark>
               </CheckboxWrapper>
             </li>
-
-
-
-            
           </VehicleOptionsList>
         </div>
 
@@ -321,9 +363,15 @@ const FiltersBar = data => {
           </VehicleTypeList>
         </div>
 
+        <WrapperButton>
         <MainButton type="submit" size="large" onClick={handleSubmit}>
           Search
         </MainButton>
+
+        <MoreButton type="button" size="large" onClick={handleReset}>
+          Reset
+        </MoreButton>
+        </WrapperButton>
       </BarForm>
     </BarApp>
   );

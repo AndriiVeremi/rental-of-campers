@@ -6,7 +6,7 @@ import { corectPrice } from 'utils/corectPrice';
 
 import { ReactComponent as Close } from '../../images/close.svg';
 import { ReactComponent as Star } from '../../images/star.svg';
-import { ReactComponent as Map } from '../../images/map.svg';
+
 
 import {
   ModalWrapper,
@@ -29,6 +29,7 @@ import {
   InfoItemBtn,
   BarLine,
   MorInfoWrapper,
+  Maps
 } from './CamperInfo.styled';
 
 const CamperInfo = ({ data, onClose }) => {
@@ -49,7 +50,7 @@ const CamperInfo = ({ data, onClose }) => {
           {rating} ({reviews.length} Reviews)
         </Rating>
         <Location>
-          <Map />
+          <Maps />
           {location}
         </Location>
       </RatingWrapper>

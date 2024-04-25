@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactComponent as Map } from '../../images/map.svg';
 
 export const ModalWrapper = styled.div`
   background-color: #fff;
@@ -139,4 +140,8 @@ export const BarLine = styled.div`
 export const MorInfoWrapper = styled.div`
   display: flex;
   gap: 24px;
+`;
+
+export const Maps = styled(Map)`
+  stroke: #101828;
 `;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactComponent as Map } from '../../images/map.svg';
 
 export const BarApp = styled.div`
   width: 360px;
@@ -17,13 +18,13 @@ export const BarName = styled.label`
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; 
+  line-height: 24px;
 `;
 
 export const BarInput = styled.input`
   border-radius: 10px;
   background: #f7f7f7;
-  padding: 18px;
+  padding: 18px 45px;
   display: inline-block;
   width: 324px;
   font: inherit;
@@ -42,7 +43,7 @@ export const BarNameFilter = styled.h2`
 export const NameFilter = styled.p`
   font-size: 20px;
   font-weight: 600;
-  line-height: 24px; 
+  line-height: 24px;
   margin-bottom: 24px;
 `;
 
@@ -60,7 +61,6 @@ export const VehicleOptionsList = styled.ul`
   list-style: none;
   margin-bottom: 32px;
 `;
-
 
 export const InfoImg = styled.img`
   width: 32px;
@@ -120,9 +120,33 @@ export const CheckboxCheckmark = styled.span`
   border-radius: 10px;
   border: 1px solid ${({ checked }) => (checked ? '#E44848' : '#cfd1d4')};
   transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  /* stroke:#101828; */
-  /* fille: #101828; */
+
   &:hover {
     scale: 1.03;
   }
+`;
+
+export const Maps = styled(Map)`
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-50%);
+  stroke: rgba(16, 24, 40, 0.6);
+
+  &:hover {
+    stroke: rgb(16, 24, 40);
+  }
+`;
+
+export const MapsWrap = styled.span`
+  position: relative;
+
+  &:hover Maps{
+    stroke: rgb(16, 24, 40);
+  }
+`;
+
+export const WrapperButton = styled.div`
+  display: flex;
+  gap: 20px;
 `;

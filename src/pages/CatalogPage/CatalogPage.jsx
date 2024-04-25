@@ -8,7 +8,7 @@ import { Modal } from 'components/Modal/Modal';
 import NoInform from 'components/NoInform/NoInform';
 import { selectCampers, selectRespLength, selectIsLoading, selectError, selectFilteredCampers } from 'store/selectors';
 import { CatalogPageWrapper, ListWrapper, Errors } from './CatalogPage.module';
-import { LoadMoreButton } from 'components/MainButton/MainButton.styled';
+import { MoreButton } from 'components/MainButton/MainButton.styled';
 
 const CatalogPage = () => {
   const campers = useSelector(selectCampers);
@@ -54,9 +54,9 @@ const CatalogPage = () => {
           )}
          
           {respLength > 1 && filtredCampers.length === 0 && (
-            <LoadMoreButton type="button" onClick={onLoadMore}>
+            <MoreButton type="button" onClick={onLoadMore}>
               Load more
-            </LoadMoreButton>
+            </MoreButton>
           )}
         </ListWrapper>
       </CatalogPageWrapper>

@@ -39,7 +39,7 @@ export const Button = styled.button`
   ${props => sizes[props.size]}
 `;
 
-export const LoadMoreButton = styled.button`
+export const MoreButton = styled.button`
   display: inline-flex;
   padding: 16px 32px;
   justify-content: center;
@@ -53,7 +53,7 @@ export const LoadMoreButton = styled.button`
   color: #101828;
   font-size: 16px;
   font-weight: 500;
-  line-height: 24px; /* 150% */
+  line-height: 24px; 
   letter-spacing: -0.08px;
   outline: none;
   cursor: pointer;
