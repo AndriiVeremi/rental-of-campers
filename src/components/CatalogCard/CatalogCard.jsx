@@ -1,8 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-
 import { addFavorite, deleteFavorite } from 'store/favoritesSlice';
 import { selectFavorites } from 'store/selectors';
-
 import MainButton from 'components/MainButton/MainButton';
 
 import { sliceText } from 'utils/sliceText';
@@ -61,8 +59,6 @@ const CatalogCard = ({ campers, toggleModal }) => {
     engine,
     details,
   } = campers;
-
-  console.log('details', campers);
 
   const favorites = useSelector(selectFavorites);
   const dispatch = useDispatch();
