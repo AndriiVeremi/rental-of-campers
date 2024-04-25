@@ -6,7 +6,7 @@ const HomePage = () => {
 
   return (
     <InfoWrapper>
-      <Van style={{ width: '300px', height: '300px' }} />
+      <Van style={{ width: '300px', height: '300px', fill: "#e44848" }} />
       <InfoTitle>Hello!</InfoTitle>
       <TextWrapper>
       <DescriptionTitle>Captivating adventures await you with our camper rental!</DescriptionTitle>

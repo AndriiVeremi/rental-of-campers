@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { ReactComponent as Haert } from '../../images/heart.svg';
 import { ReactComponent as Map } from '../../images/map.svg';
 
-
 export const List = styled.ul`
   width: 888px;
   display: flex;
@@ -106,7 +105,3 @@ export const Haerts = styled(Haert)`
 export const Maps = styled(Map)`
   stroke: #101828;
 `;
-
-
-
-

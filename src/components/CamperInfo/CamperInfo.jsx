@@ -4,9 +4,7 @@ import CamperReviewsList from 'components/CamperReviewsList/CamperReviewsList';
 import BookNow from 'components/BookNow/BookNow';
 import { corectPrice } from 'utils/corectPrice';
 
-import { ReactComponent as Close } from '../../images/close.svg';
 import { ReactComponent as Star } from '../../images/star.svg';
-
 
 import {
   ModalWrapper,
@@ -29,7 +27,8 @@ import {
   InfoItemBtn,
   BarLine,
   MorInfoWrapper,
-  Maps
+  Maps,
+  BtnClose,
 } from './CamperInfo.styled';
 
 const CamperInfo = ({ data, onClose }) => {
@@ -41,7 +40,7 @@ const CamperInfo = ({ data, onClose }) => {
     <ModalWrapper>
       <NameWrapper>
         <p>{name}</p>
-        <Close onClick={() => onClose()} />
+        <BtnClose onClick={() => onClose()} />
       </NameWrapper>
 
       <RatingWrapper>

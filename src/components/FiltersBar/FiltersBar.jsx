@@ -12,8 +12,8 @@ import { ReactComponent as Tv } from '../../images/tv.svg';
 import { ReactComponent as Kitchen } from '../../images/kitchen.svg';
 import { ReactComponent as Shover } from '../../images/shover.svg';
 import { ReactComponent as Climat } from '../../images/vind.svg';
-import { ReactComponent as Van } from '../../images/campVan.svg';
-import { ReactComponent as Aalcon } from '../../images/campValcon.svg';
+import { ReactComponent as Aalcon } from '../../images/campVan.svg';
+import { ReactComponent as Van } from '../../images/campValcon.svg';
 import { ReactComponent as Integ } from '../../images/campInteg.svg';
 import { ReactComponent as Bathroom } from '../../images/bathroom.svg';
 import { ReactComponent as Children } from '../../images/children.svg';
@@ -355,7 +355,7 @@ const FiltersBar = data => {
               <CheckboxWrapper>
                 <CheckboxInput type="checkbox" name="alcove" checked={form.alcove} onChange={handleCheckboxType} />
                 <CheckboxCheckmark checked={form.alcove}>
-                  <Aalcon style={{ width: '40px', height: '28px' }} />
+                  <Aalcon style={{ width: '40px', height: '28px', fill: "#101828" }} />
                   Alcove
                 </CheckboxCheckmark>
               </CheckboxWrapper>
