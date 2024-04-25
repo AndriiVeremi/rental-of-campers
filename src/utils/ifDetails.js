@@ -1,7 +1,5 @@
 import { InfoItem } from "components/CatalogCard/CatalogCard.module";
 
-export const ifDetails = data => data !== 0 && data !== null;
-
 export const renderIfDetails = (condition, icon, text) => {
     return condition && renderInfoItem(icon, text);
   };
