@@ -1,4 +1,4 @@
-import { ReactComponent as Van } from '../../images/campVan.svg';
+import { ReactComponent as Van } from '../../images/icons/campVan.svg';
 
 import { NotFavorits, NotFavoritsText } from './NoInform.styled';
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { ReactComponent as Map } from '../../images/map.svg';
-import { ReactComponent as Close } from '../../images/close.svg';
+import { ReactComponent as Map } from '../../images/icons/map.svg';
+import { ReactComponent as Close } from '../../images/icons/close.svg';
 
 export const ModalWrapper = styled.div`
   background-color: #fff;

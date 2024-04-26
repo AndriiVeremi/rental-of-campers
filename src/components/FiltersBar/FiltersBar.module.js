@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as Map } from '../../images/map.svg';
+import { ReactComponent as Map } from '../../images/icons/map.svg';
 
 export const BarApp = styled.div`
   width: 360px;

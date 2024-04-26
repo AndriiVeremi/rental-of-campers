@@ -8,24 +8,24 @@ import { corectPrice } from 'utils/corectPrice';
 import { renderIfDetails } from 'utils/ifDetails';
 import { isFavorit } from 'utils/isFavorit';
 
-import { ReactComponent as Adult } from '../../images/adult.svg';
-import { ReactComponent as Transmision } from '../../images/transmision.svg';
-import { ReactComponent as Benz } from '../../images/benz.svg';
-import { ReactComponent as Kitchen } from '../../images/kitchen.svg';
-import { ReactComponent as Beds } from '../../images/beds.svg';
-import { ReactComponent as Vind } from '../../images/vind.svg';
-import { ReactComponent as Star } from '../../images/star.svg';
-import { ReactComponent as Bathroom } from '../../images/bathroom.svg';
-import { ReactComponent as Children } from '../../images/children.svg';
-import { ReactComponent as Gas } from '../../images/gas.svg';
-import { ReactComponent as Microwave } from '../../images/microwave.svg';
-import { ReactComponent as Toilet } from '../../images/toilet.svg';
-import { ReactComponent as Water } from '../../images/water.svg';
-import { ReactComponent as Cd } from '../../images/cd.svg';
-import { ReactComponent as Hob } from '../../images/hob.svg';
-import { ReactComponent as TV } from '../../images/tv.svg';
-import { ReactComponent as Freezer } from '../../images/freezer.svg';
-import { ReactComponent as Radio } from '../../images/radio.svg';
+import { ReactComponent as Adult } from '../../images/icons/adult.svg';
+import { ReactComponent as Transmision } from '../../images/icons/transmision.svg';
+import { ReactComponent as Benz } from '../../images/icons/benz.svg';
+import { ReactComponent as Kitchen } from '../../images/icons/kitchen.svg';
+import { ReactComponent as Beds } from '../../images/icons/beds.svg';
+import { ReactComponent as Vind } from '../../images/icons/vind.svg';
+import { ReactComponent as Star } from '../../images/icons/star.svg';
+import { ReactComponent as Bathroom } from '../../images/icons/bathroom.svg';
+import { ReactComponent as Children } from '../../images/icons/children.svg';
+import { ReactComponent as Gas } from '../../images/icons/gas.svg';
+import { ReactComponent as Microwave } from '../../images/icons/microwave.svg';
+import { ReactComponent as Toilet } from '../../images/icons/toilet.svg';
+import { ReactComponent as Water } from '../../images/icons/water.svg';
+import { ReactComponent as Cd } from '../../images/icons/cd.svg';
+import { ReactComponent as Hob } from '../../images/icons/hob.svg';
+import { ReactComponent as TV } from '../../images/icons/tv.svg';
+import { ReactComponent as Freezer } from '../../images/icons/freezer.svg';
+import { ReactComponent as Radio } from '../../images/icons/radio.svg';
 
 import {
   ListItem,

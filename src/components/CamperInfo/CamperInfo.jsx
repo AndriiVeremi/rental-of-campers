@@ -4,7 +4,7 @@ import CamperReviewsList from 'components/CamperReviewsList/CamperReviewsList';
 import BookNow from 'components/BookNow/BookNow';
 import { corectPrice } from 'utils/corectPrice';
 
-import { ReactComponent as Star } from '../../images/star.svg';
+import { ReactComponent as Star } from '../../images/icons/star.svg';
 
 import {
   ModalWrapper,

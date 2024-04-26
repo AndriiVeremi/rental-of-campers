@@ -1,5 +1,5 @@
 import { WrapperNav, Logo, ListNav, ListItem, ItemsLink, SpanName  } from './Header.module';
-import { ReactComponent as Van } from '../../images/campVan.svg';
+import { ReactComponent as Van } from '../../images/icons/campVan.svg';
 
 const Header = () => {
   return (

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { ReactComponent as Haert } from '../../images/heart.svg';
-import { ReactComponent as Map } from '../../images/map.svg';
+import { ReactComponent as Haert } from '../../images/icons/heart.svg';
+import { ReactComponent as Map } from '../../images/icons/map.svg';
 
 export const List = styled.ul`
   width: 888px;
