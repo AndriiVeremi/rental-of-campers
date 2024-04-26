@@ -6,7 +6,7 @@ const NoInform = ({text}) => {
  
     return (
         <NotFavorits>
-        <Van style={{ width: '200px', height: '200px' }} />
+        <Van style={{ width: '200px', height: '200px', fill: "#e44848" }} />
         <NotFavoritsText>{text}</NotFavoritsText>
       </NotFavorits>
     )

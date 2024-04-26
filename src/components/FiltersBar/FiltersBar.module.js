@@ -34,6 +34,10 @@ export const BarInput = styled.input`
   border: 1px solid transparent;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+  &:hover {
+    border: 1px solid #101828;
+  }
+  
   &:focus {
     border: 1px solid #e44848;
   }
@@ -129,6 +133,7 @@ export const CheckboxCheckmark = styled.span`
 
   &:hover {
     scale: 1.03;
+    border: 1px solid ${({ checked }) => (checked ? '#E44848' : '#101828')};
   }
 `;
 

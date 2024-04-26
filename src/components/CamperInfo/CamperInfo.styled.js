@@ -6,7 +6,6 @@ export const ModalWrapper = styled.div`
   background-color: #fff;
   padding: 40px;
   border-radius: 20px;
-  /* width: 982px; */
   height: 720px;
   overflow-x: hidden;
   overflow-y: scroll;

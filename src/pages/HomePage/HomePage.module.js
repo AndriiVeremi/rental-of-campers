@@ -10,6 +10,8 @@ align-items: center;
 export const InfoImg = styled.img`
 width: 350px;
 margin-bottom: 60px;
+width: 800px;
+height: 454px;
 `
 
 export const InfoTitle = styled.h1`
@@ -24,9 +26,20 @@ display: flex;
 flex-direction: column;
 gap: 20px;
 text-align: center;
+margin-bottom: 60px;
 `
 
 export const DescriptionTitle = styled.p`
 font-size: 26px;
 font-style: italic;
 `
+export const Text = styled.p`
+font-size: 18px;
+`
+
+export const FooterWrapper = styled.div`
+display: flex;
+width: 100%;
+  border-top: 3px solid #e44848;
+`;
+

@@ -10,6 +10,7 @@ export const ListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 `;
 
 export const Errors = styled.h2`
