@@ -33,9 +33,12 @@ export const selectFilteredCampers = createSelector([selectAllCampers, selectFil
       }
     }
 
-    const form = filters.form;
-    if (Object.keys(form).some(key => form[key])) {
-      return Object.keys(form).some(key => form[key] && item.form === key);
+    const form = filters.form.vehicleType;
+    console.log('message', form.toLowerCase())
+    console.log('message2', item.form.toLowerCase())
+
+    if (item.form.toLowerCase() !== form.toLowerCase()) {
+      return false;
     }
 
     return true;

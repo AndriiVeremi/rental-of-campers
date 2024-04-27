@@ -26,7 +26,6 @@ import { ReactComponent as Hob } from '../../images/icons/hob.svg';
 import { ReactComponent as Freezer } from '../../images/icons/freezer.svg';
 import { ReactComponent as Radio } from '../../images/icons/radio.svg';
 
-
 import {
   BarApp,
   BarName,
@@ -43,7 +42,7 @@ import {
   CheckboxCheckmark,
   Maps,
   MapsWrap,
-  WrapperButton
+  WrapperButton,
 } from './FiltersBar.module';
 
 const FiltersBar = data => {
@@ -71,9 +70,7 @@ const FiltersBar = data => {
     radio: false,
   };
   const initialStateForm = {
-    panelTruck: false,
-    integ: false,
-    alcove: false,
+    vehicleType: '',
   };
 
   const [location, setLocation] = useState(initialStateLocation);
@@ -98,9 +95,9 @@ const FiltersBar = data => {
     setDetails({ ...details, [name]: checked });
   };
 
-  const handleCheckboxType = e => {
-    const { name, checked } = e.target;
-    setForm({ ...form, [name]: checked });
+  const handleVehicleTypeChange = e => {
+    const { value } = e.target;
+    setForm({ ...form, vehicleType: value });
   };
 
   const handleSubmit = e => {
@@ -329,12 +326,13 @@ const FiltersBar = data => {
             <li>
               <CheckboxWrapper>
                 <CheckboxInput
-                  type="checkbox"
-                  name="panelTruck"
-                  checked={form.panelTruck}
-                  onChange={handleCheckboxType}
+                  type="radio"
+                  name="vehicleType"
+                  value="panelTruck"
+                  checked={form.vehicleType === 'panelTruck'}
+                  onChange={handleVehicleTypeChange}
                 />
-                <CheckboxCheckmark checked={form.panelTruck}>
+                <CheckboxCheckmark checked={form.vehicleType === 'panelTruck'}>
                   <Van style={{ width: '40px', height: '28px' }} />
                   Van
                 </CheckboxCheckmark>
@@ -343,8 +341,14 @@ const FiltersBar = data => {
 
             <li>
               <CheckboxWrapper>
-                <CheckboxInput type="checkbox" name="integ" checked={form.integ} onChange={handleCheckboxType} />
-                <CheckboxCheckmark checked={form.integ}>
+                <CheckboxInput
+                  type="radio"
+                  name="vehicleType"
+                  value="fullyIntegrated"
+                  checked={form.vehicleType === 'fullyIntegrated'}
+                  onChange={handleVehicleTypeChange}
+                />
+                <CheckboxCheckmark checked={form.vehicleType === 'fullyIntegrated'}>
                   <Integ style={{ width: '40px', height: '28px' }} />
                   Fully Integrated
                 </CheckboxCheckmark>
@@ -353,9 +357,15 @@ const FiltersBar = data => {
 
             <li>
               <CheckboxWrapper>
-                <CheckboxInput type="checkbox" name="alcove" checked={form.alcove} onChange={handleCheckboxType} />
-                <CheckboxCheckmark checked={form.alcove}>
-                  <Aalcon style={{ width: '40px', height: '28px', fill: "#101828" }} />
+                <CheckboxInput
+                  type="radio"
+                  name="vehicleType"
+                  value="alcove"
+                  checked={form.vehicleType === 'alcove'}
+                  onChange={handleVehicleTypeChange}
+                />
+                <CheckboxCheckmark checked={form.vehicleType === 'alcove'}>
+                  <Aalcon style={{ width: '40px', height: '28px', fill: '#101828' }} />
                   Alcove
                 </CheckboxCheckmark>
               </CheckboxWrapper>
@@ -364,13 +374,13 @@ const FiltersBar = data => {
         </div>
 
         <WrapperButton>
-        <MainButton type="submit" size="large" onClick={handleSubmit}>
-          Search
-        </MainButton>
+          <MainButton type="submit" size="large" onClick={handleSubmit}>
+            Search
+          </MainButton>
 
-        <MoreButton type="button" size="large" onClick={handleReset}>
-          Reset
-        </MoreButton>
+          <MoreButton type="button" size="large" onClick={handleReset}>
+            Reset
+          </MoreButton>
         </WrapperButton>
       </BarForm>
     </BarApp>
