@@ -16,17 +16,9 @@ import { ReactComponent as Kitchen } from '../../images/icons/kitchen.svg';
 import { ReactComponent as Beds } from '../../images/icons/beds.svg';
 import { ReactComponent as Vind } from '../../images/icons/vind.svg';
 import { ReactComponent as Star } from '../../images/icons/star.svg';
-import { ReactComponent as Bathroom } from '../../images/icons/bathroom.svg';
 import { ReactComponent as Children } from '../../images/icons/children.svg';
-import { ReactComponent as Gas } from '../../images/icons/gas.svg';
-import { ReactComponent as Microwave } from '../../images/icons/microwave.svg';
-import { ReactComponent as Toilet } from '../../images/icons/toilet.svg';
-import { ReactComponent as Water } from '../../images/icons/water.svg';
-import { ReactComponent as Cd } from '../../images/icons/cd.svg';
-import { ReactComponent as Hob } from '../../images/icons/hob.svg';
 import { ReactComponent as TV } from '../../images/icons/tv.svg';
-import { ReactComponent as Freezer } from '../../images/icons/freezer.svg';
-import { ReactComponent as Radio } from '../../images/icons/radio.svg';
+
 
 import {
   ListItem,
@@ -119,25 +111,9 @@ const CatalogCard = ({ campers, toggleModal }) => {
               <Vind style={{ marginRight: '8px' }} />,
               details.airConditioner && 'ac'
             )}
-            {renderIfDetails(
-              details.bathroom,
-              <Bathroom style={{ marginRight: '8px' }} />,
-              details.bathroom && 'bathroom'
-            )}
             {renderIfDetails(children, <Children style={{ marginRight: '8px' }} />, `${children} children`)}
-            {renderIfDetails(details.gas, <Gas style={{ marginRight: '8px' }} />, `gas ${details.gas}`)}
-            {renderIfDetails(
-              details.microwave,
-              <Microwave style={{ marginRight: '8px' }} />,
-              details.microwave && 'microwave'
-            )}
-            {renderIfDetails(details.toilet, <Toilet style={{ marginRight: '8px' }} />, details.toilet && 'toilet')}
-            {renderIfDetails(details.water, <Water style={{ marginRight: '8px' }} />, `water ${details.water}`)}
-            {renderIfDetails(details.CD, <Cd style={{ marginRight: '8px' }} />, details.CD && 'cd')}
-            {renderIfDetails(details.freezer, <Hob style={{ marginRight: '8px' }} />, `${details.freezer} hob`)}
+       
             {renderIfDetails(details.TV, <TV style={{ marginRight: '8px' }} />, details.TV && 'tv')}
-            {renderIfDetails(details.freezer, <Freezer style={{ marginRight: '8px' }} />, details.freezer && 'treezer')}
-            {renderIfDetails(details.radio, <Radio style={{ marginRight: '8px' }} />, details.radio && 'radio')}
           </InfoList>
         </InfoWrapper>
 

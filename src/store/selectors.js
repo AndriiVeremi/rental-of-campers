@@ -37,7 +37,7 @@ export const selectFilteredCampers = createSelector([selectAllCampers, selectFil
     console.log('message', form.toLowerCase())
     console.log('message2', item.form.toLowerCase())
 
-    if (item.form.toLowerCase() !== form.toLowerCase()) {
+    if (item.form.toLowerCase() !== form.toLowerCase() &&  form !== '' ) {
       return false;
     }
 
