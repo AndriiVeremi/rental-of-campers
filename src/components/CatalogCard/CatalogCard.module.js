@@ -22,13 +22,7 @@ export const ImageItemWrapper = styled.div`
   height: 310px;
   border-radius: 10px;
   background-size: cover;
-`;
-
-export const ImageItem = styled.img`
   border-radius: 10px;
-  object-fit: cover;
-  height: 310px;
-  width: 290px;
 `;
 
 export const NameWrapper = styled.div`

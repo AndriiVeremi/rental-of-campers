@@ -59,14 +59,16 @@ a {
   color: #e44848;
 }
 
-/* 
-img {
-  display: block;
-  height: auto;
-  max-width: 100%;
-} */
-
 button {
   cursor: pointer;
   font-family: inherit;
+}
+
+.carousel .slide img {
+  width: 100%;
+  vertical-align: top;
+  border: 0;
+  height: 310px;
+  border-radius: 10px;
+  object-fit: cover;
 }

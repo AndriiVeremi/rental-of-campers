@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, deleteFavorite } from 'store/favoritesSlice';
 import { selectFavorites } from 'store/selectors';
 import MainButton from 'components/MainButton/MainButton';
+import Slider from 'components/Slider/Slider';
 
 import { sliceText } from 'utils/sliceText';
 import { corectPrice } from 'utils/corectPrice';
@@ -29,7 +30,6 @@ import { ReactComponent as Radio } from '../../images/icons/radio.svg';
 
 import {
   ListItem,
-  ImageItem,
   NameWrapper,
   PriceContein,
   RatingWrapper,
@@ -40,7 +40,7 @@ import {
   InfoWrapper,
   InfoList,
   Haerts,
-  Maps
+  Maps,
 } from './CatalogCard.module';
 
 const CatalogCard = ({ campers, toggleModal }) => {
@@ -74,7 +74,7 @@ const CatalogCard = ({ campers, toggleModal }) => {
   return (
     <ListItem key={_id}>
       <ImageItemWrapper>
-        <ImageItem src={gallery[0]} alt={name} />
+        <Slider images={gallery}/>
       </ImageItemWrapper>
       <div>
         <NameWrapper>
@@ -98,7 +98,7 @@ const CatalogCard = ({ campers, toggleModal }) => {
             {rating} ({reviews.length} Reviews)
           </Rating>
           <span>
-            <Maps style={{ marginRight: '8px'}} />
+            <Maps style={{ marginRight: '8px' }} />
             {location}
           </span>
         </RatingWrapper>
@@ -114,11 +114,23 @@ const CatalogCard = ({ campers, toggleModal }) => {
             {renderIfDetails(engine, <Benz style={{ marginRight: '8px' }} />, engine)}
             {renderIfDetails(details.kitchen, <Kitchen style={{ marginRight: '8px' }} />, details.kitchen && 'kitchen')}
             {renderIfDetails(details.beds, <Beds style={{ marginRight: '8px' }} />, `${details.beds} beds`)}
-            {renderIfDetails(details.airConditioner, <Vind style={{ marginRight: '8px' }} />, details.airConditioner && 'ac')}
-            {renderIfDetails(details.bathroom, <Bathroom style={{ marginRight: '8px' }} />, details.bathroom && 'bathroom')}
+            {renderIfDetails(
+              details.airConditioner,
+              <Vind style={{ marginRight: '8px' }} />,
+              details.airConditioner && 'ac'
+            )}
+            {renderIfDetails(
+              details.bathroom,
+              <Bathroom style={{ marginRight: '8px' }} />,
+              details.bathroom && 'bathroom'
+            )}
             {renderIfDetails(children, <Children style={{ marginRight: '8px' }} />, `${children} children`)}
             {renderIfDetails(details.gas, <Gas style={{ marginRight: '8px' }} />, `gas ${details.gas}`)}
-            {renderIfDetails(details.microwave, <Microwave style={{ marginRight: '8px' }} />, details.microwave && 'microwave')}
+            {renderIfDetails(
+              details.microwave,
+              <Microwave style={{ marginRight: '8px' }} />,
+              details.microwave && 'microwave'
+            )}
             {renderIfDetails(details.toilet, <Toilet style={{ marginRight: '8px' }} />, details.toilet && 'toilet')}
             {renderIfDetails(details.water, <Water style={{ marginRight: '8px' }} />, `water ${details.water}`)}
             {renderIfDetails(details.CD, <Cd style={{ marginRight: '8px' }} />, details.CD && 'cd')}
@@ -135,7 +147,6 @@ const CatalogCard = ({ campers, toggleModal }) => {
       </div>
     </ListItem>
   );
-
 };
 
 export default CatalogCard;

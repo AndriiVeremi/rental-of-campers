@@ -26,7 +26,7 @@ export const BarInput = styled.input`
   background: #f7f7f7;
   padding: 18px 45px;
   display: inline-block;
-  width: 324px;
+  width: 260px;
   font: inherit;
   font-size: 20px;
   border: none;
