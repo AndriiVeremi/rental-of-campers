@@ -36,6 +36,7 @@ background-color:  #e44848;
 padding: 60px;
 border-radius: 20px;
 color: #fff;
+margin-bottom: 60px;
 `;
 
 export const TextTitle = styled.p`

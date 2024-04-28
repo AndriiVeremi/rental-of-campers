@@ -4,7 +4,7 @@ export const HeroContentList = styled.ul`
 display: flex;
 gap: 80px;
 list-style: none;
-margin-bottom: 100px;
+/* margin-bottom: 100px; */
 `;
 
 export const HeroContentItem = styled.li`

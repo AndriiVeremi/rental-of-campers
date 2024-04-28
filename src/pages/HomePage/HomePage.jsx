@@ -12,7 +12,7 @@ const HomePage = () => {
       </HeroWrapper>
 
       <InfoWrapper>
-        <InfoTitle>Welcome to Camper Rentals!</InfoTitle>
+        <InfoTitle>Welcome to Rental Of Campers!</InfoTitle>
         <DescriptionTitle>
           Embark on your next adventure with our fleet of top-quality campers. Whether you're planning a weekend getaway
           or a cross-country road trip, we have the perfect camper to suit your needs.
@@ -20,7 +20,10 @@ const HomePage = () => {
 
         <HeroContent />
 
-        <ContentDescription>
+        {/* <InfoImg src={HomeImg} alt="HomeImg" /> */}
+      </InfoWrapper>
+
+      <ContentDescription>
           <TextTitle>
             Embark on your next adventure with our fleet of top-quality campers. Whether you're planning a weekend
             getaway or a cross-country road trip, we have the perfect camper to suit your needs.
@@ -52,9 +55,6 @@ const HomePage = () => {
             Your unforgettable journey awaits with Camper Rentals.
           </div>
         </ContentDescription>
-
-        {/* <InfoImg src={HomeImg} alt="HomeImg" /> */}
-      </InfoWrapper>
     </>
   );
 };
