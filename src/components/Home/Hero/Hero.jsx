@@ -25,7 +25,7 @@ const Hero = () => {
       {showModal && (
         <Modal onClose={() => toggleModal()}>
           <ModalHeroWrapper>
-            <BtnCloses onClose={() => toggleModal()} />
+            <BtnCloses onClick={() => toggleModal()} />
             <BookNow />
           </ModalHeroWrapper>
         </Modal>
