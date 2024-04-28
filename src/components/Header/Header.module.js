@@ -15,13 +15,14 @@ export const Logo = styled.span`
   font-size: 30px;
   font-weight: 600;
   color: #101828;
-  margin-right: 210px;
+  /* margin-right: 210px; */
 `;
 
 export const ListNav = styled.ul`
   display: flex;
   gap: 30px;
   list-style: none;
+  margin-left: auto;
 `;
 
 export const ListItem = styled.li`

@@ -7,13 +7,14 @@ import { corectPrice } from 'utils/corectPrice';
 import { ReactComponent as Star } from '../../images/icons/star.svg';
 
 import {
-  ModalWrapper,
+  ModalWrappers,
   NameWrapper,
   RatingWrapper,
   Rating,
   Location,
   PriceWrapper,
   Price,
+  WrapperScroll,
   GalleryListWrapper,
   GalleryList,
   GalleryItem,
@@ -29,6 +30,7 @@ import {
   MorInfoWrapper,
   Maps,
   BtnClose,
+  ModalContein
 } from './CamperInfo.styled';
 
 const CamperInfo = ({ data, onClose }) => {
@@ -37,10 +39,11 @@ const CamperInfo = ({ data, onClose }) => {
   const { name, price, rating, location, description, gallery, reviews } = data;
 
   return (
-    <ModalWrapper>
+    <ModalContein>
+      <ModalWrappers>
       <NameWrapper>
         <p>{name}</p>
-        <BtnClose onClick={() => onClose()} />
+        <BtnClose onClick={() => onClose()} style={{marginRight:'20px'}} />
       </NameWrapper>
 
       <RatingWrapper>
@@ -58,7 +61,8 @@ const CamperInfo = ({ data, onClose }) => {
         <Price>&euro;{corectPrice(price)}</Price>
       </PriceWrapper>
 
-      <GalleryListWrapper>
+     <WrapperScroll>
+     <GalleryListWrapper>
         <GalleryList>
           {gallery &&
             gallery.map((item, index) => (
@@ -92,7 +96,11 @@ const CamperInfo = ({ data, onClose }) => {
         {isFeatures ? <CamperFeatures data={data} /> : <CamperReviewsList reviews={reviews} />}
         <BookNow />
       </MorInfoWrapper>
-    </ModalWrapper>
+
+     </WrapperScroll>
+      
+    </ModalWrappers>
+    </ModalContein>
   );
 };
 

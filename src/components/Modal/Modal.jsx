@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Overlay, ModalContainer, ModalWrapper } from './Modal.styled';
-import CamperInfo from 'components/CamperInfo/CamperInfo';
+import { Overlay, ModalContainer} from './Modal.styled';
+
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const Modal = ({ campers, onClose }) => {
+export const Modal = ({ children, onClose }) => {
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
@@ -29,9 +29,7 @@ export const Modal = ({ campers, onClose }) => {
   return createPortal(
     <Overlay onClick={handleBackdropClick}>
       <ModalContainer>
-        <ModalWrapper>
-          <CamperInfo data={campers} onClose={onClose} />
-        </ModalWrapper>
+        { children }
       </ModalContainer>
     </Overlay>,
     modalRoot

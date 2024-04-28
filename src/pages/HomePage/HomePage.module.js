@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
+export const HeroWrapper = styled.div`
+padding: 60px 0px 0px 0px;
+`;
+
 export const InfoWrapper = styled.div`
 display: flex;
-padding: 100px 64px;
+padding: 60px 64px;
 flex-direction: column;
 align-items: center;
 `
@@ -42,4 +46,6 @@ display: flex;
 width: 100%;
   border-top: 3px solid #e44848;
 `;
+
+
 

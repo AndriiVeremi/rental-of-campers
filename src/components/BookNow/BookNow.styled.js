@@ -5,6 +5,7 @@ export const BookNowWrapper = styled.div`
   border-radius: 10px;
   border: 1px solid rgba(16, 24, 40, 0.2);
   width: 400px;
+  background-color: #FFF;
 `;
 
 export const BookNowInfo = styled.div`

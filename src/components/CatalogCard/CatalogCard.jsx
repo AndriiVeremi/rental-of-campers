@@ -3,6 +3,8 @@ import { addFavorite, deleteFavorite } from 'store/favoritesSlice';
 import { selectFavorites } from 'store/selectors';
 import MainButton from 'components/MainButton/MainButton';
 import Slider from 'components/Slider/Slider';
+import CamperInfo from 'components/CamperInfo/CamperInfo';
+import { Modal } from 'components/Modal/Modal';
 
 import { sliceText } from 'utils/sliceText';
 import { corectPrice } from 'utils/corectPrice';
@@ -19,7 +21,6 @@ import { ReactComponent as Star } from '../../images/icons/star.svg';
 import { ReactComponent as Children } from '../../images/icons/children.svg';
 import { ReactComponent as TV } from '../../images/icons/tv.svg';
 
-
 import {
   ListItem,
   NameWrapper,
@@ -34,8 +35,9 @@ import {
   Haerts,
   Maps,
 } from './CatalogCard.module';
+import { useState } from 'react';
 
-const CatalogCard = ({ campers, toggleModal }) => {
+const CatalogCard = ({ campers }) => {
   const {
     _id,
     name,
@@ -63,10 +65,17 @@ const CatalogCard = ({ campers, toggleModal }) => {
     }
   };
 
+
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <ListItem key={_id}>
       <ImageItemWrapper>
-        <Slider images={gallery}/>
+        <Slider images={gallery} />
       </ImageItemWrapper>
       <div>
         <NameWrapper>
@@ -112,14 +121,23 @@ const CatalogCard = ({ campers, toggleModal }) => {
               details.airConditioner && 'ac'
             )}
             {renderIfDetails(children, <Children style={{ marginRight: '8px' }} />, `${children} children`)}
-       
+
             {renderIfDetails(details.TV, <TV style={{ marginRight: '8px' }} />, details.TV && 'tv')}
           </InfoList>
         </InfoWrapper>
 
-        <MainButton type="button" size="medium" onClick={() => toggleModal(campers)}>
+        <MainButton type="button" size="medium" onClick={() => toggleModal()}>
           Show more
         </MainButton>
+
+       
+
+        {showModal && (
+        <Modal onClose={() => toggleModal()}>
+          <CamperInfo data={campers} onClose={() => toggleModal()} />
+        </Modal>
+      )}
+
       </div>
     </ListItem>
   );

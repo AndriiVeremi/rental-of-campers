@@ -22,6 +22,4 @@ export const ModalContainer = styled.div`
   border-radius: 20px;
 `;
 
-export const ModalWrapper = styled.div`
-  width: 982px;
-`;
+

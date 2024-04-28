@@ -2,34 +2,16 @@ import styled from 'styled-components';
 import { ReactComponent as Map } from '../../images/icons/map.svg';
 import { ReactComponent as Close } from '../../images/icons/close.svg';
 
-export const ModalWrapper = styled.div`
+export const ModalContein = styled.div`
+  width: 982px;
+`;
+
+export const ModalWrappers = styled.div`
   background-color: #fff;
-  padding: 40px;
+  padding: 40px 16px 40px 40px;
   border-radius: 20px;
   height: 720px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-
-  &::-webkit-scrollbar {
-    width: 10px;
-    display: flex;
-    margin-right: 10px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-`;
+`
 
 export const NameWrapper = styled.div`
   display: flex;
@@ -76,6 +58,32 @@ export const Price = styled.p`
   line-height: 30px;
 `;
 
+export const WrapperScroll = styled.div`
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 580px;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    display: flex;
+    margin-left: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+`;
+
 export const GalleryListWrapper = styled.div`
   margin-bottom: 24px;
 `;
@@ -111,7 +119,9 @@ export const Description = styled.p`
   line-height: 24px;
 `;
 
-export const InfoWrapper = styled.div``;
+export const InfoWrapper = styled.div`
+  margin-bottom: 10px;
+`;
 
 export const InfoList = styled.ul`
   display: flex;
@@ -140,6 +150,7 @@ export const BarLine = styled.div`
 export const MorInfoWrapper = styled.div`
   display: flex;
   gap: 24px;
+  margin-right: 10px;
 `;
 
 export const Maps = styled(Map)`
@@ -147,7 +158,7 @@ export const Maps = styled(Map)`
 `;
 
 export const BtnClose = styled(Close)`
- transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   stroke: #101828;
   &:hover {
     stroke: #e44848;
