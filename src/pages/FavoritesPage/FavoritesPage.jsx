@@ -1,16 +1,12 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectFavorites } from 'store/selectors';
-
-import FiltersBar from 'components/FiltersBar/FiltersBar';
 import CatalogList from 'components/CatalogList/CatalogList';
 import { Modal } from 'components/Modal/Modal';
 import NoInform from 'components/NoInform/NoInform';
-
 import { CatalogPageWrapper, ListWrapper } from './FavoritesPage.module';
 
 const FavoritesPage = () => {
-  
   const favorites = useSelector(selectFavorites);
 
   const [showModal, setShowModal] = useState(false);
@@ -24,9 +20,12 @@ const FavoritesPage = () => {
   return (
     <>
       <CatalogPageWrapper>
-        <FiltersBar />
         <ListWrapper>
-          {favorites.length !== 0 ? <CatalogList campers={favorites} toggleModal={toggleModal} /> : <NoInform text="favorite is empty"/>}
+          {favorites.length !== 0 ? (
+            <CatalogList campers={favorites} toggleModal={toggleModal} />
+          ) : (
+            <NoInform text="Favorite is empty :(" />
+          )}
         </ListWrapper>
       </CatalogPageWrapper>
       {showModal && <Modal onClose={toggleModal} campers={selectedCamper} />}

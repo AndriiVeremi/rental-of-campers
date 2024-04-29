@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const NotFavorits = styled.div`
-  padding-top: 200px;
+  padding: 150px 0px;
   display: flex;
   justify-content: center;
   flex-direction: column;
