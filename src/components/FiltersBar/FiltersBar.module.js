@@ -8,7 +8,7 @@ export const BarApp = styled.div`
 export const BarForm = styled.form``;
 
 export const BarInfo = styled.div`
-  margin-bottom: 32px;
+  
 `;
 
 export const BarName = styled.label`
@@ -20,6 +20,8 @@ export const BarName = styled.label`
   font-weight: 500;
   line-height: 24px;
 `;
+
+
 
 export const BarInput = styled.input`
   border-radius: 10px;

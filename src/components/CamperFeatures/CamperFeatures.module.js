@@ -16,7 +16,7 @@ export const InfoItem = styled.li`
   align-items: center;
   border-radius: 100px;
   background: #f2f4f7;
-  /* mix-blend-mode: multiply; */
+ 
   gap: 8px;
 `;
 
